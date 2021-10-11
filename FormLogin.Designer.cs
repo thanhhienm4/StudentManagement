@@ -1,7 +1,7 @@
 ﻿
 namespace StudentManagement
 {
-    partial class FromLogin
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.

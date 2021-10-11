@@ -1,7 +1,7 @@
 ﻿
 namespace StudentManagement
 {
-    partial class MainForm
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,9 @@ namespace StudentManagement
         private void InitializeComponent()
         {
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.bbtnCode = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtnFullName = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtnGroup = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -41,13 +44,35 @@ namespace StudentManagement
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
-            this.ribbon.SearchEditItem});
+            this.ribbon.SearchEditItem,
+            this.bbtnCode,
+            this.bbtnFullName,
+            this.bbtnGroup});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 1;
+            this.ribbon.MaxItemId = 4;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(828, 231);
+            this.ribbon.Size = new System.Drawing.Size(1046, 231);
+            this.ribbon.StatusBar = this.ribbonStatusBar;
+            // 
+            // bbtnCode
+            // 
+            this.bbtnCode.Caption = "barButtonItem1";
+            this.bbtnCode.Id = 1;
+            this.bbtnCode.Name = "bbtnCode";
+            // 
+            // bbtnFullName
+            // 
+            this.bbtnFullName.Caption = "barButtonItem2";
+            this.bbtnFullName.Id = 2;
+            this.bbtnFullName.Name = "bbtnFullName";
+            // 
+            // bbtnGroup
+            // 
+            this.bbtnGroup.Caption = "barButtonItem3";
+            this.bbtnGroup.Id = 3;
+            this.bbtnGroup.Name = "bbtnGroup";
             // 
             // ribbonPage1
             // 
@@ -63,22 +88,26 @@ namespace StudentManagement
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 553);
+            this.ribbonStatusBar.ItemLinks.Add(this.bbtnCode);
+            this.ribbonStatusBar.ItemLinks.Add(this.bbtnFullName);
+            this.ribbonStatusBar.ItemLinks.Add(this.bbtnGroup);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(828, 36);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1046, 36);
             // 
-            // MainForm
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 589);
+            this.ClientSize = new System.Drawing.Size(1046, 601);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.Name = "MainForm";
+            this.Name = "FormMain";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -91,5 +120,8 @@ namespace StudentManagement
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
+        private DevExpress.XtraBars.BarButtonItem bbtnCode;
+        private DevExpress.XtraBars.BarButtonItem bbtnFullName;
+        private DevExpress.XtraBars.BarButtonItem bbtnGroup;
     }
 }
