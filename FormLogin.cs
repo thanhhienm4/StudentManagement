@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,24 +13,23 @@ using System.Windows.Forms;
 
 namespace StudentManagement
 {
-    public partial class FromLogin : Form
+    public partial class FormLogin : Form
     {
         private static string serverName { get; set; }
-        public FromLogin()
+        public FormLogin()
         {
             InitializeComponent();
-            Load();
+            Initial();
         }
-        
-        void Load()
+        void Initial()
         {
             SupportConnectionDAL connectionDAL = new SupportConnectionDAL();
             cbx.DataSource = connectionDAL.GetSubscripton();
             cbx.DisplayMember = "TENCN";
             cbx.ValueMember = "TENSERVER";
-
-            
         }
+        
+        
        
         private void lbUsername_Click(object sender, EventArgs e)
         {
@@ -53,16 +53,24 @@ namespace StudentManagement
             
             if(!BaseDAl.Connect())
             {
-                lbMessage.Text = "Lỗi đăng nhập";
+                lbMessage.Text = "Lỗi đăng nhập"; 
+                return;
             }
 
             string loginCommand = String.Format("exec[dbo].[SP_DANGNHAP] '{0}'", login);
-            var dataResponse = BaseDAl.GetData(loginCommand);
+            var dataResponse = BaseDAl.GetDataReader(loginCommand);
 
-            if(dataResponse.Response.State == ResponseState.Success)
+            if(dataResponse.Response.State == ResponseState.Success && dataResponse.Data.Read())
             {
                 lbMessage.Text = "Đăng nhập thành công";
-            }else
+
+                Program.username = dataResponse.Data.GetString(0);
+                Program.fullName = dataResponse.Data.GetString(1);
+                Program.group = dataResponse.Data.GetString(2);
+
+                this.DialogResult = DialogResult.OK;
+            }
+            else
             {
                 lbMessage.Text = "Lỗi hệ thống";
             }    

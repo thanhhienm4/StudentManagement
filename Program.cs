@@ -12,7 +12,10 @@ namespace StudentManagement
         public static string serverName { get; set; }
         public static string login { get; set; }
         public static string password { get; set; }
-        //public static string connectionString { get; set; } 
+        public static string username { get; set; }
+        public static string fullName { get; set; }
+        public static string group { get; set; }
+        public static SqlDataReader dataReader { get; set; }
         public static SqlConnection conn { get; set; } 
 
         [STAThread]
@@ -20,7 +23,7 @@ namespace StudentManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FromLogin());
+            Application.Run(new FormMain ());
         }
     }
 }

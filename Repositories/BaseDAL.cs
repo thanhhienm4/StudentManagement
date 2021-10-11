@@ -22,9 +22,13 @@ namespace StudentManagement.Repositories
                 String.Format("Data Source={0} ;Database=QLDSV_TC ;Persist Security Info=True;User ID={1}; password={2}",
                                     Program.serverName, Program.login, Program.password);
                 
-                    Program.conn = new SqlConnection(connectionString);
+                //if(Program.conn == null)
+                Program.conn = new SqlConnection(connectionString);
 
-                if(Program.conn.State != ConnectionState.Open)
+                if (Program.conn.State != ConnectionState.Closed)
+                    Program.conn.Close();
+
+                if (Program.conn.State != ConnectionState.Open)
                     Program.conn.Open();
                 return true;
             }
@@ -37,13 +41,16 @@ namespace StudentManagement.Repositories
 
 
 
-        public static DataResponse <DataTable> GetData(string command )
+        public static DataResponse <DataTable> GetDataTable(string command )
         {
            
             try
             {
+               
+
                 SqlCommand sqlCommand = new SqlCommand(command, Program.conn);
                 sqlCommand.CommandTimeout = 60;
+                sqlCommand.CommandType = CommandType.Text;
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
                 sqlDataAdapter.SelectCommand = sqlCommand;
                 
@@ -70,8 +77,57 @@ namespace StudentManagement.Repositories
                         Message = e.Message
                     }
                 };
+
+            }finally
+            {
+                //if (Program.conn.State != ConnectionState.Closed)
+                //    Program.conn.Close();
             }
-           
         }
+        public static DataResponse<SqlDataReader> GetDataReader(string command)
+        {
+
+            try
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+
+                SqlCommand sqlCommand = new SqlCommand(command, Program.conn);
+                sqlCommand.CommandTimeout = 60;
+                sqlCommand.CommandType = CommandType.Text;
+
+                var reader  = sqlCommand.ExecuteReader();
+
+
+                return new DataResponse<SqlDataReader>()
+                {
+                    Response = new Response()
+                    {
+
+                        State = ResponseState.Success,
+                        Message = ""
+                    },
+                    Data = reader
+                };
+            }
+            catch (Exception e)
+            {
+                return new DataResponse<SqlDataReader>()
+                {
+                    Response = new Response()
+                    {
+                        State = ResponseState.Fail,
+                        Message = e.Message
+                    }
+                };
+
+            }
+            finally
+            {
+                //if (Program.conn.State != ConnectionState.Closed)
+                //    Program.conn.Close();
+            }
+        }
+
     }
 }
