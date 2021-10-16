@@ -52,6 +52,7 @@ namespace StudentManagement
             // 
             // tbLogin
             // 
+            this.tbLogin.EditValue = "ptl";
             this.tbLogin.Location = new System.Drawing.Point(180, 57);
             this.tbLogin.Margin = new System.Windows.Forms.Padding(9);
             this.tbLogin.Name = "tbLogin";
@@ -60,6 +61,7 @@ namespace StudentManagement
             // 
             // tbPassword
             // 
+            this.tbPassword.EditValue = "123456";
             this.tbPassword.Location = new System.Drawing.Point(180, 105);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(9);
             this.tbPassword.Name = "tbPassword";
@@ -103,7 +105,7 @@ namespace StudentManagement
             this.lbMessage.TabIndex = 7;
             this.lbMessage.Text = "      ";
             // 
-            // FromLogin
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -115,7 +117,8 @@ namespace StudentManagement
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.cbx);
-            this.Name = "FromLogin";
+            this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.tbLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPassword.Properties)).EndInit();

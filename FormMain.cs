@@ -55,5 +55,13 @@ namespace StudentManagement
         {
             this.Close();
         }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var ucCreditClass = new UcCreditClass();
+            ucCreditClass.Dock = DockStyle.Fill;
+            pnContent.Controls.Add(ucCreditClass);
+
+        }
     }
 }

@@ -17,6 +17,8 @@ namespace StudentManagement
         public static string group { get; set; }
         public static SqlDataReader dataReader { get; set; }
         public static SqlConnection conn { get; set; } 
+        public static string conmStr { get; set; }
+
 
         [STAThread]
         static void Main()

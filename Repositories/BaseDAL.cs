@@ -18,12 +18,12 @@ namespace StudentManagement.Repositories
         {
             try
             {
-                string connectionString =
+                Program.conmStr =
                 String.Format("Data Source={0} ;Database=QLDSV_TC ;Persist Security Info=True;User ID={1}; password={2}",
                                     Program.serverName, Program.login, Program.password);
                 
                 //if(Program.conn == null)
-                Program.conn = new SqlConnection(connectionString);
+                Program.conn = new SqlConnection(Program.conmStr);
 
                 if (Program.conn.State != ConnectionState.Closed)
                     Program.conn.Close();
@@ -42,12 +42,10 @@ namespace StudentManagement.Repositories
 
 
         public static DataResponse <DataTable> GetDataTable(string command )
-        {
-           
+        {          
             try
             {
                
-
                 SqlCommand sqlCommand = new SqlCommand(command, Program.conn);
                 sqlCommand.CommandTimeout = 60;
                 sqlCommand.CommandType = CommandType.Text;
