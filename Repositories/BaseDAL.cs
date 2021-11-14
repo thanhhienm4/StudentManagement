@@ -38,6 +38,14 @@ namespace StudentManagement.Repositories
             }
 
         }
+        public static void DisConnect()
+        {
+            if (Program.conn == null)
+                return;
+            if (Program.conn.State != ConnectionState.Closed)
+                Program.conn.Close();
+        }
+
 
 
 

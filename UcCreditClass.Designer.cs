@@ -115,6 +115,7 @@ namespace StudentManagement
             this.bESave = new DevExpress.XtraBars.BarButtonItem();
             this.bEdelete = new DevExpress.XtraBars.BarButtonItem();
             this.bEAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.bEUndo = new DevExpress.XtraBars.BarButtonItem();
             this.bar6 = new DevExpress.XtraBars.Bar();
             this.barDockControl5 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl6 = new DevExpress.XtraBars.BarDockControl();
@@ -283,6 +284,8 @@ namespace StudentManagement
             this.gvCreditClass.GridControl = this.gcCreditClass;
             this.gvCreditClass.Name = "gvCreditClass";
             this.gvCreditClass.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged);
+            this.gvCreditClass.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
+            this.gvCreditClass.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanging_1);
             // 
             // colMALTC
             // 
@@ -681,7 +684,7 @@ namespace StudentManagement
             // nmuMininumStudent
             // 
             this.nmuMininumStudent.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -690,6 +693,16 @@ namespace StudentManagement
             this.nmuMininumStudent.Name = "nmuMininumStudent";
             this.nmuMininumStudent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.nmuMininumStudent.Properties.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nmuMininumStudent.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nmuMininumStudent.Size = new System.Drawing.Size(195, 28);
             this.nmuMininumStudent.TabIndex = 15;
             this.nmuMininumStudent.EditValueChanged += new System.EventHandler(this.nmuMininumStudent_EditValueChanged);
@@ -878,9 +891,10 @@ namespace StudentManagement
             this.bESchoolYear,
             this.barEditItem7,
             this.bESemester,
-            this.bEAdd});
+            this.bEAdd,
+            this.bEUndo});
             this.barManager2.MainMenu = this.bar4;
-            this.barManager2.MaxItemId = 11;
+            this.barManager2.MaxItemId = 12;
             this.barManager2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit2,
             this.lkFaculty,
@@ -981,7 +995,8 @@ namespace StudentManagement
             this.bar4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bESave),
             new DevExpress.XtraBars.LinkPersistInfo(this.bEdelete),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bEAdd)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bEAdd),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bEUndo)});
             this.bar4.OptionsBar.MultiLine = true;
             this.bar4.OptionsBar.UseWholeRow = true;
             this.bar4.Text = "Main menu";
@@ -1012,6 +1027,15 @@ namespace StudentManagement
             this.bEAdd.Name = "bEAdd";
             this.bEAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bEAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bEAdd_ItemClick);
+            // 
+            // bEUndo
+            // 
+            this.bEUndo.Caption = "Hoàn tác";
+            this.bEUndo.Id = 11;
+            this.bEUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bEUndo.ImageOptions.SvgImage")));
+            this.bEUndo.Name = "bEUndo";
+            this.bEUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bEUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bEUndo_ItemClick);
             // 
             // bar6
             // 
@@ -1238,5 +1262,6 @@ namespace StudentManagement
         private DevExpress.XtraGrid.Columns.GridColumn colTENKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colHUYLOP;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraBars.BarButtonItem bEUndo;
     }
 }
