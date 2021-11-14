@@ -284,8 +284,6 @@ namespace StudentManagement
             this.gvCreditClass.GridControl = this.gcCreditClass;
             this.gvCreditClass.Name = "gvCreditClass";
             this.gvCreditClass.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged);
-            this.gvCreditClass.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
-            this.gvCreditClass.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanging_1);
             // 
             // colMALTC
             // 
@@ -1035,7 +1033,6 @@ namespace StudentManagement
             this.bEUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bEUndo.ImageOptions.SvgImage")));
             this.bEUndo.Name = "bEUndo";
             this.bEUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bEUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bEUndo_ItemClick);
             // 
             // bar6
             // 
