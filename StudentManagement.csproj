@@ -51,6 +51,9 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="DapperParameters, Version=2018.12.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.ParameterExtensions.2018.12.7.1\lib\net47\DapperParameters.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -62,6 +65,12 @@
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -70,6 +79,8 @@
     <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,8 +104,18 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\CreditClass.cs" />
+    <Compile Include="Model\CT_DONGHOCPHI.cs" />
+    <Compile Include="Model\DANGKY.cs" />
+    <Compile Include="Model\GIANGVIEN.cs" />
+    <Compile Include="Model\HOCPHI.cs" />
+    <Compile Include="Model\KHOA.cs" />
+    <Compile Include="Model\LOP.cs" />
+    <Compile Include="Model\LOPTINCHI.cs" />
+    <Compile Include="Model\MONHOC.cs" />
     <Compile Include="Model\Response.cs" />
     <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\UpdateLopTinChi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DSCreditClass.cs">
@@ -106,6 +127,7 @@
       <DependentUpon>DSCreditClass.xsd</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BaseDAL.cs" />
+    <Compile Include="Repositories\LopTinChiDAL.cs" />
     <Compile Include="Repositories\SupportConnectionDAL.cs" />
     <Compile Include="UcCreditClass.cs">
       <SubType>UserControl</SubType>
