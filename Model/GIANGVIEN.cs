@@ -9,10 +9,9 @@ namespace StudentManagement.Model
     [Table("GIANGVIEN")]
     public partial class GIANGVIEN
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GIANGVIEN()
         {
-            LOPTINCHIs = new HashSet<LOPTINCHI>();
+            HOTEN = HO + " " + TEN;
         }
 
         [Key]
@@ -38,11 +37,9 @@ namespace StudentManagement.Model
         [StringLength(50)]
         public string CHUYENMON { get; set; }
 
-        public Guid rowguid { get; set; }
+        public string HOTEN { get; set; }
 
-        public virtual KHOA KHOA { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LOPTINCHI> LOPTINCHIs { get; set; }
+       
     }
 }

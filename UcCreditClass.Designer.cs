@@ -41,7 +41,6 @@ namespace StudentManagement
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gcCreditClass = new DevExpress.XtraGrid.GridControl();
             this.dSSPCreditClass = new System.Windows.Forms.BindingSource(this.components);
-            this.DSCreditClass = new StudentManagement.DSCreditClass();
             this.gvCreditClass = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALTC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNIENKHOA = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -75,12 +74,11 @@ namespace StudentManagement
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.pncInfo = new DevExpress.XtraEditors.PanelControl();
+            this.lkSubject = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnInsert = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelInsert = new DevExpress.XtraEditors.SimpleButton();
             this.ckCancel = new DevExpress.XtraEditors.CheckEdit();
-            this.lkSubject = new DevExpress.XtraEditors.LookUpEdit();
-            this.bSSubject = new System.Windows.Forms.BindingSource(this.components);
             this.lkTeacher = new DevExpress.XtraEditors.LookUpEdit();
             this.bSTeacher = new System.Windows.Forms.BindingSource(this.components);
             this.nmuMininumStudent = new DevExpress.XtraEditors.SpinEdit();
@@ -88,11 +86,8 @@ namespace StudentManagement
             this.nmuSemester = new DevExpress.XtraEditors.SpinEdit();
             this.tbxSchoolYear = new DevExpress.XtraEditors.TextEdit();
             this.tbxIdClass = new DevExpress.XtraEditors.TextEdit();
-            this.tableAdapterManager = new StudentManagement.DSCreditClassTableAdapters.TableAdapterManager();
+            this.bSSubject = new System.Windows.Forms.BindingSource(this.components);
             this.bSRegister = new System.Windows.Forms.BindingSource(this.components);
-            this.tAregiter = new StudentManagement.DSCreditClassTableAdapters.DANGKYTableAdapter();
-            this.tASubject = new StudentManagement.DSCreditClassTableAdapters.MONHOCTableAdapter();
-            this.tASPCreditClass = new StudentManagement.DSCreditClassTableAdapters.SP_DS_LopTinChiTableAdapter();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar5 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -126,7 +121,6 @@ namespace StudentManagement
             this.barEditItem7 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.tATeacher = new StudentManagement.DSCreditClassTableAdapters.SP_DS_GiangVienTableAdapter();
             mALTCLabel = new System.Windows.Forms.Label();
             nIENKHOALabel = new System.Windows.Forms.Label();
             hOCKYLabel = new System.Windows.Forms.Label();
@@ -138,7 +132,6 @@ namespace StudentManagement
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkBranch)).BeginInit();
@@ -148,9 +141,8 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pncInfo)).BeginInit();
             this.pncInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ckCancel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkSubject.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCancel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkTeacher.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSTeacher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmuMininumStudent.Properties)).BeginInit();
@@ -158,6 +150,7 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.nmuSemester.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxSchoolYear.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxIdClass.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
@@ -259,12 +252,6 @@ namespace StudentManagement
             // dSSPCreditClass
             // 
             this.dSSPCreditClass.DataMember = "SP_DS_LopTinChi";
-            this.dSSPCreditClass.DataSource = this.DSCreditClass;
-            // 
-            // DSCreditClass
-            // 
-            this.DSCreditClass.DataSetName = "DSCreditClass";
-            this.DSCreditClass.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gvCreditClass
             // 
@@ -569,11 +556,11 @@ namespace StudentManagement
             // 
             this.pncInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pncInfo.Controls.Add(this.lkSubject);
             this.pncInfo.Controls.Add(this.labelControl1);
             this.pncInfo.Controls.Add(this.btnInsert);
             this.pncInfo.Controls.Add(this.btnCancelInsert);
             this.pncInfo.Controls.Add(this.ckCancel);
-            this.pncInfo.Controls.Add(this.lkSubject);
             this.pncInfo.Controls.Add(this.lkTeacher);
             this.pncInfo.Controls.Add(mAGVLabel);
             this.pncInfo.Controls.Add(sOSVTOITHIEULabel);
@@ -591,6 +578,22 @@ namespace StudentManagement
             this.pncInfo.Name = "pncInfo";
             this.pncInfo.Size = new System.Drawing.Size(392, 668);
             this.pncInfo.TabIndex = 5;
+            // 
+            // lkSubject
+            // 
+            this.lkSubject.Location = new System.Drawing.Point(158, 183);
+            this.lkSubject.MenuManager = this.barManager;
+            this.lkSubject.Name = "lkSubject";
+            this.lkSubject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkSubject.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENMH", "Tên môn học"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAMH", "Mã môn học")});
+            this.lkSubject.Properties.DisplayMember = "TENMH";
+            this.lkSubject.Properties.NullText = "";
+            this.lkSubject.Properties.ValueMember = "MAMH";
+            this.lkSubject.Size = new System.Drawing.Size(195, 26);
+            this.lkSubject.TabIndex = 26;
             // 
             // labelControl1
             // 
@@ -628,33 +631,6 @@ namespace StudentManagement
             this.ckCancel.TabIndex = 19;
             this.ckCancel.CheckedChanged += new System.EventHandler(this.ckCancel_CheckedChanged);
             // 
-            // lkSubject
-            // 
-            this.lkSubject.Location = new System.Drawing.Point(158, 183);
-            this.lkSubject.MenuManager = this.barManager;
-            this.lkSubject.Name = "lkSubject";
-            this.lkSubject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkSubject.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAMH", "MAMH", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENMH", "TENMH", 63, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SOTIET_LT", "SOTIET_LT", 93, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SOTIET_TH", "SOTIET_TH", 96, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("rowguid", "rowguid", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lkSubject.Properties.DataSource = this.bSSubject;
-            this.lkSubject.Properties.DisplayMember = "TENMH";
-            this.lkSubject.Properties.NullText = "";
-            this.lkSubject.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lkSubject.Properties.ValueMember = "MAMH";
-            this.lkSubject.Size = new System.Drawing.Size(195, 26);
-            this.lkSubject.TabIndex = 18;
-            this.lkSubject.EditValueChanged += new System.EventHandler(this.lkSubject_EditValueChanged);
-            // 
-            // bSSubject
-            // 
-            this.bSSubject.DataMember = "MONHOC";
-            this.bSSubject.DataSource = this.DSCreditClass;
-            // 
             // lkTeacher
             // 
             this.lkTeacher.Location = new System.Drawing.Point(158, 289);
@@ -673,11 +649,6 @@ namespace StudentManagement
             this.lkTeacher.Size = new System.Drawing.Size(195, 26);
             this.lkTeacher.TabIndex = 17;
             this.lkTeacher.EditValueChanged += new System.EventHandler(this.lkTeacher_EditValueChanged);
-            // 
-            // bSTeacher
-            // 
-            this.bSTeacher.DataMember = "SP_DS_GiangVien";
-            this.bSTeacher.DataSource = this.DSCreditClass;
             // 
             // nmuMininumStudent
             // 
@@ -762,32 +733,13 @@ namespace StudentManagement
             this.tbxIdClass.Size = new System.Drawing.Size(195, 26);
             this.tbxIdClass.TabIndex = 1;
             // 
-            // tableAdapterManager
+            // bSSubject
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.DANGKYTableAdapter = null;
-            this.tableAdapterManager.GIANGVIENTableAdapter = null;
-            this.tableAdapterManager.LOPTINCHITableAdapter = null;
-            this.tableAdapterManager.MONHOCTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = StudentManagement.DSCreditClassTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.bSSubject.DataMember = "MONHOC";
             // 
             // bSRegister
             // 
             this.bSRegister.DataMember = "DANGKY";
-            this.bSRegister.DataSource = this.DSCreditClass;
-            // 
-            // tAregiter
-            // 
-            this.tAregiter.ClearBeforeFill = true;
-            // 
-            // tASubject
-            // 
-            this.tASubject.ClearBeforeFill = true;
-            // 
-            // tASPCreditClass
-            // 
-            this.tASPCreditClass.ClearBeforeFill = true;
             // 
             // barManager1
             // 
@@ -1107,10 +1059,6 @@ namespace StudentManagement
             this.repositoryItemCheckEdit1.Caption = "HỦY";
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
-            // tATeacher
-            // 
-            this.tATeacher.ClearBeforeFill = true;
-            // 
             // UcCreditClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1135,7 +1083,6 @@ namespace StudentManagement
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkBranch)).EndInit();
@@ -1146,9 +1093,8 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.pncInfo)).EndInit();
             this.pncInfo.ResumeLayout(false);
             this.pncInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ckCancel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkSubject.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCancel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkTeacher.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSTeacher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmuMininumStudent.Properties)).EndInit();
@@ -1156,6 +1102,7 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.nmuSemester.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxSchoolYear.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxIdClass.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
@@ -1172,20 +1119,19 @@ namespace StudentManagement
 
         #endregion
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DSCreditClass DSCreditClass;
+        //private DSCreditClass DSCreditClass;
         private DevExpress.XtraEditors.PanelControl pncInfo;
-        private DSCreditClassTableAdapters.TableAdapterManager tableAdapterManager;
+        //private DSCreditClassTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraEditors.SpinEdit nmuMininumStudent;
         private DevExpress.XtraEditors.SpinEdit nmuGroup;
         private DevExpress.XtraEditors.SpinEdit nmuSemester;
         private DevExpress.XtraEditors.TextEdit tbxSchoolYear;
         private DevExpress.XtraEditors.TextEdit tbxIdClass;
         private System.Windows.Forms.BindingSource bSRegister;
-        private DSCreditClassTableAdapters.DANGKYTableAdapter tAregiter;
+        //private DSCreditClassTableAdapters.DANGKYTableAdapter tAregiter;
         private DevExpress.XtraEditors.LookUpEdit lkTeacher;
-        private DevExpress.XtraEditors.LookUpEdit lkSubject;
         private System.Windows.Forms.BindingSource bSSubject;
-        private DSCreditClassTableAdapters.MONHOCTableAdapter tASubject;
+        //private DSCreditClassTableAdapters.MONHOCTableAdapter tASubject;
         private DevExpress.XtraEditors.CheckEdit ckCancel;
         private DevExpress.XtraBars.BarManager barManager;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
@@ -1206,7 +1152,7 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private System.Windows.Forms.BindingSource dSSPCreditClass;
-        private DSCreditClassTableAdapters.SP_DS_LopTinChiTableAdapter tASPCreditClass;
+        //private DSCreditClassTableAdapters.SP_DS_LopTinChiTableAdapter tASPCreditClass;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarDockControl barDockControl3;
         private DevExpress.XtraBars.BarManager barManager1;
@@ -1243,7 +1189,7 @@ namespace StudentManagement
         private DevExpress.XtraEditors.SimpleButton btnCancelInsert;
         private DevExpress.XtraEditors.SimpleButton btnInsert;
         private System.Windows.Forms.BindingSource bSTeacher;
-        private DSCreditClassTableAdapters.SP_DS_GiangVienTableAdapter tATeacher;
+        //private DSCreditClassTableAdapters.SP_DS_GiangVienTableAdapter tATeacher;
         private DevExpress.XtraGrid.GridControl gcCreditClass;
         private DevExpress.XtraGrid.Views.Grid.GridView gvCreditClass;
         private DevExpress.XtraGrid.Columns.GridColumn colMALTC;
@@ -1260,5 +1206,6 @@ namespace StudentManagement
         private DevExpress.XtraGrid.Columns.GridColumn colHUYLOP;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraBars.BarButtonItem bEUndo;
+        private DevExpress.XtraEditors.LookUpEdit lkSubject;
     }
 }

@@ -33,15 +33,17 @@ namespace StudentManagement.Repositories
             }
         }
 
-        public DataResponse<bool> UpdateLopTinChi(List<UpdateLopTinChi> list)
+        public DataResponse<bool> UpdateLopTinChi(List<UpdateLopTinChi> list, string nienKhoa, int hocKy)
         {
             if (!BaseDAl.Connect())
                 return new DataResponeFail<bool>("Lỗi kết nối");
             try
             {
-                string command = "exec [dbo].[SP_UPDATE_LopTinChi] @LTC";
+                string command = "exec [dbo].[SP_UPDATE_LopTinChi] @LTC , @nienKhoa , @hocKy";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.AddTable("@LTC","Type_NEWUpdate_LopTinChi",list);
+                parameters.Add("@nienKhoa", nienKhoa);
+                parameters.Add("@hocKy", hocKy);
                 Program.conn.Execute(command, parameters);
                 return new DataResponeSuccess<bool>(true);
             }
