@@ -594,6 +594,7 @@ namespace StudentManagement
             this.lkSubject.Properties.ValueMember = "MAMH";
             this.lkSubject.Size = new System.Drawing.Size(195, 26);
             this.lkSubject.TabIndex = 26;
+            this.lkSubject.EnabledChanged += new System.EventHandler(this.lkSubject_EnabledChanged);
             // 
             // labelControl1
             // 

@@ -57,5 +57,27 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+        public DataResponse<bool> CheckLopTinChi(int maltc)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<bool>("Lỗi kết nối");
+            try
+            {
+                string command = "select [dbo].[FUNC_KT_DK_LopTinChi] (@MALTC)";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@MALTC", maltc);
+                var res = Program.conn.ExecuteScalar<bool>(command, parameters);
+                return new DataResponeSuccess<bool>(res);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
     }
 }

@@ -26,6 +26,10 @@ namespace StudentManagement
             giangVienDAL = new GiangVienDAL();
             monHocDAL = new MonHocDAL();
 
+
+
+           
+
             SupportConnectionDAL connectionDAL = new SupportConnectionDAL();
             lkFaculty.DataSource = connectionDAL.GetListPhanManh();
 
@@ -52,7 +56,8 @@ namespace StudentManagement
 
             LoadData();
 
-
+            lkSubject.DataBindings.Add("EditValue", gcCreditClass.DataSource, "MAMH",false, DataSourceUpdateMode.OnPropertyChanged);
+            lkTeacher.DataBindings.Add("EditValue", gcCreditClass.DataSource, "MAGV");
             //lkTeacher.selected
         }
        
@@ -101,24 +106,25 @@ namespace StudentManagement
         {
             if (GetSelelectRow() == -1)
                 return;
-            SqlParameter parameter = new SqlParameter();
-            parameter.SqlDbType = SqlDbType.Int;
-            parameter.ParameterName = "@MALTC";
-            parameter.Value = int.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(),"MALTC").ToString());
-
-            BaseDAl.Connect();
-            SqlCommand command = new SqlCommand("select  [dbo].[FUNC_KT_DK_LopTinChi] (@MALTC)", Program.conn);
-            command.Parameters.Clear();
-            command.Parameters.Add(parameter);
-            if((bool)command.ExecuteScalar() == true)
+         
+            int maltc = int.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(),"MALTC").ToString());
+            var res = lopTinChiDAL.CheckLopTinChi(maltc);
+            
+            if(res.Response.State == ResponseState.Fail)
             {
-                MessageBox.Show("Không thể xóa");
-                Program.conn.Close();
-                return;
+               // notify error
             }
 
-            Program.conn.Close();
-            gvCreditClass.DeleteSelectedRows();
+            if(res.Data)
+            {
+                
+            }else
+            {
+                //  notify error
+                gvCreditClass.DeleteSelectedRows();
+            }
+
+            
         }
 
        
@@ -150,8 +156,8 @@ namespace StudentManagement
         private void btnInsert_Click(object sender, EventArgs e)
         {
             gvCreditClass.AddNewRow();
-            
-           
+
+
             LOPTINCHI lOPTINCHI = new LOPTINCHI()
             {
                 MAKHOA = "CNTT",
@@ -159,11 +165,13 @@ namespace StudentManagement
                 MAGV = lkTeacher.EditValue as string,
                 TENGV = lkTeacher.Text as string,
                 HUYLOP = false,
-                NHOM = Convert.ToInt32( nmuGroup.EditValue),
-                SOSVTOITHIEU = Convert.ToInt32( nmuMininumStudent.EditValue),
+                NHOM = Convert.ToInt32(nmuGroup.EditValue),
+                SOSVTOITHIEU = Convert.ToInt32(nmuMininumStudent.EditValue),
                 MALTC = 0,
                 TENMH = lkSubject.Text as string,
-            };
+                NIENKHOA = bESchoolYear.EditValue.ToString(),
+                HOCKY = Convert.ToInt32(bESemester.EditValue)
+        };
             nmuGroup.EditValue.ToString();
             nmuMininumStudent.EditValue.ToString();
 
@@ -182,7 +190,7 @@ namespace StudentManagement
 
         private void bESemester_EditValueChanged(object sender, EventArgs e)
         {
-            nmuSemester.EditValue = bESemester.EditValue;//
+            nmuSemester.EditValue = bESemester.EditValue;
         }
 
         
@@ -219,7 +227,7 @@ namespace StudentManagement
             if (row == -1)
                 return;
 
-            gvCreditClass.SetRowCellValue(row, "MAMH", lkSubject.EditValue);
+            //gvCreditClass.SetRowCellValue(row, "MAMH", lkSubject.EditValue);
             gvCreditClass.SetRowCellValue(row, "TENMH", lkSubject.Text);
 
         }
@@ -243,8 +251,10 @@ namespace StudentManagement
             if (row == -1)
                 return;
 
-            gvCreditClass.SetRowCellValue(row, "MAGV", lkTeacher.EditValue);
+            //gvCreditClass.SetRowCellValue(row, "MAGV", lkTeacher.EditValue);
             gvCreditClass.SetRowCellValue(row, "TENGV", lkTeacher.Text);
+            //gvCreditClass.FocusInvalidRow();
+            //gvCreditClass.FocusedRowHandle = row;
 
         }
 
@@ -287,6 +297,12 @@ namespace StudentManagement
             }
 
 
+        }
+
+        private void lkSubject_EnabledChanged(object sender, EventArgs e)
+        {
+            gvCreditClass.FocusInvalidRow();
+            
         }
     }
 }
