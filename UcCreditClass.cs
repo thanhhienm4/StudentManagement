@@ -54,10 +54,7 @@ namespace StudentManagement
             btnInsert.Visible = false;
 
 
-            LoadData();
-
-            lkSubject.DataBindings.Add("EditValue", gcCreditClass.DataSource, "MAMH",false, DataSourceUpdateMode.OnPropertyChanged);
-            lkTeacher.DataBindings.Add("EditValue", gcCreditClass.DataSource, "MAGV");
+            LoadData(); 
             //lkTeacher.selected
         }
        
@@ -150,7 +147,8 @@ namespace StudentManagement
         private void btnCancelInsert_Click(object sender, EventArgs e)
         {
             isInsert = false;
-            ckCancel.Visible = true;
+            btnCancelInsert.Visible = false;
+            btnInsert.Visible = false;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -202,12 +200,14 @@ namespace StudentManagement
             int row = GetSelelectRow();
             if (row == -1)
                 return;
-            tbxIdClass.EditValue = gvCreditClass.GetRowCellValue(row, "MALTC");
-            lkTeacher.EditValue = gvCreditClass.GetRowCellValue(row, "MAGV");
-            lkSubject.EditValue = gvCreditClass.GetRowCellValue(row, "MAMH");
-            nmuGroup.EditValue = gvCreditClass.GetRowCellValue(row, "NHOM");
-            nmuMininumStudent.EditValue = gvCreditClass.GetRowCellValue(row, "SOSVTOITHIEU");
-            ckCancel.EditValue = gvCreditClass.GetRowCellValue(row, "HUYLOP");
+
+            LOPTINCHI lOPTINCHI = (LOPTINCHI)gvCreditClass.GetRow(row);
+            tbxIdClass.EditValue = lOPTINCHI.MALTC;
+            lkTeacher.EditValue = lOPTINCHI.MAGV;
+            lkSubject.EditValue = lOPTINCHI.MAMH;
+            nmuGroup.EditValue = lOPTINCHI.NHOM;
+            nmuMininumStudent.EditValue = lOPTINCHI.SOSVTOITHIEU;
+            ckCancel.EditValue = lOPTINCHI.HUYLOP;
 
         }
 
@@ -221,14 +221,7 @@ namespace StudentManagement
 
         private void lkSubject_EditValueChanged(object sender, EventArgs e)
         {
-            if (isInsert == true)
-                return;
-            int row = GetSelelectRow();
-            if (row == -1)
-                return;
-
-            //gvCreditClass.SetRowCellValue(row, "MAMH", lkSubject.EditValue);
-            gvCreditClass.SetRowCellValue(row, "TENMH", lkSubject.Text);
+            
 
         }
 
@@ -250,11 +243,12 @@ namespace StudentManagement
             int row = GetSelelectRow();
             if (row == -1)
                 return;
+            if (gvCreditClass.GetRowCellValue(row, "MAGV") == lkTeacher.EditValue)
+                return;
 
-            //gvCreditClass.SetRowCellValue(row, "MAGV", lkTeacher.EditValue);
+            gvCreditClass.SetRowCellValue(row, "MAGV", lkTeacher.EditValue);
             gvCreditClass.SetRowCellValue(row, "TENGV", lkTeacher.Text);
-            //gvCreditClass.FocusInvalidRow();
-            //gvCreditClass.FocusedRowHandle = row;
+          
 
         }
 
@@ -303,6 +297,21 @@ namespace StudentManagement
         {
             gvCreditClass.FocusInvalidRow();
             
+        }
+
+        private void lkSubject_EditValueChanged_1(object sender, EventArgs e)
+        {
+            if (isInsert == true)
+                return;
+            int row = GetSelelectRow();
+            if (row == -1)
+                return;
+
+            if (gvCreditClass.GetRowCellValue(row, "MAMH") == lkSubject.EditValue)
+                return;
+
+            gvCreditClass.SetRowCellValue(row, "MAMH", lkSubject.EditValue);
+            gvCreditClass.SetRowCellValue(row, "TENMH", lkSubject.Text);
         }
     }
 }
