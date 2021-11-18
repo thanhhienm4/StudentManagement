@@ -2,45 +2,50 @@
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using StudentManagement.Model;
 using StudentManagement.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace StudentManagement
 {
     public partial class UcCreditClass : DevExpress.XtraEditors.XtraUserControl
     {
         bool isInsert = false;
+        private LopTinChiDAL lopTinChiDAL;
+        private GiangVienDAL giangVienDAL;
+        private MonHocDAL monHocDAL;
         public UcCreditClass()
         {
             InitializeComponent();
-            this.DSCreditClass.EnforceConstraints = false;
-            this.tASPCreditClass.Connection.ConnectionString = Program.conmStr;
-            this.tASPCreditClass.Fill(this.DSCreditClass.SP_DS_LopTinChi, "2021-2022", 1);
+            lopTinChiDAL = new LopTinChiDAL();
+            giangVienDAL = new GiangVienDAL();
+            monHocDAL = new MonHocDAL();
 
-            this.tASubject.Connection.ConnectionString = Program.conmStr;
-            this.tASubject.Fill(this.DSCreditClass.MONHOC);
 
-            this.tATeacher.Connection.ConnectionString = Program.conmStr;
-            this.tATeacher.Fill(this.DSCreditClass.SP_DS_GiangVien);
+
+           
 
             SupportConnectionDAL connectionDAL = new SupportConnectionDAL();
+            lkFaculty.DataSource = connectionDAL.GetListPhanManh();
 
-            lkFaculty.DataSource = connectionDAL.GetSubscripton();
             lkFaculty.DisplayMember = "TENCN";
             lkFaculty.ValueMember = "TENSERVER";
             lkFaculty.PopulateColumns();
             lkFaculty.Columns["TENSERVER"].Visible = false;
             bEFaculty.EditValue = Program.serverName;
 
+            lkSubject.Properties.DataSource = monHocDAL.GetListMonHoc().Data;
+
+            lkTeacher.Properties.DataSource = giangVienDAL.GetListGiangVien().Data;
+
 
             InitialSchoolYear();
             bESemester.EditValue = 1;
-
-            
-
             tbxIdClass.Enabled = false;
             tbxSchoolYear.Enabled = false;
             nmuSemester.Enabled = false;
@@ -49,6 +54,7 @@ namespace StudentManagement
             btnInsert.Visible = false;
 
 
+            LoadData(); 
             //lkTeacher.selected
         }
        
@@ -77,8 +83,8 @@ namespace StudentManagement
 
         private void bEFaculty_EditValueChanged(object sender, EventArgs e)
         {
-            Program.conmStr = String.Format("Data Source={0} ;Database=QLDSV_TC ;Persist Security Info=True;User ID={1}; password={2}",
-                                    bEFaculty.EditValue, Program.login, Program.password);
+            Program.currentServer = bEFaculty.EditValue as string;
+
         }
 
         private void bEAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -97,52 +103,81 @@ namespace StudentManagement
         {
             if (GetSelelectRow() == -1)
                 return;
-            SqlParameter parameter = new SqlParameter();
-            parameter.SqlDbType = SqlDbType.Int;
-            parameter.ParameterName = "@MALTC";
-            parameter.Value = int.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(),"MALTC").ToString());
-
-            BaseDAl.Connect();
-            SqlCommand command = new SqlCommand("select  [dbo].[FUNC_KT_DK_LopTinChi] (@MALTC)", Program.conn);
-            command.Parameters.Clear();
-            command.Parameters.Add(parameter);
-            if((bool)command.ExecuteScalar() == true)
+         
+            int maltc = int.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(),"MALTC").ToString());
+            var res = lopTinChiDAL.CheckLopTinChi(maltc);
+            
+            if(res.Response.State == ResponseState.Fail)
             {
-                MessageBox.Show("Không thể xóa");
-                Program.conn.Close();
-                return;
+               // notify error
             }
 
-            Program.conn.Close();
-            gvCreditClass.DeleteSelectedRows();
+            if(res.Data)
+            {
+                
+            }else
+            {
+                //  notify error
+                gvCreditClass.DeleteSelectedRows();
+            }
+
+            
         }
 
        
         private void bELoadData_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.tASPCreditClass.Fill(this.DSCreditClass.SP_DS_LopTinChi, bESchoolYear.EditValue.ToString(), int.Parse(bESemester.EditValue.ToString()));
+
+            LoadData();
+        }
+        private void LoadData()
+        {
+            string nienKhoa = bESchoolYear.EditValue.ToString();
+            int hocKy = int.Parse(bESemester.EditValue.ToString());
+
+            var res = lopTinChiDAL.GetListLopTinChi(nienKhoa, hocKy);
+            if (res.Response.State == ResponseState.Fail)
+            {
+                // Notify error
+            }
+            gcCreditClass.DataSource = res.Data;
             gvCreditClass.FocusInvalidRow();
         }
 
         private void btnCancelInsert_Click(object sender, EventArgs e)
         {
             isInsert = false;
-            ckCancel.Visible = true;
+            btnCancelInsert.Visible = false;
+            btnInsert.Visible = false;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
             gvCreditClass.AddNewRow();
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle, "MAKHOA", "CNTT");
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle,"MAMH",lkSubject.EditValue);
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle,"TENMH", lkSubject.Text);
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle,"NIENKHOA", bESchoolYear.EditValue);
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle,"HOCKY", bESemester.EditValue);
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle,"MAGV", lkTeacher.EditValue);
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle,"TENGV", lkTeacher.Text);
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle,"HUYLOP", false);
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle, "NHOM", nmuGroup.EditValue);
-            gvCreditClass.SetRowCellValue(GridControl.NewItemRowHandle,"SOSVTOITHIEU",nmuMininumStudent.EditValue );
+
+
+            LOPTINCHI lOPTINCHI = new LOPTINCHI()
+            {
+                MAKHOA = "CNTT",
+                MAMH = lkSubject.EditValue as string,
+                MAGV = lkTeacher.EditValue as string,
+                TENGV = lkTeacher.Text as string,
+                HUYLOP = false,
+                NHOM = Convert.ToInt32(nmuGroup.EditValue),
+                SOSVTOITHIEU = Convert.ToInt32(nmuMininumStudent.EditValue),
+                MALTC = 0,
+                TENMH = lkSubject.Text as string,
+                NIENKHOA = bESchoolYear.EditValue.ToString(),
+                HOCKY = Convert.ToInt32(bESemester.EditValue)
+        };
+            nmuGroup.EditValue.ToString();
+            nmuMininumStudent.EditValue.ToString();
+
+
+
+            var data = (List<LOPTINCHI>)gvCreditClass.DataSource;
+            data.Add(lOPTINCHI);
+            gcCreditClass.RefreshDataSource();
         }
 
         private void bESchoolYear_EditValueChanged(object sender, EventArgs e)
@@ -165,12 +200,14 @@ namespace StudentManagement
             int row = GetSelelectRow();
             if (row == -1)
                 return;
-            tbxIdClass.EditValue = gvCreditClass.GetRowCellValue(row, "MALTC");
-            lkTeacher.EditValue = gvCreditClass.GetRowCellValue(row, "MAGV");
-            lkSubject.EditValue = gvCreditClass.GetRowCellValue(row, "MAMH");
-            nmuGroup.EditValue = gvCreditClass.GetRowCellValue(row, "NHOM");
-            nmuMininumStudent.EditValue = gvCreditClass.GetRowCellValue(row, "SOSVTOITHIEU");
-            ckCancel.EditValue = gvCreditClass.GetRowCellValue(row, "HUYLOP");
+
+            LOPTINCHI lOPTINCHI = (LOPTINCHI)gvCreditClass.GetRow(row);
+            tbxIdClass.EditValue = lOPTINCHI.MALTC;
+            lkTeacher.EditValue = lOPTINCHI.MAGV;
+            lkSubject.EditValue = lOPTINCHI.MAMH;
+            nmuGroup.EditValue = lOPTINCHI.NHOM;
+            nmuMininumStudent.EditValue = lOPTINCHI.SOSVTOITHIEU;
+            ckCancel.EditValue = lOPTINCHI.HUYLOP;
 
         }
 
@@ -184,14 +221,7 @@ namespace StudentManagement
 
         private void lkSubject_EditValueChanged(object sender, EventArgs e)
         {
-            if (isInsert == true)
-                return;
-            int row = GetSelelectRow();
-            if (row == -1)
-                return;
-
-            gvCreditClass.SetRowCellValue(row, "MAMH", lkSubject.EditValue);
-            gvCreditClass.SetRowCellValue(row, "TENMH", lkSubject.Text);
+            
 
         }
 
@@ -213,9 +243,12 @@ namespace StudentManagement
             int row = GetSelelectRow();
             if (row == -1)
                 return;
+            if (gvCreditClass.GetRowCellValue(row, "MAGV") == lkTeacher.EditValue)
+                return;
 
             gvCreditClass.SetRowCellValue(row, "MAGV", lkTeacher.EditValue);
             gvCreditClass.SetRowCellValue(row, "TENGV", lkTeacher.Text);
+          
 
         }
 
@@ -244,50 +277,41 @@ namespace StudentManagement
         private void bESave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             gvCreditClass.FocusInvalidRow();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("MALTC",typeof(int));
-            dt.Columns.Add("NIENKHOA", typeof(string));
-            dt.Columns.Add("HOCKI",typeof(int));
-            dt.Columns.Add("MAMH",typeof(string));
-            dt.Columns.Add("NHOM", typeof(int));
-            dt.Columns.Add("MAGV", typeof(string));
-
-            dt.Columns.Add("MAKHOA", typeof(string));
-            dt.Columns.Add("SOSVTOITHIEU", typeof(int));
-            dt.Columns.Add("HUYLOP", typeof(bool));
-            
-            for(int i = 0;i< gvCreditClass.RowCount;i++)
+            List<UpdateLopTinChi> listUpdate;
+            listUpdate = ((List<LOPTINCHI>)gvCreditClass.DataSource).Select(x => new UpdateLopTinChi(x)).ToList();
+            string nienKhoa = bESchoolYear.EditValue as string;
+            int hocky = Convert.ToInt32( bESemester.EditValue);
+            var res = lopTinChiDAL.UpdateLopTinChi(listUpdate,nienKhoa,hocky);
+            if (res.Response.State == ResponseState.Fail)
             {
-                dt.Rows.Add(
-                    gvCreditClass.GetRowCellValue(i, "MALTC"),
-                    gvCreditClass.GetRowCellValue(i, "NIENKHOA"),
-                    gvCreditClass.GetRowCellValue(i, "HOCKY"),
-                    gvCreditClass.GetRowCellValue(i, "MAMH"),
-                    gvCreditClass.GetRowCellValue(i, "NHOM"),
-                    gvCreditClass.GetRowCellValue(i, "MAGV"),
-                    gvCreditClass.GetRowCellValue(i, "MAKHOA"),
-                    gvCreditClass.GetRowCellValue(i, "SOSVTOITHIEU"),
-                    gvCreditClass.GetRowCellValue(i, "HUYLOP")
-                    );
-               
+                // Notify error
+            } else
+            {
+                // notify susscess
             }
 
 
-            SqlParameter parameter = new SqlParameter();
-            parameter.SqlDbType = SqlDbType.Structured;
-            parameter.TypeName = "DBO.TYPE_UPDATE_LopTinChi";
-            parameter.ParameterName = "@LTC";
-            parameter.Value = dt;
+        }
 
-            BaseDAl.Connect();
-            SqlCommand command = new SqlCommand("SP_UPDATE_LOPTINCHI",Program.conn);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Clear();
-            command.Parameters.Add(parameter);
-            command.ExecuteNonQuery();
-
+        private void lkSubject_EnabledChanged(object sender, EventArgs e)
+        {
+            gvCreditClass.FocusInvalidRow();
             
+        }
 
+        private void lkSubject_EditValueChanged_1(object sender, EventArgs e)
+        {
+            if (isInsert == true)
+                return;
+            int row = GetSelelectRow();
+            if (row == -1)
+                return;
+
+            if (gvCreditClass.GetRowCellValue(row, "MAMH") == lkSubject.EditValue)
+                return;
+
+            gvCreditClass.SetRowCellValue(row, "MAMH", lkSubject.EditValue);
+            gvCreditClass.SetRowCellValue(row, "TENMH", lkSubject.Text);
         }
     }
 }

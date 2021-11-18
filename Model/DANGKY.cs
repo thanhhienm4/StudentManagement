@@ -28,7 +28,5 @@ namespace StudentManagement.Model
         public bool? HUYDANGKY { get; set; }
 
         public Guid rowguid { get; set; }
-
-        public virtual LOPTINCHI LOPTINCHI { get; set; }
     }
 }

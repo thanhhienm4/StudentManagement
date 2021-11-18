@@ -115,20 +115,17 @@
     <Compile Include="Model\MONHOC.cs" />
     <Compile Include="Model\Response.cs" />
     <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\ServerInfo.cs" />
     <Compile Include="Model\UpdateLopTinChi.cs" />
+    <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DSCreditClass.cs">
-      <DependentUpon>DSCreditClass.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DSCreditClass.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSCreditClass.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Repositories\BaseDAL.cs" />
+    <Compile Include="Repositories\GiangVienDAL.cs" />
     <Compile Include="Repositories\LopTinChiDAL.cs" />
+    <Compile Include="Repositories\MonHocDAL.cs" />
     <Compile Include="Repositories\SupportConnectionDAL.cs" />
+    <Compile Include="Repositories\UserDAL.cs" />
     <Compile Include="UcCreditClass.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,6 +150,7 @@
     </Compile>
     <EmbeddedResource Include="UcCreditClass.resx">
       <DependentUpon>UcCreditClass.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -164,17 +162,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="DSCreditClass.xsc">
-      <DependentUpon>DSCreditClass.xsd</DependentUpon>
-    </None>
-    <None Include="DSCreditClass.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSCreditClass.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DSCreditClass.xss">
-      <DependentUpon>DSCreditClass.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

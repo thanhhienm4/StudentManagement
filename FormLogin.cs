@@ -16,15 +16,18 @@ namespace StudentManagement
     public partial class FormLogin : Form
     {
         private static string serverName { get; set; }
+        private UserDAL userDAL { get; set; }
         public FormLogin()
         {
+
             InitializeComponent();
             Initial();
+            userDAL = new UserDAL();
         }
         void Initial()
         {
             SupportConnectionDAL connectionDAL = new SupportConnectionDAL();
-            cbx.DataSource = connectionDAL.GetSubscripton();
+            cbx.DataSource = connectionDAL.GetListPhanManh();
             cbx.DisplayMember = "TENCN";
             cbx.ValueMember = "TENSERVER";
         }
@@ -39,8 +42,8 @@ namespace StudentManagement
         private void cbx_SelectedValueChanged(object sender, EventArgs e)
         {
 
-           Program.serverName = (cbx.SelectedItem as DataRowView).Row["TENSERVER"] as string;
-          
+           Program.serverName = Program.currentServer = (cbx.SelectedItem as ServerInfo).TENSERVER;
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -50,31 +53,21 @@ namespace StudentManagement
 
             Program.login = login;
             Program.password = password;
-            
-            if(!BaseDAl.Connect())
+
+
+            var res = userDAL.Login(login);
+            if(res.Response.State == ResponseState.Fail)
             {
-                lbMessage.Text = "Lỗi đăng nhập"; 
+                lbMessage.Text = res.Response.Message; 
                 return;
             }
 
-            string loginCommand = String.Format("exec[dbo].[SP_DANGNHAP] '{0}'", login);
-            var dataResponse = BaseDAl.GetDataReader(loginCommand);
+            Program.username = res.Data.USERNAME;
+            Program.fullName = res.Data.HOTEN;
+            Program.group = res.Data.TENNHOM;
 
-            if(dataResponse.Response.State == ResponseState.Success && dataResponse.Data.Read())
-            {
-                lbMessage.Text = "Đăng nhập thành công";
+            this.DialogResult = DialogResult.OK;
 
-                Program.username = dataResponse.Data.GetString(0);
-                Program.fullName = dataResponse.Data.GetString(1);
-                Program.group = dataResponse.Data.GetString(2);
-
-                this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                lbMessage.Text = "Lỗi hệ thống";
-            }    
-            
         }
     }
 }
