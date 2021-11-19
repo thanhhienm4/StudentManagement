@@ -126,6 +126,12 @@
     <Compile Include="Repositories\MonHocDAL.cs" />
     <Compile Include="Repositories\SupportConnectionDAL.cs" />
     <Compile Include="Repositories\UserDAL.cs" />
+    <Compile Include="TestAddLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestAddLogin.Designer.cs">
+      <DependentUpon>TestAddLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcCreditClass.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,6 +154,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TestAddLogin.resx">
+      <DependentUpon>TestAddLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UcCreditClass.resx">
       <DependentUpon>UcCreditClass.cs</DependentUpon>
       <SubType>Designer</SubType>

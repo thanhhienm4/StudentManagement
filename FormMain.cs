@@ -63,5 +63,11 @@ namespace StudentManagement
             pnContent.Controls.Add(ucCreditClass);
 
         }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var form = new TestAddLogin();
+            form.Show();
+        }
     }
 }

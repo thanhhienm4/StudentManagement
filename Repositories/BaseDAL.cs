@@ -25,7 +25,7 @@ namespace StudentManagement.Repositories
                                     Program.serverName, Program.login, Program.password);
                 }else
                 {
-                    // user remote server
+                    // user remote serversql
                     Program.conmStr =
                     String.Format("Data Source={0} ;Database=QLDSV_TC ;Persist Security Info=True;User ID={1}; password={2}",
                                     Program.currentServer, Program.loginRemote, Program.passwordRemote);
