@@ -32,6 +32,30 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+        public DataResponse<UserInfo> LoginStudent(string mssv, string password)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<UserInfo>("Lỗi kết nối! Vui lòng kiểm tra lại mật khẩu");
+            try
+            {
+                string command = "exec dbo.SP_DANGNHAP_SINHVIEN @mssv , @password";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@mssv", mssv);
+                parameters.Add("@password", password);
+                var data = Program.conn.Query<UserInfo>(command, parameters).FirstOrDefault();
+                return new DataResponeSuccess<UserInfo>(data);
+            }
+            catch (Exception e)
+
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<UserInfo>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
         public DataResponse<bool> CreateLogin(string login, string pass, string user, string role)
         {
             if (!BaseDAl.Connect())

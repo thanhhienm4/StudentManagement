@@ -138,6 +138,12 @@
     <Compile Include="UcCreditClass.Designer.cs">
       <DependentUpon>UcCreditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCRegisterCreditClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCRegisterCreditClass.Designer.cs">
+      <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +166,9 @@
     <EmbeddedResource Include="UcCreditClass.resx">
       <DependentUpon>UcCreditClass.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCRegisterCreditClass.resx">
+      <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

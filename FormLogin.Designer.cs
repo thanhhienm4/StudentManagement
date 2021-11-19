@@ -36,8 +36,10 @@ namespace StudentManagement
             this.lbPassword = new DevExpress.XtraEditors.LabelControl();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.lbMessage = new DevExpress.XtraEditors.LabelControl();
+            this.cbxRole = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbxRole.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cbx
@@ -105,11 +107,22 @@ namespace StudentManagement
             this.lbMessage.TabIndex = 7;
             this.lbMessage.Text = "      ";
             // 
+            // cbxRole
+            // 
+            this.cbxRole.Location = new System.Drawing.Point(578, 105);
+            this.cbxRole.Name = "cbxRole";
+            this.cbxRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbxRole.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cbxRole.Size = new System.Drawing.Size(217, 26);
+            this.cbxRole.TabIndex = 8;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 226);
+            this.Controls.Add(this.cbxRole);
             this.Controls.Add(this.lbMessage);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lbPassword);
@@ -122,6 +135,7 @@ namespace StudentManagement
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.tbLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbxRole.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,6 +150,7 @@ namespace StudentManagement
         private DevExpress.XtraEditors.LabelControl lbPassword;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
         private DevExpress.XtraEditors.LabelControl lbMessage;
+        private DevExpress.XtraEditors.ComboBoxEdit cbxRole;
     }
 }
 

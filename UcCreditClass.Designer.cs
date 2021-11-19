@@ -874,7 +874,7 @@ namespace StudentManagement
             // 
             // lkFaculty
             // 
-            this.lkFaculty.AutoHeight = false;
+            this.lkFaculty.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFit;
             this.lkFaculty.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkFaculty.Name = "lkFaculty";
