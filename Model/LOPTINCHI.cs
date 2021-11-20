@@ -16,6 +16,8 @@ namespace StudentManagement.Model
         public string MAKHOA { get; set; }
         public int SOSVTOITHIEU { get; set; }
         public bool HUYLOP { get; set; }
+        public int SOSVDANGKY { get; set; }
+        public bool CHON { get; set; }
 
      
     }
