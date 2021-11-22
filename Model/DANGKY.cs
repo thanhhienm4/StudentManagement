@@ -1,22 +1,9 @@
-namespace StudentManagement.Model
+﻿namespace StudentManagement.Model
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("DANGKY")]
     public partial class DANGKY
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MALTC { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
         public string MASV { get; set; }
 
         public int? DIEM_CC { get; set; }
@@ -27,6 +14,6 @@ namespace StudentManagement.Model
 
         public bool? HUYDANGKY { get; set; }
 
-        public Guid rowguid { get; set; }
+        
     }
 }

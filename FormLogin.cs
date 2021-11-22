@@ -30,6 +30,13 @@ namespace StudentManagement
             cbx.DataSource = connectionDAL.GetListPhanManh();
             cbx.DisplayMember = "TENCN";
             cbx.ValueMember = "TENSERVER";
+
+
+            cbxRole.Properties.Items.Add(Role.SV);
+            cbxRole.Properties.Items.Add(Role.KHOA);
+            cbxRole.Properties.Items.Add(Role.PGV);
+            
+
         }
         
         
@@ -48,17 +55,48 @@ namespace StudentManagement
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            switch(cbxRole.EditValue)
+            {
+                case Role.SV: LoginStudent(); break;
+                case null: return;
+                default: LoginStaff(); break;
+                
+            }
+
+           
+
+        }
+        void LoginStudent()
+        {
+            Program.login = Program.loginStudent;
+            Program.password = Program.passwordStudent;
+            var res = userDAL.LoginStudent(tbLogin.Text.Trim(), tbPassword.Text.Trim());
+            if (res.Response.State == ResponseState.Fail)
+            {
+                lbMessage.Text = res.Response.Message;
+                return;
+            }
+            if (res.Data == null)
+                return;
+
+            Program.username = res.Data.USERNAME;
+            Program.fullName = res.Data.HOTEN;
+            Program.group = res.Data.TENNHOM;
+
+            this.DialogResult = DialogResult.OK;
+        }
+        void LoginStaff()
+        {
             string login = tbLogin.Text.Trim();
             string password = tbPassword.Text;
 
             Program.login = login;
             Program.password = password;
 
-
             var res = userDAL.Login(login);
-            if(res.Response.State == ResponseState.Fail)
+            if (res.Response.State == ResponseState.Fail)
             {
-                lbMessage.Text = res.Response.Message; 
+                lbMessage.Text = res.Response.Message;
                 return;
             }
 
@@ -67,7 +105,8 @@ namespace StudentManagement
             Program.group = res.Data.TENNHOM;
 
             this.DialogResult = DialogResult.OK;
-
         }
+
     }
+    
 }

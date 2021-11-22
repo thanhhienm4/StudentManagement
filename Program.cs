@@ -18,6 +18,8 @@ namespace StudentManagement
 
         public static string loginRemote = "HTKN";
         public static string passwordRemote = "123456";
+        public static string loginStudent = "SV";
+        public static string passwordStudent = "123456";
         public static string currentServer { get; set; }
 
         public static SqlDataReader dataReader { get; set; }

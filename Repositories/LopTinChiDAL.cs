@@ -24,10 +24,34 @@ namespace StudentManagement.Repositories
                 var data = Program.conn.Query<LOPTINCHI>(command, parameters).ToList();
                 return new DataResponeSuccess<List<LOPTINCHI>>(data);
             }
-            catch(Exception)
+            catch(Exception e)
             {
+                Console.WriteLine(e);
                 return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
             }finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+        public DataResponse<List<LOPTINCHI>> GetListLopTinChiActive(string nienKhoa, int hocKy)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<LOPTINCHI>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_DS_LopTinChi_Active @nienKhoa , @hocKy";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@nienKhoa", nienKhoa);
+                parameters.Add("@hocKy", hocKy);
+                var data = Program.conn.Query<LOPTINCHI>(command, parameters).ToList();
+                return new DataResponeSuccess<List<LOPTINCHI>>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
+            }
+            finally
             {
                 BaseDAl.DisConnect();
             }

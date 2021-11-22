@@ -1,4 +1,4 @@
-namespace StudentManagement.Model
+﻿namespace StudentManagement.Model
 {
 
     public partial class LOPTINCHI
@@ -17,6 +17,16 @@ namespace StudentManagement.Model
         public int SOSVTOITHIEU { get; set; }
         public bool HUYLOP { get; set; }
 
-     
+
+        // extend
+        public int SOSVDANGKY { get; set; }
+        public bool CHON { get; set; }
+        public string TRANGTHAI { get; set; }
+        public LOPTINCHI()
+        {
+            this.TRANGTHAI = "Đã lưu";
+        }
+
+
     }
 }
