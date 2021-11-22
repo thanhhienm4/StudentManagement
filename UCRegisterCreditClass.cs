@@ -22,7 +22,7 @@ namespace StudentManagement
     {
         private LopTinChiDAL _lopTinChiDAL;
         private DangKyDAL _dangKyDAL;
-        private List<LOPTINCHI> _lopTinchis;
+        private List<LOPTINCHI> _lopTinchiDaDangKy;
         
         public UCRegisterCreditClass()
         {
@@ -57,36 +57,40 @@ namespace StudentManagement
 
         private void beLoadData_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
+
+
+            // change check state in credit class
+            IniData();
+
+      
+        }
+        void IniData()
+        {
             string nienKhoa = bESchoolYear.EditValue as string;
             int hocKy = Convert.ToInt32(bESemester.EditValue);
-            
-            var res  = _lopTinChiDAL.GetListLopTinChiActive(nienKhoa,hocKy);
-            if(res.Response.State == ResponseState.Fail)
+
+            var res = _lopTinChiDAL.GetListLopTinChiActive(nienKhoa, hocKy);
+            if (res.Response.State == ResponseState.Fail)
             {
                 return;
             }
             var resDangKy = _dangKyDAL.GetListDangKyBySinhVien(nienKhoa, hocKy, Program.username);
-            if(res.Response.State == ResponseState.Fail)
+            if (res.Response.State == ResponseState.Fail)
             {
                 return;
             }
 
 
-
+            _lopTinchiDaDangKy = new List<LOPTINCHI>( resDangKy.Data);
             gcRegister.DataSource = resDangKy.Data;
             gcCreditClass.DataSource = res.Data;
-            _lopTinchis = resDangKy.Data;
-
-
-            // change check state in credit class
-            foreach(var lop in resDangKy.Data)
+           
+            foreach (var lop in resDangKy.Data)
             {
                 ChangeCheckState(lop.MALTC, true);
             }
-
-      
         }
-
         
         private void AddRepository()
         {
@@ -141,7 +145,7 @@ namespace StudentManagement
                 if (registers.Exists(x => x.MALTC == lOPTINCHI.MALTC))
                     return;
 
-                if (_lopTinchis.Exists(x => x.MALTC == lOPTINCHI.MALTC))
+                if (_lopTinchiDaDangKy.Exists(x => x.MALTC == lOPTINCHI.MALTC))
                     lOPTINCHI.TRANGTHAI = "Đã lưu";
                 else
                     lOPTINCHI.TRANGTHAI = "Chưa lưu";
@@ -179,7 +183,13 @@ namespace StudentManagement
                 MALTC = x.MALTC
 
             }).ToList();
-            var res = new DangKyDAL().UpdateDangKy(listUpdate);
+            var res = new DangKyDAL().UpdateDangKy(listUpdate, Program.username);
+            if (res.Response.State == ResponseState.Success)
+                IniData();
+            else
+            {
+                MessageBox.Show(res.Response.Message);
+            }
            // if(res.)
         }
 

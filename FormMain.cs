@@ -17,6 +17,7 @@ namespace StudentManagement
         FormLogin fromLogin;
         UcCreditClass ucCreditClass;
         UCRegisterCreditClass uCRegisterCreditClass;
+        ucUpdateGrade ucUpdateGrade;
         public FormMain()
         {
             InitializeComponent();
@@ -84,6 +85,17 @@ namespace StudentManagement
             uCRegisterCreditClass.Dock = DockStyle.Fill;
             pnContent.Controls.Clear();
             pnContent.Controls.Add(uCRegisterCreditClass);
+        }
+
+        private void beUpdateGrade_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (ucUpdateGrade == null)
+                ucUpdateGrade = new ucUpdateGrade();
+
+            ucUpdateGrade.Dock = DockStyle.Fill;
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(ucUpdateGrade);
+
         }
     }
 }

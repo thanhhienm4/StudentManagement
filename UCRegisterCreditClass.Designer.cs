@@ -400,6 +400,7 @@ namespace StudentManagement
             this.gridColumn12});
             this.gvRegister.GridControl = this.gcRegister;
             this.gvRegister.Name = "gvRegister";
+            this.gvRegister.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn7
             // 

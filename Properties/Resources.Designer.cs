@@ -61,6 +61,16 @@ namespace StudentManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_refresh {
+            get {
+                object obj = ResourceManager.GetObject("actions_refresh", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap delete_16x16 {
@@ -106,6 +116,26 @@ namespace StudentManagement.Properties {
         internal static DevExpress.Utils.Svg.SvgImage deletetablerows {
             get {
                 object obj = ResourceManager.GetObject("deletetablerows", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage modifytablestyle {
+            get {
+                object obj = ResourceManager.GetObject("modifytablestyle", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage save_as {
+            get {
+                object obj = ResourceManager.GetObject("save as", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

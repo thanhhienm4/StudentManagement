@@ -13,6 +13,7 @@
         public double? DIEM_CK { get; set; }
 
         public bool? HUYDANGKY { get; set; }
+        public string TENSV { get; set; }
 
         
     }

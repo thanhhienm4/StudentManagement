@@ -117,6 +117,7 @@
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\ServerInfo.cs" />
     <Compile Include="Model\UpdateDangKy.cs" />
+    <Compile Include="Model\UpdateGrade.cs" />
     <Compile Include="Model\UpdateLopTinChi.cs" />
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Program.cs" />
@@ -146,6 +147,12 @@
     <Compile Include="UCRegisterCreditClass.Designer.cs">
       <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucUpdateGrade.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucUpdateGrade.Designer.cs">
+      <DependentUpon>ucUpdateGrade.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCRegisterCreditClass.resx">
       <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucUpdateGrade.resx">
+      <DependentUpon>ucUpdateGrade.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -220,6 +230,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trash_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_refresh.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save as.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modifytablestyle.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
