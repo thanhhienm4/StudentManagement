@@ -24,8 +24,9 @@ namespace StudentManagement.Repositories
                 var data = Program.conn.Query<LOPTINCHI>(command, parameters).ToList();
                 return new DataResponeSuccess<List<LOPTINCHI>>(data);
             }
-            catch(Exception)
+            catch(Exception e)
             {
+                Console.WriteLine(e);
                 return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
             }finally
             {
@@ -45,8 +46,9 @@ namespace StudentManagement.Repositories
                 var data = Program.conn.Query<LOPTINCHI>(command, parameters).ToList();
                 return new DataResponeSuccess<List<LOPTINCHI>>(data);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e);
                 return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
             }
             finally

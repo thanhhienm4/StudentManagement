@@ -31,7 +31,7 @@ namespace StudentManagement
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCRegisterCreditClass));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.bar16 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -46,6 +46,7 @@ namespace StudentManagement
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.gcCreditClass = new DevExpress.XtraGrid.GridControl();
             this.gvCreditClass = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,6 +67,7 @@ namespace StudentManagement
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.XOA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSchoolYear1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmuSemester)).BeginInit();
@@ -103,9 +105,10 @@ namespace StudentManagement
             this.bESchoolYear,
             this.bESemester,
             this.beLoadData,
-            this.beSave});
+            this.beSave,
+            this.barButtonItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 4;
+            this.barManager1.MaxItemId = 6;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cbxSchoolYear1,
             this.nmuSemester});
@@ -117,6 +120,7 @@ namespace StudentManagement
             this.bar2.DockCol = 0;
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar2.FloatLocation = new System.Drawing.Point(242, 164);
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.bESchoolYear, "", false, true, true, 121),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.bESemester, "", false, true, true, 94),
@@ -171,7 +175,6 @@ namespace StudentManagement
             // 
             this.beLoadData.Caption = "Tải dữ liệu";
             this.beLoadData.Id = 2;
-            this.beLoadData.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("beLoadData.ImageOptions.SvgImage")));
             this.beLoadData.Name = "beLoadData";
             this.beLoadData.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.beLoadData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beLoadData_ItemClick);
@@ -182,6 +185,8 @@ namespace StudentManagement
             this.beSave.Id = 3;
             this.beSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("beSave.ImageOptions.SvgImage")));
             this.beSave.Name = "beSave";
+            this.beSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.beSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beSave_ItemClick);
             // 
             // bar3
             // 
@@ -227,12 +232,18 @@ namespace StudentManagement
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 587);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // gcCreditClass
             // 
             this.gcCreditClass.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gcCreditClass.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gcCreditClass.Location = new System.Drawing.Point(2, 34);
             this.gcCreditClass.MainView = this.gvCreditClass;
             this.gcCreditClass.MenuManager = this.barManager1;
@@ -255,6 +266,8 @@ namespace StudentManagement
             this.gvCreditClass.GridControl = this.gcCreditClass;
             this.gvCreditClass.Name = "gvCreditClass";
             this.gvCreditClass.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
+            this.gvCreditClass.OptionsSelection.CheckBoxSelectorField = "CHON";
+            this.gvCreditClass.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;
             // 
             // gridColumn1
             // 
@@ -383,7 +396,8 @@ namespace StudentManagement
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
-            this.XOA});
+            this.XOA,
+            this.gridColumn12});
             this.gvRegister.GridControl = this.gcRegister;
             this.gvRegister.Name = "gvRegister";
             // 
@@ -445,8 +459,18 @@ namespace StudentManagement
             this.XOA.Name = "XOA";
             this.XOA.UnboundType = DevExpress.Data.UnboundColumnType.Object;
             this.XOA.Visible = true;
-            this.XOA.VisibleIndex = 5;
+            this.XOA.VisibleIndex = 6;
             this.XOA.Width = 112;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "TRANGTHAI";
+            this.gridColumn12.FieldName = "TRANGTHAI";
+            this.gridColumn12.MinWidth = 30;
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 5;
+            this.gridColumn12.Width = 112;
             // 
             // UCRegisterCreditClass
             // 
@@ -459,7 +483,6 @@ namespace StudentManagement
             this.Controls.Add(this.barDockControlTop);
             this.Name = "UCRegisterCreditClass";
             this.Size = new System.Drawing.Size(901, 641);
-            this.Load += new System.EventHandler(this.UCRegisterCreditClass_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSchoolYear1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmuSemester)).EndInit();
@@ -514,5 +537,7 @@ namespace StudentManagement
         private DevExpress.XtraGrid.Columns.GridColumn CHON;
         private DevExpress.XtraBars.BarButtonItem beSave;
         private DevExpress.XtraGrid.Columns.GridColumn XOA;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

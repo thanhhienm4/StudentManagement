@@ -54,7 +54,7 @@ namespace StudentManagement
             // 
             // tbLogin
             // 
-            this.tbLogin.EditValue = "ptl";
+            this.tbLogin.EditValue = "N15DCCN001";
             this.tbLogin.Location = new System.Drawing.Point(180, 57);
             this.tbLogin.Margin = new System.Windows.Forms.Padding(9);
             this.tbLogin.Name = "tbLogin";
