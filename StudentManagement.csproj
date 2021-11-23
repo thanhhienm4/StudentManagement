@@ -116,6 +116,7 @@
     <Compile Include="Model\Response.cs" />
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\ServerInfo.cs" />
+    <Compile Include="Model\SINHVIEN.cs" />
     <Compile Include="Model\UpdateDangKy.cs" />
     <Compile Include="Model\UpdateLopTinChi.cs" />
     <Compile Include="Model\UserInfo.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Repositories\BaseDAL.cs" />
     <Compile Include="Repositories\DangKyDAL.cs" />
     <Compile Include="Repositories\GiangVienDAL.cs" />
+    <Compile Include="Repositories\HocPhiDAL.cs" />
     <Compile Include="Repositories\LopTinChiDAL.cs" />
     <Compile Include="Repositories\MonHocDAL.cs" />
     <Compile Include="Repositories\SupportConnectionDAL.cs" />
