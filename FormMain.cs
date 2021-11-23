@@ -100,10 +100,10 @@ namespace StudentManagement
 
         private void svPermission()
         {
-            barButtonItem1.Enabled = false;
-            barButtonItem2.Enabled = false;
-            barButtonItem3.Enabled = false;
-            barButtonItem4.Enabled = false;
+            //barButtonItem1.Enabled = false;
+            //barButtonItem2.Enabled = false;
+            //barButtonItem3.Enabled = false;
+            //barButtonItem4.Enabled = false;
         }
 
         private void pgvPermission()
@@ -111,7 +111,7 @@ namespace StudentManagement
             //barButtonItem1.Enabled = false;
             //barButtonItem2.Enabled = false;
             //barButtonItem3.Enabled = false;
-            barButtonItem4.Enabled = false;
+            //barButtonItem4.Enabled = false;
         }
         
         private void pktPermission()
