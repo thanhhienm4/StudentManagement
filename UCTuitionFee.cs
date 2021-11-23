@@ -46,28 +46,52 @@ namespace StudentManagement
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //Console.WriteLine("OK");
-            String maSV = barEditItem6.EditValue.ToString();
             hocPhiDAL = new HocPhiDAL();
-            var res = hocPhiDAL.TestInfoSinhvien(maSV);
-            Console.WriteLine(res);
-
-            if (res.Response.State == ResponseState.Fail)
+            String MASV = textMaSV.EditValue.ToString();
+            var check = hocPhiDAL.CheckExistedSV(MASV);
+            if (check.Data)
             {
-                Console.WriteLine("xxx");
+                var res = hocPhiDAL.TestInfoSinhvien(MASV);
+                textHoTenSV.EditValue = res.Data.HOTEN;
+                textMaLop.EditValue = res.Data.MALOP;
+
+                var dsHocPhi = hocPhiDAL.DSHocPhiByMASV(MASV);
+
+                if (dsHocPhi.Response.State == ResponseState.Fail)
+                {
+                    return;
+                }
+
+                gCFee.DataSource = dsHocPhi.Data;
+            }
+            
+            else
+            {
+                MessageBox.Show("Bạn chưa nhập Mã sinh viên hoặc mã sinh viên không tồn tại", "", MessageBoxButtons.OK);
             }
 
-            foreach (var value in res.Data)
-            {
-                barEditItem7.EditValue = value.HOTEN;
-                barEditItem8.EditValue = value.MALOP;
-            }    
             
-            Console.WriteLine(maSV);
         }
 
         private void barEditItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void gridFee_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (gvFee.IsValidRowHandle(e.FocusedRowHandle) && gvFee.GetFocusedRow() != null)
+            {
+                HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.FocusedRowHandle);
+                String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+                int hocKy = hOCPHITONGHOP.HOCKY;
+                var cthp = hocPhiDAL.DSCTHocPhi(textMaSV.EditValue.ToString(), nienKhoa, hocKy);
+                if(cthp.Response.State == ResponseState.Fail)
+                {
+                    return;
+                }
+                gCFeeDetail.DataSource = cthp.Data;
+            }
         }
     }
 

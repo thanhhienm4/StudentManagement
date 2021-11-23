@@ -109,6 +109,7 @@
     <Compile Include="Model\DANGKY.cs" />
     <Compile Include="Model\GIANGVIEN.cs" />
     <Compile Include="Model\HOCPHI.cs" />
+    <Compile Include="Model\HOCPHITONGHOP.cs" />
     <Compile Include="Model\KHOA.cs" />
     <Compile Include="Model\LOP.cs" />
     <Compile Include="Model\LOPTINCHI.cs" />
