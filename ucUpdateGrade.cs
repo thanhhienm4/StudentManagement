@@ -18,7 +18,8 @@ namespace StudentManagement
     {
         private LopTinChiDAL _lopTinChiDAL;
         private DangKyDAL _dangKyDAL;
-        
+        private SupportDAL _supportDAL;
+
         public ucUpdateGrade()
         {
             InitializeComponent();
@@ -26,6 +27,17 @@ namespace StudentManagement
             _lopTinChiDAL = new LopTinChiDAL();
             _dangKyDAL = new DangKyDAL();
             beSemester.EditValue = 1;
+
+
+
+            _supportDAL = new SupportDAL();
+            lkFaculty.DataSource = _supportDAL.GetListPhanManh();
+
+            lkFaculty.DisplayMember = "TENCN";
+            lkFaculty.ValueMember = "TENSERVER";
+            lkFaculty.PopulateColumns();
+            lkFaculty.Columns["TENSERVER"].Visible = false;
+            beFaculty.EditValue = Program.serverName;
         }
         public void InitialSchoolYear()
         {
@@ -105,6 +117,11 @@ namespace StudentManagement
             List<DANGKY> listDangky = (List<DANGKY>)gvUpdateGrade.DataSource;
             List<UpdateGrade> listUpdateGrade = listDangky.Select(x => new UpdateGrade(x)).ToList();
             var res = _dangKyDAL.UpdateDiem(listUpdateGrade);
+        }
+
+        private void beFaculty_EditValueChanged(object sender, EventArgs e)
+        {
+            Program.currentServer = (string)beFaculty.EditValue;
         }
     }
 }
