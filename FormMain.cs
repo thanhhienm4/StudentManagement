@@ -15,6 +15,9 @@ namespace StudentManagement
     {
 
         FormLogin fromLogin;
+        UcCreditClass ucCreditClass;
+        UCRegisterCreditClass uCRegisterCreditClass;
+        ucUpdateGrade ucUpdateGrade;
         public FormMain()
         {
             InitializeComponent();
@@ -58,9 +61,40 @@ namespace StudentManagement
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var ucCreditClass = new UcCreditClass();
+            if(ucCreditClass == null )
+                ucCreditClass = new UcCreditClass();
+
             ucCreditClass.Dock = DockStyle.Fill;
+
+            pnContent.Controls.Clear();
             pnContent.Controls.Add(ucCreditClass);
+
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var form = new TestAddLogin();
+            form.Show();
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (uCRegisterCreditClass == null)
+                uCRegisterCreditClass = new UCRegisterCreditClass();
+
+            uCRegisterCreditClass.Dock = DockStyle.Fill;
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(uCRegisterCreditClass);
+        }
+
+        private void beUpdateGrade_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (ucUpdateGrade == null)
+                ucUpdateGrade = new ucUpdateGrade();
+
+            ucUpdateGrade.Dock = DockStyle.Fill;
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(ucUpdateGrade);
 
         }
     }

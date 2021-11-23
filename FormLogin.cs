@@ -16,17 +16,27 @@ namespace StudentManagement
     public partial class FormLogin : Form
     {
         private static string serverName { get; set; }
+        private UserDAL userDAL { get; set; }
         public FormLogin()
         {
+
             InitializeComponent();
             Initial();
+            userDAL = new UserDAL();
         }
         void Initial()
         {
             SupportConnectionDAL connectionDAL = new SupportConnectionDAL();
-            cbx.DataSource = connectionDAL.GetSubscripton();
+            cbx.DataSource = connectionDAL.GetListPhanManh();
             cbx.DisplayMember = "TENCN";
             cbx.ValueMember = "TENSERVER";
+
+
+            cbxRole.Properties.Items.Add(Role.SV);
+            cbxRole.Properties.Items.Add(Role.KHOA);
+            cbxRole.Properties.Items.Add(Role.PGV);
+            
+
         }
         
         
@@ -39,42 +49,64 @@ namespace StudentManagement
         private void cbx_SelectedValueChanged(object sender, EventArgs e)
         {
 
-           Program.serverName = (cbx.SelectedItem as DataRowView).Row["TENSERVER"] as string;
-          
+           Program.serverName = Program.currentServer = (cbx.SelectedItem as ServerInfo).TENSERVER;
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
+        {
+            switch(cbxRole.EditValue)
+            {
+                case Role.SV: LoginStudent(); break;
+                case null: return;
+                default: LoginStaff(); break;
+                
+            }
+
+           
+
+        }
+        void LoginStudent()
+        {
+            Program.login = Program.loginStudent;
+            Program.password = Program.passwordStudent;
+            var res = userDAL.LoginStudent(tbLogin.Text.Trim(), tbPassword.Text.Trim());
+            if (res.Response.State == ResponseState.Fail)
+            {
+                lbMessage.Text = res.Response.Message;
+                return;
+            }
+            if (res.Data == null)
+                return;
+
+            Program.username = res.Data.USERNAME;
+            Program.fullName = res.Data.HOTEN;
+            Program.group = res.Data.TENNHOM;
+
+            this.DialogResult = DialogResult.OK;
+        }
+        void LoginStaff()
         {
             string login = tbLogin.Text.Trim();
             string password = tbPassword.Text;
 
             Program.login = login;
             Program.password = password;
-            
-            if(!BaseDAl.Connect())
+
+            var res = userDAL.Login(login);
+            if (res.Response.State == ResponseState.Fail)
             {
-                lbMessage.Text = "Lỗi đăng nhập"; 
+                lbMessage.Text = res.Response.Message;
                 return;
             }
 
-            string loginCommand = String.Format("exec[dbo].[SP_DANGNHAP] '{0}'", login);
-            var dataResponse = BaseDAl.GetDataReader(loginCommand);
+            Program.username = res.Data.USERNAME;
+            Program.fullName = res.Data.HOTEN;
+            Program.group = res.Data.TENNHOM;
 
-            if(dataResponse.Response.State == ResponseState.Success && dataResponse.Data.Read())
-            {
-                lbMessage.Text = "Đăng nhập thành công";
-
-                Program.username = dataResponse.Data.GetString(0);
-                Program.fullName = dataResponse.Data.GetString(1);
-                Program.group = dataResponse.Data.GetString(2);
-
-                this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                lbMessage.Text = "Lỗi hệ thống";
-            }    
-            
+            this.DialogResult = DialogResult.OK;
         }
+
     }
+    
 }

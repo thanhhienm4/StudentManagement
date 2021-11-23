@@ -15,10 +15,16 @@ namespace StudentManagement
         public static string username { get; set; }
         public static string fullName { get; set; }
         public static string group { get; set; }
+
+        public static string loginRemote = "HTKN";
+        public static string passwordRemote = "123456";
+        public static string loginStudent = "SV";
+        public static string passwordStudent = "123456";
+        public static string currentServer { get; set; }
+
         public static SqlDataReader dataReader { get; set; }
         public static SqlConnection conn { get; set; } 
         public static string conmStr { get; set; }
-
 
         [STAThread]
         static void Main()
@@ -26,6 +32,7 @@ namespace StudentManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain ());
+
         }
     }
 }

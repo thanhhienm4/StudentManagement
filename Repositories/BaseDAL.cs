@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Repositories
 {
-    public static class BaseDAl
+    public class BaseDAl
     {
 
 
@@ -18,9 +18,19 @@ namespace StudentManagement.Repositories
         {
             try
             {
-                Program.conmStr =
-                String.Format("Data Source={0} ;Database=QLDSV_TC ;Persist Security Info=True;User ID={1}; password={2}",
+                if(Program.currentServer == Program.serverName)
+                {
+                    Program.conmStr =
+                    String.Format("Data Source={0} ;Database=QLDSV_TC ;Persist Security Info=True;User ID={1}; password={2}",
                                     Program.serverName, Program.login, Program.password);
+                }else
+                {
+                    // user remote serversql
+                    Program.conmStr =
+                    String.Format("Data Source={0} ;Database=QLDSV_TC ;Persist Security Info=True;User ID={1}; password={2}",
+                                    Program.currentServer, Program.loginRemote, Program.passwordRemote);
+                }
+                
                 
                 //if(Program.conn == null)
                 Program.conn = new SqlConnection(Program.conmStr);
