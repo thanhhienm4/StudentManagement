@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StudentManagement.Model;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace StudentManagement
 {
@@ -38,17 +39,29 @@ namespace StudentManagement
             barEditItem1.EditValue = String.Format("{0}-{1}", now.Year, now.Year + 1);
         }
 
-        private void gridControl1_Click(object sender, EventArgs e)
+        private void gcFee_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("click1");
+        }
 
+        private void gcFeeDetail_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("click2");
         }
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //Console.WriteLine("OK");
             hocPhiDAL = new HocPhiDAL();
-            String MASV = textMaSV.EditValue.ToString();
+            
+            if (textMaSV.EditValue is null)
+            {
+                MessageBox.Show("Bạn chưa nhập mã sinh viên");
+                return;
+            }
+
+            String MASV = textMaSV.EditValue.ToString().Trim();
             var check = hocPhiDAL.CheckExistedSV(MASV);
+
             if (check.Data)
             {
                 var res = hocPhiDAL.TestInfoSinhvien(MASV);
@@ -67,7 +80,7 @@ namespace StudentManagement
             
             else
             {
-                MessageBox.Show("Bạn chưa nhập Mã sinh viên hoặc mã sinh viên không tồn tại", "", MessageBoxButtons.OK);
+                MessageBox.Show("Mã sinh viên không tồn tại", "", MessageBoxButtons.OK);
             }
 
             
@@ -92,6 +105,40 @@ namespace StudentManagement
                 }
                 gCFeeDetail.DataSource = cthp.Data;
             }
+        }
+
+        private void bButtonDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (GetSelelectRow(gvFee) == -1 && GetSelelectRow(gvFeeDetail) == -1)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để xóa", "", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                if(MessageBox.Show("Bạn có chắc chắn xóa?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if(GetSelelectRow(gvFee) != -1)
+                    {
+                        gvFee.DeleteSelectedRows();
+                    }
+                    else
+                    {
+                        gvFeeDetail.DeleteSelectedRows();
+                    }
+                        
+                }
+            }
+        }
+
+        private int GetSelelectRow(GridView grid)
+        {
+            int[] rows = grid.GetSelectedRows();
+            if (rows.Length == 0)
+            {
+                return -1;
+            }
+            return rows[0];
         }
     }
 

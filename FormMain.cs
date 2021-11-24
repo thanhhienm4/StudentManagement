@@ -116,9 +116,9 @@ namespace StudentManagement
         
         private void pktPermission()
         {
-            barButtonItem1.Enabled = false;
-            barButtonItem2.Enabled = false;
-            barButtonItem3.Enabled = false;
+            //barButtonItem1.Enabled = false;
+            //barButtonItem2.Enabled = false;
+            //barButtonItem3.Enabled = false;
             //barButtonItem4.Enabled = false;
         }
         private void khoaPermission()
@@ -126,7 +126,7 @@ namespace StudentManagement
             //barButtonItem1.Enabled = false;
             //barButtonItem2.Enabled = false;
             //barButtonItem3.Enabled = false;
-            barButtonItem4.Enabled = false;
+            //barButtonItem4.Enabled = false;
         }
 
         private void decentralization()

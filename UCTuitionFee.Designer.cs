@@ -159,7 +159,7 @@ namespace StudentManagement
             // 
             this.bButtonSave.Caption = "Lưu";
             this.bButtonSave.Id = 7;
-            this.bButtonSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
+            this.bButtonSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonSave.ImageOptions.SvgImage")));
             this.bButtonSave.Name = "bButtonSave";
             this.bButtonSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
@@ -167,15 +167,16 @@ namespace StudentManagement
             // 
             this.bButtonDelete.Caption = "Xóa";
             this.bButtonDelete.Id = 8;
-            this.bButtonDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+            this.bButtonDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonDelete.ImageOptions.SvgImage")));
             this.bButtonDelete.Name = "bButtonDelete";
             this.bButtonDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bButtonDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bButtonDelete_ItemClick);
             // 
             // bButtonInsert
             // 
             this.bButtonInsert.Caption = "Thêm";
             this.bButtonInsert.Id = 9;
-            this.bButtonInsert.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
+            this.bButtonInsert.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonInsert.ImageOptions.SvgImage")));
             this.bButtonInsert.Name = "bButtonInsert";
             this.bButtonInsert.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
@@ -183,7 +184,7 @@ namespace StudentManagement
             // 
             this.bButtonUndo.Caption = "Hoàn tác";
             this.bButtonUndo.Id = 10;
-            this.bButtonUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem5.ImageOptions.SvgImage")));
+            this.bButtonUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonUndo.ImageOptions.SvgImage")));
             this.bButtonUndo.Name = "bButtonUndo";
             this.bButtonUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
@@ -272,31 +273,35 @@ namespace StudentManagement
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(701, 61);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlTop.Size = new System.Drawing.Size(601, 49);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 520);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 419);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(701, 20);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlBottom.Size = new System.Drawing.Size(601, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 61);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 49);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 459);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 370);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(701, 61);
+            this.barDockControlRight.Location = new System.Drawing.Point(601, 49);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 459);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 370);
             // 
             // barButtonItem1
             // 
@@ -394,26 +399,29 @@ namespace StudentManagement
             this.groupControl1.Controls.Add(this.gCFee);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(701, 213);
+            this.groupControl1.Size = new System.Drawing.Size(601, 173);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "Học phí";
             // 
             // gCFee
             // 
             this.gCFee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gCFee.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             gridLevelNode3.RelationName = "Level1";
             this.gCFee.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode3});
-            this.gCFee.Location = new System.Drawing.Point(2, 28);
+            this.gCFee.Location = new System.Drawing.Point(2, 23);
             this.gCFee.MainView = this.gvFee;
+            this.gCFee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gCFee.MenuManager = this.barManager1;
             this.gCFee.Name = "gCFee";
-            this.gCFee.Size = new System.Drawing.Size(697, 183);
+            this.gCFee.Size = new System.Drawing.Size(597, 148);
             this.gCFee.TabIndex = 0;
             this.gCFee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFee});
-            this.gCFee.Click += new System.EventHandler(this.gridControl1_Click);
+            this.gCFee.Click += new System.EventHandler(this.gcFee_Click);
             // 
             // gvFee
             // 
@@ -423,6 +431,7 @@ namespace StudentManagement
             this.hocPhi,
             this.soTienDaDong,
             this.soTienCanDong});
+            this.gvFee.DetailHeight = 284;
             this.gvFee.GridControl = this.gCFee;
             this.gvFee.Name = "gvFee";
             this.gvFee.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridFee_FocusedRowChanged);
@@ -431,130 +440,146 @@ namespace StudentManagement
             // 
             this.nienKhoa.Caption = "Niên khóa";
             this.nienKhoa.FieldName = "NIENKHOA";
-            this.nienKhoa.MinWidth = 25;
+            this.nienKhoa.MinWidth = 21;
             this.nienKhoa.Name = "nienKhoa";
             this.nienKhoa.Visible = true;
             this.nienKhoa.VisibleIndex = 0;
-            this.nienKhoa.Width = 94;
+            this.nienKhoa.Width = 81;
             // 
             // hocKy
             // 
             this.hocKy.Caption = "Học kỳ";
             this.hocKy.FieldName = "HOCKY";
-            this.hocKy.MinWidth = 25;
+            this.hocKy.MinWidth = 21;
             this.hocKy.Name = "hocKy";
             this.hocKy.Visible = true;
             this.hocKy.VisibleIndex = 1;
-            this.hocKy.Width = 94;
+            this.hocKy.Width = 81;
             // 
             // hocPhi
             // 
             this.hocPhi.Caption = "Học phí";
+            this.hocPhi.DisplayFormat.FormatString = "n0";
+            this.hocPhi.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.hocPhi.FieldName = "HOCPHI";
-            this.hocPhi.MinWidth = 25;
+            this.hocPhi.MinWidth = 21;
             this.hocPhi.Name = "hocPhi";
             this.hocPhi.Visible = true;
             this.hocPhi.VisibleIndex = 2;
-            this.hocPhi.Width = 94;
+            this.hocPhi.Width = 81;
             // 
             // soTienDaDong
             // 
             this.soTienDaDong.Caption = "Số tiền đã đóng";
+            this.soTienDaDong.DisplayFormat.FormatString = "n0";
+            this.soTienDaDong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.soTienDaDong.FieldName = "DADONG";
-            this.soTienDaDong.MinWidth = 25;
+            this.soTienDaDong.MinWidth = 21;
             this.soTienDaDong.Name = "soTienDaDong";
             this.soTienDaDong.Visible = true;
             this.soTienDaDong.VisibleIndex = 3;
-            this.soTienDaDong.Width = 94;
+            this.soTienDaDong.Width = 81;
             // 
             // soTienCanDong
             // 
             this.soTienCanDong.Caption = "Số tiền cần đóng";
-            this.soTienCanDong.MinWidth = 25;
+            this.soTienCanDong.DisplayFormat.FormatString = "n0";
+            this.soTienCanDong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.soTienCanDong.MinWidth = 21;
             this.soTienCanDong.Name = "soTienCanDong";
             this.soTienCanDong.Visible = true;
             this.soTienCanDong.VisibleIndex = 4;
-            this.soTienCanDong.Width = 94;
+            this.soTienCanDong.Width = 81;
             // 
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.gCFeeDetail);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(701, 234);
+            this.groupControl2.Size = new System.Drawing.Size(601, 187);
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "Chi tiết đóng học phí";
             // 
             // gCFeeDetail
             // 
             this.gCFeeDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gCFeeDetail.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             gridLevelNode1.RelationName = "Level1";
             this.gCFeeDetail.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gCFeeDetail.Location = new System.Drawing.Point(2, 28);
+            this.gCFeeDetail.Location = new System.Drawing.Point(2, 23);
             this.gCFeeDetail.MainView = this.gvFeeDetail;
+            this.gCFeeDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gCFeeDetail.MenuManager = this.barManager1;
             this.gCFeeDetail.Name = "gCFeeDetail";
-            this.gCFeeDetail.Size = new System.Drawing.Size(697, 204);
+            this.gCFeeDetail.Size = new System.Drawing.Size(597, 162);
             this.gCFeeDetail.TabIndex = 0;
             this.gCFeeDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFeeDetail});
+            this.gCFeeDetail.Click += new System.EventHandler(this.gcFeeDetail_Click);
             // 
             // gvFeeDetail
             // 
             this.gvFeeDetail.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.ngayDong,
             this.soTienDong});
+            this.gvFeeDetail.DetailHeight = 284;
             this.gvFeeDetail.GridControl = this.gCFeeDetail;
             this.gvFeeDetail.Name = "gvFeeDetail";
             // 
             // ngayDong
             // 
             this.ngayDong.Caption = "Ngày đóng";
+            this.ngayDong.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.ngayDong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.ngayDong.FieldName = "NGAYDONG";
-            this.ngayDong.MinWidth = 25;
+            this.ngayDong.MinWidth = 21;
             this.ngayDong.Name = "ngayDong";
             this.ngayDong.Visible = true;
             this.ngayDong.VisibleIndex = 0;
-            this.ngayDong.Width = 94;
+            this.ngayDong.Width = 81;
             // 
             // soTienDong
             // 
             this.soTienDong.Caption = "Số tiền đóng";
+            this.soTienDong.DisplayFormat.FormatString = "n0";
+            this.soTienDong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.soTienDong.FieldName = "SOTIENDONG";
-            this.soTienDong.MinWidth = 25;
+            this.soTienDong.MinWidth = 21;
             this.soTienDong.Name = "soTienDong";
             this.soTienDong.Visible = true;
             this.soTienDong.VisibleIndex = 1;
-            this.soTienDong.Width = 94;
+            this.soTienDong.Width = 81;
             // 
             // splitCC
             // 
             this.splitCC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitCC.Horizontal = false;
-            this.splitCC.Location = new System.Drawing.Point(0, 61);
-            this.splitCC.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.splitCC.Location = new System.Drawing.Point(0, 49);
+            this.splitCC.Margin = new System.Windows.Forms.Padding(2);
             this.splitCC.Name = "splitCC";
             this.splitCC.Panel1.Controls.Add(this.groupControl1);
             this.splitCC.Panel1.Text = "Panel1";
             this.splitCC.Panel2.Controls.Add(this.groupControl2);
             this.splitCC.Panel2.Text = "Panel2";
-            this.splitCC.Size = new System.Drawing.Size(701, 459);
-            this.splitCC.SplitterPosition = 213;
+            this.splitCC.Size = new System.Drawing.Size(601, 370);
+            this.splitCC.SplitterPosition = 173;
             this.splitCC.TabIndex = 13;
             // 
             // UCTuitionFee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitCC);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UCTuitionFee";
-            this.Size = new System.Drawing.Size(701, 540);
+            this.Size = new System.Drawing.Size(601, 439);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
