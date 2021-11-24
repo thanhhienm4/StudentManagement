@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using System;
+using StudentManagement.Model;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace StudentManagement
         FormLogin fromLogin;
         UcCreditClass ucCreditClass;
         UCRegisterCreditClass uCRegisterCreditClass;
+        UCTuitionFee uCTuitionFee;
         ucUpdateGrade ucUpdateGrade;
         public FormMain()
         {
@@ -47,7 +49,7 @@ namespace StudentManagement
             bbtnCode.Caption = Program.username;
             bbtnFullName.Caption = Program.fullName;
             bbtnGroup.Caption = Program.group;
-           
+            decentralization();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -85,6 +87,59 @@ namespace StudentManagement
             uCRegisterCreditClass.Dock = DockStyle.Fill;
             pnContent.Controls.Clear();
             pnContent.Controls.Add(uCRegisterCreditClass);
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (uCTuitionFee == null)
+                uCTuitionFee = new UCTuitionFee();
+
+            uCTuitionFee.Dock = DockStyle.Fill;
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(uCTuitionFee);
+        }
+
+        private void svPermission()
+        {
+            //barButtonItem1.Enabled = false;
+            //barButtonItem2.Enabled = false;
+            //barButtonItem3.Enabled = false;
+            //barButtonItem4.Enabled = false;
+        }
+
+        private void pgvPermission()
+        {
+            //barButtonItem1.Enabled = false;
+            //barButtonItem2.Enabled = false;
+            //barButtonItem3.Enabled = false;
+            //barButtonItem4.Enabled = false;
+        }
+        
+        private void pktPermission()
+        {
+            //barButtonItem1.Enabled = false;
+            //barButtonItem2.Enabled = false;
+            //barButtonItem3.Enabled = false;
+            //barButtonItem4.Enabled = false;
+        }
+        private void khoaPermission()
+        {
+            //barButtonItem1.Enabled = false;
+            //barButtonItem2.Enabled = false;
+            //barButtonItem3.Enabled = false;
+            //barButtonItem4.Enabled = false;
+        }
+
+        private void decentralization()
+        {
+            switch (bbtnGroup.ToString())
+            {
+                case Role.SV : svPermission(); break;
+                case Role.PGV: pgvPermission(); break;
+                case Role.PKT: pktPermission(); break;
+                case Role.KHOA: khoaPermission(); break;
+                default: return;
+            }
         }
 
         private void beUpdateGrade_ItemClick(object sender, ItemClickEventArgs e)

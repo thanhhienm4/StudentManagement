@@ -122,6 +122,7 @@
     <Compile Include="Model\DANGKY.cs" />
     <Compile Include="Model\GIANGVIEN.cs" />
     <Compile Include="Model\HOCPHI.cs" />
+    <Compile Include="Model\HOCPHITONGHOP.cs" />
     <Compile Include="Model\KHOA.cs" />
     <Compile Include="Model\LOP.cs" />
     <Compile Include="Model\LOPTINCHI.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Model\Response.cs" />
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\ServerInfo.cs" />
+    <Compile Include="Model\SINHVIEN.cs" />
     <Compile Include="Model\UpdateDangKy.cs" />
     <Compile Include="Model\UpdateGrade.cs" />
     <Compile Include="Model\UpdateLopTinChi.cs" />
@@ -138,6 +140,7 @@
     <Compile Include="Repositories\BaseDAL.cs" />
     <Compile Include="Repositories\DangKyDAL.cs" />
     <Compile Include="Repositories\GiangVienDAL.cs" />
+    <Compile Include="Repositories\HocPhiDAL.cs" />
     <Compile Include="Repositories\LopTinChiDAL.cs" />
     <Compile Include="Repositories\MonHocDAL.cs" />
     <Compile Include="Repositories\SupportDAL.cs" />
@@ -165,6 +168,12 @@
     </Compile>
     <Compile Include="ucUpdateGrade.Designer.cs">
       <DependentUpon>ucUpdateGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCTuitionFee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCTuitionFee.Designer.cs">
+      <DependentUpon>UCTuitionFee.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -196,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucUpdateGrade.resx">
       <DependentUpon>ucUpdateGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCTuitionFee.resx">
+      <DependentUpon>UCTuitionFee.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -253,6 +265,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\modifytablestyle.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guid.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

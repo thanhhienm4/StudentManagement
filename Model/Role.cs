@@ -11,5 +11,7 @@ namespace StudentManagement.Model
         public const string SV = "SV";
         public const string KHOA = "KHOA";
         public const string PGV = "PGV";
+        public const string PKT = "PKT";
+        public const string GIANGVIEN = "GIANGVIEN";
     }
 }

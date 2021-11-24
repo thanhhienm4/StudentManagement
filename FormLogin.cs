@@ -33,8 +33,10 @@ namespace StudentManagement
 
 
             cbxRole.Properties.Items.Add(Role.SV);
-            cbxRole.Properties.Items.Add(Role.KHOA);
-            cbxRole.Properties.Items.Add(Role.PGV);
+            //cbxRole.Properties.Items.Add(Role.KHOA);
+            //cbxRole.Properties.Items.Add(Role.PGV);
+            //cbxRole.Properties.Items.Add(Role.PKT);
+            cbxRole.Properties.Items.Add(Role.GIANGVIEN);
             
 
         }
