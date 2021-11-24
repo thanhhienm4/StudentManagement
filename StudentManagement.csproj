@@ -142,12 +142,6 @@
     <Compile Include="Repositories\MonHocDAL.cs" />
     <Compile Include="Repositories\SupportDAL.cs" />
     <Compile Include="Repositories\UserDAL.cs" />
-    <Compile Include="test.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
-    </Compile>
     <Compile Include="TestAddLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,9 +184,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="test.resx">
-      <DependentUpon>test.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TestAddLogin.resx">
       <DependentUpon>TestAddLogin.cs</DependentUpon>
     </EmbeddedResource>
