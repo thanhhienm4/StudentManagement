@@ -9,7 +9,7 @@ using System.Linq;
 namespace StudentManagement.Repositories
 {
 
-    public class SupportConnectionDAL
+    public class SupportDAL
     {
         private static string connStr = ConfigurationManager.ConnectionStrings["SupportConnection"].ConnectionString;
         private SqlConnection conn = new SqlConnection(connStr);

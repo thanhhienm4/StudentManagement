@@ -33,7 +33,7 @@ namespace StudentManagement
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.beFaculty = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.lkFaculty = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.beSchoolYear = new DevExpress.XtraBars.BarEditItem();
             this.cbxSchoolYear = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.beSemester = new DevExpress.XtraBars.BarEditItem();
@@ -64,7 +64,7 @@ namespace StudentManagement
             this.DIEM_GK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DIEM_CK = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSchoolYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -97,7 +97,7 @@ namespace StudentManagement
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cbxSchoolYear,
             this.repositoryItemSpinEdit1,
-            this.repositoryItemLookUpEdit1});
+            this.lkFaculty});
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -119,18 +119,19 @@ namespace StudentManagement
             // beFaculty
             // 
             this.beFaculty.Caption = "Khoa";
-            this.beFaculty.Edit = this.repositoryItemLookUpEdit1;
+            this.beFaculty.Edit = this.lkFaculty;
             this.beFaculty.Id = 5;
             this.beFaculty.Name = "beFaculty";
             this.beFaculty.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.beFaculty.EditValueChanged += new System.EventHandler(this.beFaculty_EditValueChanged);
             // 
-            // repositoryItemLookUpEdit1
+            // lkFaculty
             // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lkFaculty.AutoHeight = false;
+            this.lkFaculty.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            this.repositoryItemLookUpEdit1.NullText = "";
+            this.lkFaculty.Name = "lkFaculty";
+            this.lkFaculty.NullText = "";
             // 
             // beSchoolYear
             // 
@@ -439,7 +440,7 @@ namespace StudentManagement
             this.Name = "ucUpdateGrade";
             this.Size = new System.Drawing.Size(932, 569);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSchoolYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
@@ -471,7 +472,7 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarButtonItem beSave;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarEditItem beFaculty;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lkFaculty;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl gcUpdateGrade;
         private DevExpress.XtraGrid.Views.Grid.GridView gvUpdateGrade;

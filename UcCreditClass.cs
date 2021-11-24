@@ -30,7 +30,7 @@ namespace StudentManagement
 
            
 
-            SupportConnectionDAL connectionDAL = new SupportConnectionDAL();
+            SupportDAL connectionDAL = new SupportDAL();
             lkFaculty.DataSource = connectionDAL.GetListPhanManh();
 
             lkFaculty.DisplayMember = "TENCN";
