@@ -41,12 +41,12 @@ namespace StudentManagement
 
         private void gcFee_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("click1");
+            Console.WriteLine("click111");
         }
 
         private void gcFeeDetail_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("click2");
+            Console.WriteLine("click222");
         }
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
