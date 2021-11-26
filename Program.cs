@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentManagement.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace StudentManagement
 
         public static SqlDataReader dataReader { get; set; }
         public static SqlConnection conn { get; set; } 
+        public static List<ServerInfo> servers { get; set; }
         public static string conmStr { get; set; }
 
         [STAThread]

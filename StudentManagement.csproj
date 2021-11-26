@@ -70,6 +70,7 @@
     <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -116,6 +117,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCreditClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreditClass.Designer.cs">
+      <DependentUpon>FormCreditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,12 +187,6 @@
     <Compile Include="UCRegisterCreditClass.Designer.cs">
       <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucReportCreditClass.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucReportCreditClass.Designer.cs">
-      <DependentUpon>ucReportCreditClass.cs</DependentUpon>
-    </Compile>
     <Compile Include="ucUpdateGrade.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +201,9 @@
     </Compile>
     <Compile Include="Undo\ActionUndo.cs" />
     <Compile Include="Undo\SUndo.cs" />
+    <EmbeddedResource Include="FormCreditClass.resx">
+      <DependentUpon>FormCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,9 +234,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCRegisterCreditClass.resx">
       <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ucReportCreditClass.resx">
-      <DependentUpon>ucReportCreditClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUpdateGrade.resx">
       <DependentUpon>ucUpdateGrade.cs</DependentUpon>
@@ -301,6 +302,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\redo.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_refresh1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printtitles.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defaultprinter.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

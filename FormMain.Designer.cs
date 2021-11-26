@@ -29,6 +29,7 @@ namespace StudentManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbtnCode = new DevExpress.XtraBars.BarButtonItem();
@@ -38,15 +39,21 @@ namespace StudentManagement
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.beUpdateGrade = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bbReports = new DevExpress.XtraBars.BarSubItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.pnContent = new DevExpress.XtraEditors.PanelControl();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.pnContent = new DevExpress.XtraEditors.PanelControl();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,14 +69,17 @@ namespace StudentManagement
             this.barButtonItem1,
             this.barButtonItem2,
             this.barButtonItem3,
-            this.beUpdateGrade});
+            this.beUpdateGrade,
+            this.bbReports,
+            this.barButtonItem5,
+            this.barButtonItem6});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ribbon.MaxItemId = 8;
+            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbon.MaxItemId = 17;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(814, 193);
+            this.ribbon.Size = new System.Drawing.Size(1297, 231);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // bbtnCode
@@ -125,13 +135,30 @@ namespace StudentManagement
             this.beUpdateGrade.Name = "beUpdateGrade";
             this.beUpdateGrade.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beUpdateGrade_ItemClick);
             // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbon;
+            // 
+            // bbReports
+            // 
+            this.bbReports.Caption = "Báo cáo";
+            this.bbReports.Id = 14;
+            this.bbReports.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.defaultprinter;
+            this.bbReports.LargeWidth = 80;
+            this.bbReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
+            this.bbReports.Name = "bbReports";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
             this.ribbonPageGroup3,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup5});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Chức năng";
             // 
@@ -151,26 +178,6 @@ namespace StudentManagement
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.bbtnCode);
-            this.ribbonStatusBar.ItemLinks.Add(this.bbtnFullName);
-            this.ribbonStatusBar.ItemLinks.Add(this.bbtnGroup);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 476);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(814, 30);
-            // 
-            // pnContent
-            // 
-            this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContent.Location = new System.Drawing.Point(0, 193);
-            this.pnContent.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pnContent.Name = "pnContent";
-            this.pnContent.Size = new System.Drawing.Size(814, 283);
-            this.pnContent.TabIndex = 2;
-            // 
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem4);
@@ -184,15 +191,53 @@ namespace StudentManagement
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbReports);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.bbtnCode);
+            this.ribbonStatusBar.ItemLinks.Add(this.bbtnFullName);
+            this.ribbonStatusBar.ItemLinks.Add(this.bbtnGroup);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 613);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1297, 36);
+            // 
+            // pnContent
+            // 
+            this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnContent.Location = new System.Drawing.Point(0, 231);
+            this.pnContent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnContent.Name = "pnContent";
+            this.pnContent.Size = new System.Drawing.Size(1297, 382);
+            this.pnContent.TabIndex = 2;
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Lớp tín chi";
+            this.barButtonItem5.Id = 15;
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Bảng điểm";
+            this.barButtonItem6.Id = 16;
+            this.barButtonItem6.Name = "barButtonItem6";
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 506);
+            this.ClientSize = new System.Drawing.Size(1297, 649);
             this.Controls.Add(this.pnContent);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormMain";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -200,6 +245,7 @@ namespace StudentManagement
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -224,5 +270,10 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarButtonItem beUpdateGrade;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarSubItem bbReports;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
     }
 }
