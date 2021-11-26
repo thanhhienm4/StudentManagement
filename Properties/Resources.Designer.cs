@@ -143,6 +143,16 @@ namespace StudentManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage redo {
+            get {
+                object obj = ResourceManager.GetObject("redo", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage save_as {
             get {
                 object obj = ResourceManager.GetObject("save as", resourceCulture);
