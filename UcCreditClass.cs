@@ -10,6 +10,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Linq;
+using System.ComponentModel;
+using StudentManagement.Undo;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace StudentManagement
 {
@@ -19,13 +22,16 @@ namespace StudentManagement
         private LopTinChiDAL lopTinChiDAL;
         private GiangVienDAL giangVienDAL;
         private MonHocDAL monHocDAL;
+        private SUndo undo;
+        private bool stateUndo;
         public UcCreditClass()
         {
             InitializeComponent();
             lopTinChiDAL = new LopTinChiDAL();
             giangVienDAL = new GiangVienDAL();
             monHocDAL = new MonHocDAL();
-
+            undo = new SUndo();
+            stateUndo = false;
 
 
            
@@ -38,20 +44,12 @@ namespace StudentManagement
             lkFaculty.PopulateColumns();
             lkFaculty.Columns["TENSERVER"].Visible = false;
             bEFaculty.EditValue = Program.serverName;
+            
 
-            lkSubject.Properties.DataSource = monHocDAL.GetListMonHoc().Data;
-
-            lkTeacher.Properties.DataSource = giangVienDAL.GetListGiangVien().Data;
 
 
             InitialSchoolYear();
             bESemester.EditValue = 1;
-            tbxIdClass.Enabled = false;
-            tbxSchoolYear.Enabled = false;
-            nmuSemester.Enabled = false;
-
-            btnCancelInsert.Visible = false;
-            btnInsert.Visible = false;
 
 
             LoadData(); 
@@ -93,9 +91,6 @@ namespace StudentManagement
             this.dSSPCreditClass.SuspendBinding();
             gvCreditClass.FocusInvalidRow();
             isInsert = true;
-            btnCancelInsert.Visible = true;
-            btnInsert.Visible = true;
-            ckCancel.Visible = false;
            
         }
 
@@ -118,7 +113,17 @@ namespace StudentManagement
             }else
             {
                 //  notify error
-                gvCreditClass.DeleteSelectedRows();
+                if (GetSelelectRow() != -1)
+                {
+                    LOPTINCHI lOPTINCHI = (LOPTINCHI)gvCreditClass.GetRow(GetSelelectRow());
+                    undo.Push(new ActionUndo(3, GetSelelectRow(), lOPTINCHI), new ActionUndo(2, GetSelelectRow(), null));
+                    gvCreditClass.DeleteSelectedRows();
+                    return;
+
+                }
+                   
+
+              
             }
 
             
@@ -132,6 +137,7 @@ namespace StudentManagement
         }
         private void LoadData()
         {
+           
             string nienKhoa = bESchoolYear.EditValue.ToString();
             int hocKy = int.Parse(bESemester.EditValue.ToString());
 
@@ -140,74 +146,31 @@ namespace StudentManagement
             {
                 // Notify error
             }
-            gcCreditClass.DataSource = res.Data;
+
+            gcCreditClass.DataSource = new BindingList<LOPTINCHI>(res.Data);
+            //gcCreditClass.DataSource = res.Data;
             gvCreditClass.FocusInvalidRow();
-        }
-
-        private void btnCancelInsert_Click(object sender, EventArgs e)
-        {
-            isInsert = false;
-            btnCancelInsert.Visible = false;
-            btnInsert.Visible = false;
-        }
-
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            gvCreditClass.AddNewRow();
-
-
-            LOPTINCHI lOPTINCHI = new LOPTINCHI()
-            {
-                MAKHOA = "CNTT",
-                MAMH = lkSubject.EditValue as string,
-                MAGV = lkTeacher.EditValue as string,
-                TENGV = lkTeacher.Text as string,
-                HUYLOP = false,
-                NHOM = Convert.ToInt32(nmuGroup.EditValue),
-                SOSVTOITHIEU = Convert.ToInt32(nmuMininumStudent.EditValue),
-                MALTC = 0,
-                TENMH = lkSubject.Text as string,
-                NIENKHOA = bESchoolYear.EditValue.ToString(),
-                HOCKY = Convert.ToInt32(bESemester.EditValue)
-        };
-            nmuGroup.EditValue.ToString();
-            nmuMininumStudent.EditValue.ToString();
-
-
-
-            var data = (List<LOPTINCHI>)gvCreditClass.DataSource;
-            data.Add(lOPTINCHI);
-            gcCreditClass.RefreshDataSource();
+            rilkMAMH.DataSource = new MonHocDAL().GetListMonHoc().Data;
+            rilkMAGV.DataSource = new GiangVienDAL().GetListGiangVien().Data;
         }
 
         private void bESchoolYear_EditValueChanged(object sender, EventArgs e)
         {
-            tbxSchoolYear.EditValue = bESchoolYear.EditValue;
+            //tbxSchoolYear.EditValue = bESchoolYear.EditValue;
             
         }
 
         private void bESemester_EditValueChanged(object sender, EventArgs e)
         {
-            nmuSemester.EditValue = bESemester.EditValue;
+            //nmuSemester.EditValue = bESemester.EditValue;
         }
 
         
 
         private void gvCreditClass_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (isInsert)
-                return;
-            int row = GetSelelectRow();
-            if (row == -1)
-                return;
-
-            LOPTINCHI lOPTINCHI = (LOPTINCHI)gvCreditClass.GetRow(row);
-            tbxIdClass.EditValue = lOPTINCHI.MALTC;
-            lkTeacher.EditValue = lOPTINCHI.MAGV;
-            lkSubject.EditValue = lOPTINCHI.MAMH;
-            nmuGroup.EditValue = lOPTINCHI.NHOM;
-            nmuMininumStudent.EditValue = lOPTINCHI.SOSVTOITHIEU;
-            ckCancel.EditValue = lOPTINCHI.HUYLOP;
+  
+               
 
         }
 
@@ -219,49 +182,7 @@ namespace StudentManagement
             return rows[0];
         }
 
-        private void lkSubject_EditValueChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void nmuGroup_EditValueChanged(object sender, EventArgs e)
-        {
-            if (isInsert == true)
-                return;
-            int row = GetSelelectRow();
-            if (row == -1)
-                return;
-
-            gvCreditClass.SetRowCellValue(row, "NHOM", nmuGroup.EditValue);
-        }
-
-        private void lkTeacher_EditValueChanged(object sender, EventArgs e)
-        {
-            if (isInsert == true)
-                return;
-            int row = GetSelelectRow();
-            if (row == -1)
-                return;
-            if (gvCreditClass.GetRowCellValue(row, "MAGV") == lkTeacher.EditValue)
-                return;
-
-            gvCreditClass.SetRowCellValue(row, "MAGV", lkTeacher.EditValue);
-            gvCreditClass.SetRowCellValue(row, "TENGV", lkTeacher.Text);
-          
-
-        }
-
-        private void nmuMininumStudent_EditValueChanged(object sender, EventArgs e)
-        {
-            if (isInsert == true)
-                return;
-            int row = GetSelelectRow();
-            if (row == -1)
-                return;
-
-            gvCreditClass.SetRowCellValue(row, "SOSVTOITHIEU", nmuMininumStudent.EditValue);
-        }
+      
 
         private void ckCancel_CheckedChanged(object sender, EventArgs e)
         {
@@ -271,14 +192,15 @@ namespace StudentManagement
             if (row == -1)
                 return;
 
-            gvCreditClass.SetRowCellValue(row, "HUYLOP", ckCancel.EditValue);
+          
         }
 
         private void bESave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             gvCreditClass.FocusInvalidRow();
             List<UpdateLopTinChi> listUpdate;
-            listUpdate = ((List<LOPTINCHI>)gvCreditClass.DataSource).Select(x => new UpdateLopTinChi(x)).ToList();
+            var binding = (BindingList<LOPTINCHI>)gvCreditClass.DataSource;
+            listUpdate =  binding.ToList().Select(x => new UpdateLopTinChi(x)).ToList();
             string nienKhoa = bESchoolYear.EditValue as string;
             int hocky = Convert.ToInt32( bESemester.EditValue);
             var res = lopTinChiDAL.UpdateLopTinChi(listUpdate,nienKhoa,hocky);
@@ -293,25 +215,95 @@ namespace StudentManagement
 
         }
 
-        private void lkSubject_EnabledChanged(object sender, EventArgs e)
+       
+        private void rilkMAMH_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            gvCreditClass.FocusInvalidRow();
+            if (e.NewValue == null)
+                return;
+            MONHOC mONHOC = ((List<MONHOC>)rilkMAMH.DataSource).FirstOrDefault(x => x.MAMH == e.NewValue.ToString());
+            if (mONHOC == null)
+                return;
+            gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "TENMH", mONHOC.TENMH);
+        }
+
+        private void gcCreditClass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gvCreditClass_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
             
         }
 
-        private void lkSubject_EditValueChanged_1(object sender, EventArgs e)
+        private void rilkMAGV_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            if (isInsert == true)
+            if (e.NewValue == null)
                 return;
-            int row = GetSelelectRow();
-            if (row == -1)
+            GIANGVIEN gIANGVIEN = ((List<GIANGVIEN>)rilkMAGV.DataSource).FirstOrDefault(x => x.MAGV == e.NewValue.ToString());
+            if (gIANGVIEN == null)
+                return;
+            gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "TENGV", gIANGVIEN.HOTEN);
+        }
+
+        private void gvCreditClass_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            if (stateUndo)
+                return;
+            undo.Push(new ActionUndo(2, gvCreditClass.RowCount, null), new ActionUndo(3, GetSelelectRow(), new LOPTINCHI()));
+        }
+
+        private void bEUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+            ChangeUndoAction(undo.Before());
+        }
+
+        private void beRedo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ChangeUndoAction(undo.After());
+        }
+        void ChangeUndoAction(ActionUndo action)
+        {
+            if (action == null)
+                return;
+            stateUndo = true;
+            switch (action.type)
+            {
+                case 1:
+                    GridCell cell = action.obj as GridCell;
+                    gvCreditClass.SetRowCellValue(gvCreditClass.GetRowHandle(cell.RowHandle), cell.Column, action.value);
+                    Console.WriteLine(gvCreditClass.GetRowCellValue(gvCreditClass.GetRowHandle(cell.RowHandle), cell.Column));
+                    gvCreditClass.FocusedRowHandle = cell.RowHandle;
+                    break;
+                case 2:
+                    int row = (int)action.obj;
+                    gvCreditClass.DeleteRow(row - 1);
+                    break;
+                case 3:
+
+                    List<LOPTINCHI> LOPTINCHIs = (gvCreditClass.DataSource as BindingList<LOPTINCHI>).ToList();
+                    LOPTINCHIs.Insert(int.Parse(action.obj.ToString()), action.value as LOPTINCHI);
+                   
+                    gcCreditClass.DataSource = new BindingList<LOPTINCHI>(LOPTINCHIs);
+                    gvCreditClass.FocusedRowHandle = int.Parse(action.obj.ToString());
+                    break;
+            }
+            stateUndo = false;
+        }
+
+        private void gvCreditClass_CellValueChanging(object sender, CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "TENGV" || e.Column.FieldName == "TENMH" || e.Column.FieldName == "MALTC")
                 return;
 
-            if (gvCreditClass.GetRowCellValue(row, "MAMH") == lkSubject.EditValue)
+            if (stateUndo)
                 return;
-
-            gvCreditClass.SetRowCellValue(row, "MAMH", lkSubject.EditValue);
-            gvCreditClass.SetRowCellValue(row, "TENMH", lkSubject.Text);
+            GridView view = sender as GridView;
+            GridCell gc = new GridCell(view.GetDataSourceRowIndex(e.RowHandle), e.Column);
+            var value = (sender as GridView).GetRowCellValue(gc.RowHandle, gc.Column.FieldName);
+            ActionUndo action = new ActionUndo(1, gc, value);
+            undo.Push(action, new ActionUndo(1, gc, e.Value));
         }
     }
 }

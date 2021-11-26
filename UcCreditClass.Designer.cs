@@ -30,13 +30,6 @@ namespace StudentManagement
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label mALTCLabel;
-            System.Windows.Forms.Label nIENKHOALabel;
-            System.Windows.Forms.Label hOCKYLabel;
-            System.Windows.Forms.Label mAMHLabel;
-            System.Windows.Forms.Label nHOMLabel;
-            System.Windows.Forms.Label sOSVTOITHIEULabel;
-            System.Windows.Forms.Label mAGVLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcCreditClass));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gcCreditClass = new DevExpress.XtraGrid.GridControl();
@@ -45,17 +38,18 @@ namespace StudentManagement
             this.colMALTC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNIENKHOA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rilkMAMH = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colHOCKY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNHOM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOSVTOITHIEU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rilkMAGV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colTENGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHOA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENKHOA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHUYLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -73,19 +67,7 @@ namespace StudentManagement
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.pncInfo = new DevExpress.XtraEditors.PanelControl();
-            this.lkSubject = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnInsert = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancelInsert = new DevExpress.XtraEditors.SimpleButton();
-            this.ckCancel = new DevExpress.XtraEditors.CheckEdit();
-            this.lkTeacher = new DevExpress.XtraEditors.LookUpEdit();
             this.bSTeacher = new System.Windows.Forms.BindingSource(this.components);
-            this.nmuMininumStudent = new DevExpress.XtraEditors.SpinEdit();
-            this.nmuGroup = new DevExpress.XtraEditors.SpinEdit();
-            this.nmuSemester = new DevExpress.XtraEditors.SpinEdit();
-            this.tbxSchoolYear = new DevExpress.XtraEditors.TextEdit();
-            this.tbxIdClass = new DevExpress.XtraEditors.TextEdit();
             this.bSSubject = new System.Windows.Forms.BindingSource(this.components);
             this.bSRegister = new System.Windows.Forms.BindingSource(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -111,6 +93,7 @@ namespace StudentManagement
             this.bEdelete = new DevExpress.XtraBars.BarButtonItem();
             this.bEAdd = new DevExpress.XtraBars.BarButtonItem();
             this.bEUndo = new DevExpress.XtraBars.BarButtonItem();
+            this.beRedo = new DevExpress.XtraBars.BarButtonItem();
             this.bar6 = new DevExpress.XtraBars.Bar();
             this.barDockControl5 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl6 = new DevExpress.XtraBars.BarDockControl();
@@ -121,35 +104,20 @@ namespace StudentManagement
             this.barEditItem7 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            mALTCLabel = new System.Windows.Forms.Label();
-            nIENKHOALabel = new System.Windows.Forms.Label();
-            hOCKYLabel = new System.Windows.Forms.Label();
-            mAMHLabel = new System.Windows.Forms.Label();
-            nHOMLabel = new System.Windows.Forms.Label();
-            sOSVTOITHIEULabel = new System.Windows.Forms.Label();
-            mAGVLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkMAMH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkMAGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkBranch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pncInfo)).BeginInit();
-            this.pncInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lkSubject.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckCancel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkTeacher.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSTeacher)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmuMininumStudent.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmuGroup.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmuSemester.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbxSchoolYear.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbxIdClass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -162,102 +130,31 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.SuspendLayout();
             // 
-            // mALTCLabel
-            // 
-            mALTCLabel.AutoSize = true;
-            mALTCLabel.Location = new System.Drawing.Point(19, 18);
-            mALTCLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            mALTCLabel.Name = "mALTCLabel";
-            mALTCLabel.Size = new System.Drawing.Size(44, 13);
-            mALTCLabel.TabIndex = 0;
-            mALTCLabel.Text = "MALTC:";
-            // 
-            // nIENKHOALabel
-            // 
-            nIENKHOALabel.AutoSize = true;
-            nIENKHOALabel.Location = new System.Drawing.Point(19, 55);
-            nIENKHOALabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            nIENKHOALabel.Name = "nIENKHOALabel";
-            nIENKHOALabel.Size = new System.Drawing.Size(62, 13);
-            nIENKHOALabel.TabIndex = 2;
-            nIENKHOALabel.Text = "NIÊN KHÓA";
-            // 
-            // hOCKYLabel
-            // 
-            hOCKYLabel.AutoSize = true;
-            hOCKYLabel.Location = new System.Drawing.Point(19, 91);
-            hOCKYLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            hOCKYLabel.Name = "hOCKYLabel";
-            hOCKYLabel.Size = new System.Drawing.Size(45, 13);
-            hOCKYLabel.TabIndex = 4;
-            hOCKYLabel.Text = "HOCKY:";
-            // 
-            // mAMHLabel
-            // 
-            mAMHLabel.AutoSize = true;
-            mAMHLabel.Location = new System.Drawing.Point(19, 127);
-            mAMHLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(55, 13);
-            mAMHLabel.TabIndex = 6;
-            mAMHLabel.Text = "MÔN HỌC";
-            // 
-            // nHOMLabel
-            // 
-            nHOMLabel.AutoSize = true;
-            nHOMLabel.Location = new System.Drawing.Point(19, 164);
-            nHOMLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            nHOMLabel.Name = "nHOMLabel";
-            nHOMLabel.Size = new System.Drawing.Size(37, 13);
-            nHOMLabel.TabIndex = 8;
-            nHOMLabel.Text = "NHÓM";
-            // 
-            // sOSVTOITHIEULabel
-            // 
-            sOSVTOITHIEULabel.AutoSize = true;
-            sOSVTOITHIEULabel.Location = new System.Drawing.Point(22, 229);
-            sOSVTOITHIEULabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            sOSVTOITHIEULabel.Name = "sOSVTOITHIEULabel";
-            sOSVTOITHIEULabel.Size = new System.Drawing.Size(58, 26);
-            sOSVTOITHIEULabel.TabIndex = 14;
-            sOSVTOITHIEULabel.Text = "SINH VIÊN\r\nTỐI THIỂU";
-            // 
-            // mAGVLabel
-            // 
-            mAGVLabel.AutoSize = true;
-            mAGVLabel.Location = new System.Drawing.Point(19, 200);
-            mAGVLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            mAGVLabel.Name = "mAGVLabel";
-            mAGVLabel.Size = new System.Drawing.Size(65, 13);
-            mAGVLabel.TabIndex = 15;
-            mAGVLabel.Text = "GIẢNG VIÊN";
-            // 
             // panelControl2
             // 
-            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl2.Controls.Add(this.gcCreditClass);
-            this.panelControl2.Location = new System.Drawing.Point(2, 47);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(0, 69);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(553, 458);
+            this.panelControl2.Size = new System.Drawing.Size(1233, 655);
             this.panelControl2.TabIndex = 6;
             // 
             // gcCreditClass
             // 
             this.gcCreditClass.DataSource = this.dSSPCreditClass;
             this.gcCreditClass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcCreditClass.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gcCreditClass.Location = new System.Drawing.Point(2, 2);
             this.gcCreditClass.MainView = this.gvCreditClass;
-            this.gcCreditClass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gcCreditClass.MenuManager = this.barManager;
             this.gcCreditClass.Name = "gcCreditClass";
-            this.gcCreditClass.Size = new System.Drawing.Size(549, 454);
+            this.gcCreditClass.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rilkMAMH,
+            this.rilkMAGV});
+            this.gcCreditClass.Size = new System.Drawing.Size(1229, 651);
             this.gcCreditClass.TabIndex = 0;
             this.gcCreditClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCreditClass});
+            this.gcCreditClass.Click += new System.EventHandler(this.gcCreditClass_Click);
             // 
             // dSSPCreditClass
             // 
@@ -278,101 +175,155 @@ namespace StudentManagement
             this.colMAKHOA,
             this.colTENKHOA,
             this.colHUYLOP});
-            this.gvCreditClass.DetailHeight = 239;
+            this.gvCreditClass.DetailHeight = 349;
             this.gvCreditClass.FixedLineWidth = 1;
             this.gvCreditClass.GridControl = this.gcCreditClass;
             this.gvCreditClass.Name = "gvCreditClass";
+            this.gvCreditClass.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvCreditClass.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvCreditClass_InitNewRow);
             this.gvCreditClass.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged);
+            this.gvCreditClass.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
+            this.gvCreditClass.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanging);
             // 
             // colMALTC
             // 
             this.colMALTC.FieldName = "MALTC";
+            this.colMALTC.MinWidth = 30;
             this.colMALTC.Name = "colMALTC";
             this.colMALTC.OptionsColumn.AllowEdit = false;
             this.colMALTC.Visible = true;
             this.colMALTC.VisibleIndex = 0;
+            this.colMALTC.Width = 112;
             // 
             // colNIENKHOA
             // 
             this.colNIENKHOA.FieldName = "NIENKHOA";
+            this.colNIENKHOA.MinWidth = 30;
             this.colNIENKHOA.Name = "colNIENKHOA";
             this.colNIENKHOA.OptionsColumn.AllowEdit = false;
+            this.colNIENKHOA.Width = 112;
             // 
             // colMAMH
             // 
+            this.colMAMH.ColumnEdit = this.rilkMAMH;
             this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.MinWidth = 30;
             this.colMAMH.Name = "colMAMH";
-            this.colMAMH.OptionsColumn.AllowEdit = false;
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 3;
+            this.colMAMH.Width = 112;
+            // 
+            // rilkMAMH
+            // 
+            this.rilkMAMH.AutoHeight = false;
+            this.rilkMAMH.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rilkMAMH.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAMH", "Mã môn học"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENMH", "Tên môn học")});
+            this.rilkMAMH.DisplayMember = "MAMH";
+            this.rilkMAMH.Name = "rilkMAMH";
+            this.rilkMAMH.NullText = "";
+            this.rilkMAMH.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.rilkMAMH.ValueMember = "MAMH";
+            this.rilkMAMH.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.rilkMAMH_EditValueChanging);
             // 
             // colHOCKY
             // 
             this.colHOCKY.FieldName = "HOCKY";
+            this.colHOCKY.MinWidth = 30;
             this.colHOCKY.Name = "colHOCKY";
             this.colHOCKY.OptionsColumn.AllowEdit = false;
+            this.colHOCKY.Width = 112;
             // 
             // colNHOM
             // 
             this.colNHOM.FieldName = "NHOM";
+            this.colNHOM.MinWidth = 30;
             this.colNHOM.Name = "colNHOM";
-            this.colNHOM.OptionsColumn.AllowEdit = false;
             this.colNHOM.Visible = true;
             this.colNHOM.VisibleIndex = 1;
+            this.colNHOM.Width = 112;
             // 
             // colSOSVTOITHIEU
             // 
             this.colSOSVTOITHIEU.FieldName = "SOSVTOITHIEU";
+            this.colSOSVTOITHIEU.MinWidth = 30;
             this.colSOSVTOITHIEU.Name = "colSOSVTOITHIEU";
-            this.colSOSVTOITHIEU.OptionsColumn.AllowEdit = false;
             this.colSOSVTOITHIEU.Visible = true;
             this.colSOSVTOITHIEU.VisibleIndex = 2;
+            this.colSOSVTOITHIEU.Width = 112;
             // 
             // colTENMH
             // 
             this.colTENMH.FieldName = "TENMH";
+            this.colTENMH.MinWidth = 30;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.OptionsColumn.AllowEdit = false;
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 4;
+            this.colTENMH.Width = 112;
             // 
             // colMAGV
             // 
+            this.colMAGV.ColumnEdit = this.rilkMAGV;
             this.colMAGV.FieldName = "MAGV";
+            this.colMAGV.MinWidth = 30;
             this.colMAGV.Name = "colMAGV";
-            this.colMAGV.OptionsColumn.AllowEdit = false;
             this.colMAGV.Visible = true;
             this.colMAGV.VisibleIndex = 5;
+            this.colMAGV.Width = 112;
+            // 
+            // rilkMAGV
+            // 
+            this.rilkMAGV.AutoHeight = false;
+            this.rilkMAGV.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rilkMAGV.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "Mã giảng viên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HOTEN", "Tên giảng viên")});
+            this.rilkMAGV.DisplayMember = "MAGV";
+            this.rilkMAGV.Name = "rilkMAGV";
+            this.rilkMAGV.NullText = "";
+            this.rilkMAGV.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.rilkMAGV.ValueMember = "MAGV";
+            this.rilkMAGV.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.rilkMAGV_EditValueChanging);
             // 
             // colTENGV
             // 
             this.colTENGV.FieldName = "TENGV";
+            this.colTENGV.MinWidth = 30;
             this.colTENGV.Name = "colTENGV";
             this.colTENGV.OptionsColumn.AllowEdit = false;
             this.colTENGV.Visible = true;
             this.colTENGV.VisibleIndex = 6;
+            this.colTENGV.Width = 112;
             // 
             // colMAKHOA
             // 
             this.colMAKHOA.FieldName = "MAKHOA";
+            this.colMAKHOA.MinWidth = 30;
             this.colMAKHOA.Name = "colMAKHOA";
+            this.colMAKHOA.Width = 112;
             // 
             // colTENKHOA
             // 
             this.colTENKHOA.FieldName = "TENKHOA";
+            this.colTENKHOA.MinWidth = 30;
             this.colTENKHOA.Name = "colTENKHOA";
+            this.colTENKHOA.Width = 112;
             // 
             // colHUYLOP
             // 
             this.colHUYLOP.FieldName = "HUYLOP";
+            this.colHUYLOP.MinWidth = 30;
             this.colHUYLOP.Name = "colHUYLOP";
             this.colHUYLOP.Visible = true;
             this.colHUYLOP.VisibleIndex = 7;
+            this.colHUYLOP.Width = 112;
             // 
             // barManager
             // 
-            this.barManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar3});
             this.barManager.DockControls.Add(this.barDockControlTop);
             this.barManager.DockControls.Add(this.barDockControlBottom);
             this.barManager.DockControls.Add(this.barDockControlLeft);
@@ -394,56 +345,38 @@ namespace StudentManagement
             this.repositoryItemTextEdit1,
             this.repositoryItemComboBox1,
             this.repositoryItemSpinEdit1});
-            this.barManager.StatusBar = this.bar3;
-            // 
-            // bar3
-            // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.MultiLine = true;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 49);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 69);
             this.barDockControlTop.Manager = this.barManager;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(822, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1233, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 463);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 724);
             this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(822, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1233, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 49);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 69);
             this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 414);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 655);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(822, 49);
+            this.barDockControlRight.Location = new System.Drawing.Point(1233, 69);
             this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 414);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 655);
             // 
             // barButtonItem1
             // 
@@ -540,200 +473,6 @@ namespace StudentManagement
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
             // 
-            // pncInfo
-            // 
-            this.pncInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pncInfo.Controls.Add(this.lkSubject);
-            this.pncInfo.Controls.Add(this.labelControl1);
-            this.pncInfo.Controls.Add(this.btnInsert);
-            this.pncInfo.Controls.Add(this.btnCancelInsert);
-            this.pncInfo.Controls.Add(this.ckCancel);
-            this.pncInfo.Controls.Add(this.lkTeacher);
-            this.pncInfo.Controls.Add(mAGVLabel);
-            this.pncInfo.Controls.Add(sOSVTOITHIEULabel);
-            this.pncInfo.Controls.Add(this.nmuMininumStudent);
-            this.pncInfo.Controls.Add(nHOMLabel);
-            this.pncInfo.Controls.Add(this.nmuGroup);
-            this.pncInfo.Controls.Add(mAMHLabel);
-            this.pncInfo.Controls.Add(hOCKYLabel);
-            this.pncInfo.Controls.Add(this.nmuSemester);
-            this.pncInfo.Controls.Add(nIENKHOALabel);
-            this.pncInfo.Controls.Add(this.tbxSchoolYear);
-            this.pncInfo.Controls.Add(mALTCLabel);
-            this.pncInfo.Controls.Add(this.tbxIdClass);
-            this.pncInfo.Location = new System.Drawing.Point(559, 47);
-            this.pncInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pncInfo.Name = "pncInfo";
-            this.pncInfo.Size = new System.Drawing.Size(261, 457);
-            this.pncInfo.TabIndex = 5;
-            // 
-            // lkSubject
-            // 
-            this.lkSubject.Location = new System.Drawing.Point(105, 125);
-            this.lkSubject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.lkSubject.MenuManager = this.barManager;
-            this.lkSubject.Name = "lkSubject";
-            this.lkSubject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkSubject.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENMH", "Tên môn học"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAMH", "Mã môn học")});
-            this.lkSubject.Properties.DisplayMember = "TENMH";
-            this.lkSubject.Properties.NullText = "";
-            this.lkSubject.Properties.ValueMember = "MAMH";
-            this.lkSubject.Size = new System.Drawing.Size(130, 20);
-            this.lkSubject.TabIndex = 26;
-            this.lkSubject.EditValueChanged += new System.EventHandler(this.lkSubject_EditValueChanged_1);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(21, 280);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(42, 13);
-            this.labelControl1.TabIndex = 25;
-            this.labelControl1.Text = "HỦY LỚP";
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Location = new System.Drawing.Point(119, 322);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(116, 23);
-            this.btnInsert.TabIndex = 24;
-            this.btnInsert.Text = "Thêm";
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            // 
-            // btnCancelInsert
-            // 
-            this.btnCancelInsert.Location = new System.Drawing.Point(25, 322);
-            this.btnCancelInsert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnCancelInsert.Name = "btnCancelInsert";
-            this.btnCancelInsert.Size = new System.Drawing.Size(79, 23);
-            this.btnCancelInsert.TabIndex = 22;
-            this.btnCancelInsert.Text = "Thoát";
-            this.btnCancelInsert.Click += new System.EventHandler(this.btnCancelInsert_Click);
-            // 
-            // ckCancel
-            // 
-            this.ckCancel.Location = new System.Drawing.Point(105, 277);
-            this.ckCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ckCancel.MenuManager = this.barManager;
-            this.ckCancel.Name = "ckCancel";
-            this.ckCancel.Properties.Caption = "";
-            this.ckCancel.Size = new System.Drawing.Size(75, 20);
-            this.ckCancel.TabIndex = 19;
-            this.ckCancel.CheckedChanged += new System.EventHandler(this.ckCancel_CheckedChanged);
-            // 
-            // lkTeacher
-            // 
-            this.lkTeacher.Location = new System.Drawing.Point(105, 198);
-            this.lkTeacher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.lkTeacher.MenuManager = this.barManager;
-            this.lkTeacher.Name = "lkTeacher";
-            this.lkTeacher.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkTeacher.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "MAGV", 25, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HOTEN", "HOTEN")});
-            this.lkTeacher.Properties.DataSource = this.bSTeacher;
-            this.lkTeacher.Properties.DisplayMember = "HOTEN";
-            this.lkTeacher.Properties.NullText = "";
-            this.lkTeacher.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
-            this.lkTeacher.Properties.ValueMember = "MAGV";
-            this.lkTeacher.Size = new System.Drawing.Size(130, 20);
-            this.lkTeacher.TabIndex = 17;
-            this.lkTeacher.EditValueChanged += new System.EventHandler(this.lkTeacher_EditValueChanged);
-            // 
-            // nmuMininumStudent
-            // 
-            this.nmuMininumStudent.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nmuMininumStudent.Location = new System.Drawing.Point(105, 235);
-            this.nmuMininumStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.nmuMininumStudent.MenuManager = this.barManager;
-            this.nmuMininumStudent.Name = "nmuMininumStudent";
-            this.nmuMininumStudent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.nmuMininumStudent.Properties.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nmuMininumStudent.Properties.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nmuMininumStudent.Size = new System.Drawing.Size(130, 20);
-            this.nmuMininumStudent.TabIndex = 15;
-            this.nmuMininumStudent.EditValueChanged += new System.EventHandler(this.nmuMininumStudent_EditValueChanged);
-            // 
-            // nmuGroup
-            // 
-            this.nmuGroup.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.nmuGroup.Location = new System.Drawing.Point(105, 161);
-            this.nmuGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.nmuGroup.MenuManager = this.barManager;
-            this.nmuGroup.Name = "nmuGroup";
-            this.nmuGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.nmuGroup.Size = new System.Drawing.Size(130, 20);
-            this.nmuGroup.TabIndex = 9;
-            this.nmuGroup.EditValueChanged += new System.EventHandler(this.nmuGroup_EditValueChanged);
-            // 
-            // nmuSemester
-            // 
-            this.nmuSemester.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nmuSemester.Location = new System.Drawing.Point(105, 88);
-            this.nmuSemester.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.nmuSemester.MenuManager = this.barManager;
-            this.nmuSemester.Name = "nmuSemester";
-            this.nmuSemester.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.nmuSemester.Properties.MaxValue = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.nmuSemester.Properties.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nmuSemester.Size = new System.Drawing.Size(130, 20);
-            this.nmuSemester.TabIndex = 5;
-            // 
-            // tbxSchoolYear
-            // 
-            this.tbxSchoolYear.Location = new System.Drawing.Point(105, 50);
-            this.tbxSchoolYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxSchoolYear.MenuManager = this.barManager;
-            this.tbxSchoolYear.Name = "tbxSchoolYear";
-            this.tbxSchoolYear.Size = new System.Drawing.Size(130, 20);
-            this.tbxSchoolYear.TabIndex = 3;
-            // 
-            // tbxIdClass
-            // 
-            this.tbxIdClass.Location = new System.Drawing.Point(105, 16);
-            this.tbxIdClass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxIdClass.MenuManager = this.barManager;
-            this.tbxIdClass.Name = "tbxIdClass";
-            this.tbxIdClass.Size = new System.Drawing.Size(130, 20);
-            this.tbxIdClass.TabIndex = 1;
-            // 
             // bSSubject
             // 
             this.bSSubject.DataMember = "MONHOC";
@@ -773,37 +512,33 @@ namespace StudentManagement
             // 
             this.barDockControl1.CausesValidation = false;
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControl1.Location = new System.Drawing.Point(0, 49);
+            this.barDockControl1.Location = new System.Drawing.Point(0, 69);
             this.barDockControl1.Manager = this.barManager1;
-            this.barDockControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControl1.Size = new System.Drawing.Size(822, 0);
+            this.barDockControl1.Size = new System.Drawing.Size(1233, 0);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 483);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 724);
             this.barDockControl2.Manager = this.barManager1;
-            this.barDockControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControl2.Size = new System.Drawing.Size(822, 20);
+            this.barDockControl2.Size = new System.Drawing.Size(1233, 20);
             // 
             // barDockControl3
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 49);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 69);
             this.barDockControl3.Manager = this.barManager1;
-            this.barDockControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControl3.Size = new System.Drawing.Size(0, 434);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 655);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(822, 49);
+            this.barDockControl4.Location = new System.Drawing.Point(1233, 69);
             this.barDockControl4.Manager = this.barManager1;
-            this.barDockControl4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControl4.Size = new System.Drawing.Size(0, 434);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 655);
             // 
             // barButtonItem5
             // 
@@ -847,9 +582,10 @@ namespace StudentManagement
             this.barEditItem7,
             this.bESemester,
             this.bEAdd,
-            this.bEUndo});
+            this.bEUndo,
+            this.beRedo});
             this.barManager2.MainMenu = this.bar4;
-            this.barManager2.MaxItemId = 12;
+            this.barManager2.MaxItemId = 13;
             this.barManager2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit2,
             this.lkFaculty,
@@ -951,7 +687,8 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(this.bESave),
             new DevExpress.XtraBars.LinkPersistInfo(this.bEdelete),
             new DevExpress.XtraBars.LinkPersistInfo(this.bEAdd),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bEUndo)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bEUndo),
+            new DevExpress.XtraBars.LinkPersistInfo(this.beRedo)});
             this.bar4.OptionsBar.MultiLine = true;
             this.bar4.OptionsBar.UseWholeRow = true;
             this.bar4.Text = "Main menu";
@@ -990,6 +727,16 @@ namespace StudentManagement
             this.bEUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bEUndo.ImageOptions.SvgImage")));
             this.bEUndo.Name = "bEUndo";
             this.bEUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bEUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bEUndo_ItemClick);
+            // 
+            // beRedo
+            // 
+            this.beRedo.Caption = "Quay lại";
+            this.beRedo.Id = 12;
+            this.beRedo.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.redo;
+            this.beRedo.Name = "beRedo";
+            this.beRedo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.beRedo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beRedo_ItemClick);
             // 
             // bar6
             // 
@@ -1009,35 +756,31 @@ namespace StudentManagement
             this.barDockControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl5.Location = new System.Drawing.Point(0, 0);
             this.barDockControl5.Manager = this.barManager2;
-            this.barDockControl5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControl5.Size = new System.Drawing.Size(822, 49);
+            this.barDockControl5.Size = new System.Drawing.Size(1233, 69);
             // 
             // barDockControl6
             // 
             this.barDockControl6.CausesValidation = false;
             this.barDockControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl6.Location = new System.Drawing.Point(0, 503);
+            this.barDockControl6.Location = new System.Drawing.Point(0, 744);
             this.barDockControl6.Manager = this.barManager2;
-            this.barDockControl6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControl6.Size = new System.Drawing.Size(822, 20);
+            this.barDockControl6.Size = new System.Drawing.Size(1233, 20);
             // 
             // barDockControl7
             // 
             this.barDockControl7.CausesValidation = false;
             this.barDockControl7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl7.Location = new System.Drawing.Point(0, 49);
+            this.barDockControl7.Location = new System.Drawing.Point(0, 69);
             this.barDockControl7.Manager = this.barManager2;
-            this.barDockControl7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControl7.Size = new System.Drawing.Size(0, 454);
+            this.barDockControl7.Size = new System.Drawing.Size(0, 675);
             // 
             // barDockControl8
             // 
             this.barDockControl8.CausesValidation = false;
             this.barDockControl8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl8.Location = new System.Drawing.Point(822, 49);
+            this.barDockControl8.Location = new System.Drawing.Point(1233, 69);
             this.barDockControl8.Manager = this.barManager2;
-            this.barDockControl8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.barDockControl8.Size = new System.Drawing.Size(0, 454);
+            this.barDockControl8.Size = new System.Drawing.Size(0, 675);
             // 
             // barEditItem4
             // 
@@ -1070,10 +813,9 @@ namespace StudentManagement
             // 
             // UcCreditClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl2);
-            this.Controls.Add(this.pncInfo);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -1086,32 +828,22 @@ namespace StudentManagement
             this.Controls.Add(this.barDockControl8);
             this.Controls.Add(this.barDockControl6);
             this.Controls.Add(this.barDockControl5);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UcCreditClass";
-            this.Size = new System.Drawing.Size(822, 523);
+            this.Size = new System.Drawing.Size(1233, 764);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkMAMH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkMAGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkBranch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pncInfo)).EndInit();
-            this.pncInfo.ResumeLayout(false);
-            this.pncInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lkSubject.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckCancel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkTeacher.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSTeacher)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmuMininumStudent.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmuGroup.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmuSemester.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbxSchoolYear.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbxIdClass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -1129,27 +861,14 @@ namespace StudentManagement
 
         #endregion
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        //private DSCreditClass DSCreditClass;
-        private DevExpress.XtraEditors.PanelControl pncInfo;
-        //private DSCreditClassTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraEditors.SpinEdit nmuMininumStudent;
-        private DevExpress.XtraEditors.SpinEdit nmuGroup;
-        private DevExpress.XtraEditors.SpinEdit nmuSemester;
-        private DevExpress.XtraEditors.TextEdit tbxSchoolYear;
-        private DevExpress.XtraEditors.TextEdit tbxIdClass;
         private System.Windows.Forms.BindingSource bSRegister;
-        //private DSCreditClassTableAdapters.DANGKYTableAdapter tAregiter;
-        private DevExpress.XtraEditors.LookUpEdit lkTeacher;
         private System.Windows.Forms.BindingSource bSSubject;
-        //private DSCreditClassTableAdapters.MONHOCTableAdapter tASubject;
-        private DevExpress.XtraEditors.CheckEdit ckCancel;
         private DevExpress.XtraBars.BarManager barManager;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarEditItem bmBranch;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lkBranch;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
@@ -1196,8 +915,6 @@ namespace StudentManagement
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraBars.BarButtonItem bEAdd;
-        private DevExpress.XtraEditors.SimpleButton btnCancelInsert;
-        private DevExpress.XtraEditors.SimpleButton btnInsert;
         private System.Windows.Forms.BindingSource bSTeacher;
         //private DSCreditClassTableAdapters.SP_DS_GiangVienTableAdapter tATeacher;
         private DevExpress.XtraGrid.GridControl gcCreditClass;
@@ -1214,8 +931,9 @@ namespace StudentManagement
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colTENKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colHUYLOP;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraBars.BarButtonItem bEUndo;
-        private DevExpress.XtraEditors.LookUpEdit lkSubject;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilkMAMH;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilkMAGV;
+        private DevExpress.XtraBars.BarButtonItem beRedo;
     }
 }
