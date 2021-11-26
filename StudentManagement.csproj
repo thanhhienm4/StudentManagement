@@ -164,6 +164,8 @@
     <Compile Include="UCTuitionFee.Designer.cs">
       <DependentUpon>UCTuitionFee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Undo\ActionUndo.cs" />
+    <Compile Include="Undo\SUndo.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +258,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\guid.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
