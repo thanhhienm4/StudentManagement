@@ -152,5 +152,16 @@ namespace StudentManagement
             pnContent.Controls.Add(ucUpdateGrade);
 
         }
+
+        private void bbReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormCreditClass form = new FormCreditClass();
+            form.ShowDialog();
+        }
     }
 }

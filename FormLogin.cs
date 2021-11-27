@@ -27,7 +27,8 @@ namespace StudentManagement
         void Initial()
         {
             SupportDAL connectionDAL = new SupportDAL();
-            cbx.DataSource = connectionDAL.GetListPhanManh();
+            Program.servers = connectionDAL.GetListPhanManh();
+            cbx.DataSource = Program.servers;
             cbx.DisplayMember = "TENCN";
             cbx.ValueMember = "TENSERVER";
 
