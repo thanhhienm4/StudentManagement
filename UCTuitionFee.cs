@@ -17,10 +17,14 @@ namespace StudentManagement
     public partial class UCTuitionFee : DevExpress.XtraEditors.XtraUserControl
     {
         private HocPhiDAL hocPhiDAL;
+        int rowsFeeNow = 0;
+        int rowsFeeDetailNow = 0;
 
         public UCTuitionFee()
         {
             InitializeComponent();
+            InitialSchoolYear();
+            
         }
 
         public void InitialSchoolYear()
@@ -31,12 +35,12 @@ namespace StudentManagement
             for (int year = start; year <= end; year++)
             {
                 string schoolYear = String.Format("{0}-{1}", year, year + 1);
-                ItemComboBox.Items.Add(schoolYear);
+                riNienKhoa.Items.Add(schoolYear);
             }
 
             if (now.Month < 9)
                 now.AddYears(-1);
-            barEditItem1.EditValue = String.Format("{0}-{1}", now.Year, now.Year + 1);
+            //r.EditValue = String.Format("{0}-{1}", now.Year, now.Year + 1);
         }
 
         private void gcFee_Click(object sender, EventArgs e)
@@ -64,7 +68,7 @@ namespace StudentManagement
 
             if (check.Data)
             {
-                var res = hocPhiDAL.TestInfoSinhvien(MASV);
+                var res = hocPhiDAL.GetInfoSinhvien(MASV);
                 textHoTenSV.EditValue = res.Data.HOTEN;
                 textMaLop.EditValue = res.Data.MALOP;
 
@@ -75,7 +79,9 @@ namespace StudentManagement
                     return;
                 }
 
-                gCFee.DataSource = dsHocPhi.Data;
+                gCFee.DataSource = new BindingList<HOCPHITONGHOP>(dsHocPhi.Data);
+                rowsFeeNow = gvFee.RowCount;
+                
             }
             
             else
@@ -103,7 +109,9 @@ namespace StudentManagement
                 {
                     return;
                 }
-                gCFeeDetail.DataSource = cthp.Data;
+                gCFeeDetail.DataSource = new BindingList<CT_DONGHOCPHI>(cthp.Data);
+                rowsFeeDetailNow = gvFeeDetail.RowCount;
+
             }
         }
 
@@ -139,6 +147,70 @@ namespace StudentManagement
                 return -1;
             }
             return rows[0];
+        }
+
+        private void bButtonInsert_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //gvFee.ClearSelection();
+            //gvFee.FocusInvalidRow();
+            //isInsert = true;
+            //checkThemHocPhi();
+            HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.RowCount - 2);
+            String maSv = textMaSV.EditValue.ToString();
+            String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+            int hocKy = hOCPHITONGHOP.HOCKY;
+            int hocPhi = hOCPHITONGHOP.HOCPHI;
+            var res = hocPhiDAL.ThemHocPhi(maSv, nienKhoa, hocKy, hocPhi);
+            if (res.Data)
+            {
+                MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Lỗi", "", MessageBoxButtons.OK);
+            }    
+
+        }
+
+        private void checkThemHocPhi()
+        {
+            if (textMaSV.EditValue is null)
+            {
+                MessageBox.Show("Bạn chưa nhập mã sinh viên");
+                return;
+            }
+            HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.RowCount - 2);
+            String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+            int hocKy = hOCPHITONGHOP.HOCKY;
+            Console.WriteLine(nienKhoa, hocKy);
+        }
+
+        private void bButtonInsertCTHP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.FocusedRowHandle);
+            String maSv = textMaSV.EditValue.ToString();
+            String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+            int hocKy = hOCPHITONGHOP.HOCKY;
+            int hocPhi = hOCPHITONGHOP.HOCPHI;
+            CT_DONGHOCPHI cthp = (CT_DONGHOCPHI)gvFeeDetail.GetRow(gvFeeDetail.RowCount - 2);
+            int soTienDong = cthp.SOTIENDONG;
+            DateTime ngayDong = cthp.NGAYDONG;
+            if(soTienDong <= 0 || soTienDong > hOCPHITONGHOP.HOCPHI - hOCPHITONGHOP.DADONG)
+            {
+                MessageBox.Show("Số tiền đóng không thể nhỏ hơn bằng 0 hoặc lớn hơn số tiền cần đóng", "", MessageBoxButtons.OK);
+                return;
+            }
+            var res = hocPhiDAL.SVDongHocPhi(maSv, nienKhoa, hocKy, ngayDong, soTienDong);
+            if (res.Data)
+            {
+                MessageBox.Show("Nộp thành công", "", MessageBoxButtons.OK);
+                
+            }
+            else
+            {
+                MessageBox.Show("Lỗi", "", MessageBoxButtons.OK);
+                return;
+            }
         }
     }
 

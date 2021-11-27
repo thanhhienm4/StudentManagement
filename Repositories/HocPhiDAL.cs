@@ -10,7 +10,7 @@ namespace StudentManagement.Repositories
 {
     class HocPhiDAL
     {
-        public DataResponse<SINHVIEN> TestInfoSinhvien(string maSV)
+        public DataResponse<SINHVIEN> GetInfoSinhvien(string maSV)
         {
             if (!BaseDAl.Connect())
                 return new DataResponeFail<SINHVIEN>("Lỗi kết nối");
@@ -74,6 +74,61 @@ namespace StudentManagement.Repositories
             {
                 Console.WriteLine(e);
                 return new DataResponeFail<List<CT_DONGHOCPHI>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
+        public DataResponse<bool> ThemHocPhi(string maSV, string nienKhoa, int hocKy, int hocPhi)
+        {
+            if (!BaseDAl.Connect())
+            {
+                return new DataResponeFail<bool>("Lỗi kết nối");
+            }
+            try
+            {
+                string command = "exec dbo.SP_ThemHocPhi @masv, @nienkhoa, @hocky, @hocphi";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@masv", maSV);
+                parameters.Add("@nienkhoa", nienKhoa);
+                parameters.Add("@hocky", hocKy);
+                parameters.Add("@hocphi", hocPhi);
+                Program.conn.Execute(command, parameters);
+                return new DataResponeSuccess<bool>(true);
+            }
+            catch(Exception e)
+            {
+                return new DataResponeFail<bool>("Lỗi hệ thống, " + e.ToString());
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
+        public DataResponse<bool> SVDongHocPhi(string maSV, string nienKhoa, int hocKy, DateTime ngayDong, int hocPhi)
+        {
+            if (!BaseDAl.Connect())
+            {
+                return new DataResponeFail<bool>("Lỗi kết nối");
+            }
+            try
+            {
+                string command = "exec dbo.SP_SVDongHocPhi @masv, @nienkhoa, @hocky, @ngaydong, @sotiendong";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@masv", maSV);
+                parameters.Add("@nienkhoa", nienKhoa);
+                parameters.Add("@hocky", hocKy);
+                parameters.Add("@ngaydong", ngayDong);
+                parameters.Add("@sotiendong", hocPhi);
+                Program.conn.Execute(command, parameters);
+                return new DataResponeSuccess<bool>(true);
+            }
+            catch (Exception e)
+            {
+                return new DataResponeFail<bool>("Lỗi hệ thống, " + e.ToString());
             }
             finally
             {
