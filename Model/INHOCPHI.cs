@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Model
 {
-    class INHOCPHI
+    public class INHOCPHI
     {
         public string HOTEN { get; set; }
         public int HOCPHI { get; set; }
