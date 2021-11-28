@@ -39,8 +39,9 @@ namespace StudentManagement
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.beUpdateGrade = new DevExpress.XtraBars.BarButtonItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.bbReports = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -49,9 +50,8 @@ namespace StudentManagement
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.pnContent = new DevExpress.XtraEditors.PanelControl();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).BeginInit();
@@ -74,12 +74,12 @@ namespace StudentManagement
             this.barButtonItem5,
             this.barButtonItem6});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ribbon.MaxItemId = 17;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(1297, 231);
+            this.ribbon.Size = new System.Drawing.Size(1009, 193);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // bbtnCode
@@ -135,11 +135,6 @@ namespace StudentManagement
             this.beUpdateGrade.Name = "beUpdateGrade";
             this.beUpdateGrade.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beUpdateGrade_ItemClick);
             // 
-            // popupMenu1
-            // 
-            this.popupMenu1.Name = "popupMenu1";
-            this.popupMenu1.Ribbon = this.ribbon;
-            // 
             // bbReports
             // 
             this.bbReports.Caption = "Báo cáo";
@@ -150,6 +145,20 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
             this.bbReports.Name = "bbReports";
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Lớp tín chi";
+            this.barButtonItem5.Id = 15;
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Bảng điểm";
+            this.barButtonItem6.Id = 16;
+            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -201,43 +210,35 @@ namespace StudentManagement
             this.ribbonStatusBar.ItemLinks.Add(this.bbtnCode);
             this.ribbonStatusBar.ItemLinks.Add(this.bbtnFullName);
             this.ribbonStatusBar.ItemLinks.Add(this.bbtnGroup);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 613);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 517);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1297, 36);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1009, 30);
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbon;
             // 
             // pnContent
             // 
             this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContent.Location = new System.Drawing.Point(0, 231);
-            this.pnContent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnContent.Location = new System.Drawing.Point(0, 193);
+            this.pnContent.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pnContent.Name = "pnContent";
-            this.pnContent.Size = new System.Drawing.Size(1297, 382);
+            this.pnContent.Size = new System.Drawing.Size(1009, 324);
             this.pnContent.TabIndex = 2;
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "Lớp tín chi";
-            this.barButtonItem5.Id = 15;
-            this.barButtonItem5.Name = "barButtonItem5";
-            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "Bảng điểm";
-            this.barButtonItem6.Id = 16;
-            this.barButtonItem6.Name = "barButtonItem6";
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1297, 649);
+            this.ClientSize = new System.Drawing.Size(1009, 547);
             this.Controls.Add(this.pnContent);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormMain";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
