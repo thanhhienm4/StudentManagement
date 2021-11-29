@@ -135,6 +135,12 @@
     <Compile Include="FormPrintFee.Designer.cs">
       <DependentUpon>FormPrintFee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportStudentCreditClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportStudentCreditClass.Designer.cs">
+      <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\ConvertMoney.cs" />
     <Compile Include="Model\CreditClass.cs" />
     <Compile Include="Model\CT_DONGHOCPHI.cs" />
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrintFee.resx">
       <DependentUpon>FormPrintFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportStudentCreditClass.resx">
+      <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
