@@ -153,6 +153,7 @@
     <Compile Include="Model\SINHVIEN.cs" />
     <Compile Include="Model\KHOALOP.cs" />
     <Compile Include="Model\UpdateDangKy.cs" />
+    <Compile Include="Model\UPDATEGIANGVIEN.cs" />
     <Compile Include="Model\UpdateGrade.cs" />
     <Compile Include="Model\UPDATELOP.cs" />
     <Compile Include="Model\UpdateLopTinChi.cs" />

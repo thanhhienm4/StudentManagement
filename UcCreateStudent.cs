@@ -320,7 +320,8 @@ namespace StudentManagement
             GridView gridView = sender as GridView;
             if (gridView.FocusedColumn.FieldName == "MASV")
             {
-                if (e.Value.Equals(""))
+                string MASV = (e.Value.ToString());
+                if (MASV==null)
                 {
                     e.Valid = false;
                     e.ErrorText = "Không để rỗng!";

@@ -274,7 +274,8 @@ namespace StudentManagement
             GridView gridView = sender as GridView;
             if (gridView.FocusedColumn.FieldName == "MAMH")
             {
-                if (e.Value.Equals(""))
+                string MAMH = (e.Value.ToString());
+                if (MAMH.Equals(""))
                 {
                     e.Valid = false;
                     e.ErrorText = "Không để rỗng!";
@@ -314,24 +315,41 @@ namespace StudentManagement
             GridView gridView = sender as GridView;
             if(gridView.GetRowCellValue(e.RowHandle, idSubject) == null)
             {
+                gridView.SetColumnError(idSubject, "Mã môn học không được để trống");
                 e.Valid = false;
-                e.ErrorText = "MAMH is not null";
             }
 
             if (gridView.GetRowCellValue(e.RowHandle, colSubjectName) == null)
             {
+                gridView.SetColumnError(colSubjectName, "Tên môn học không được để trống");
                 e.Valid = false;
-                e.ErrorText = "TENMH is not null!";
+                e.ErrorText = "The value is not correct! ";
             }
             if (gridView.GetRowCellValue(e.RowHandle, colLT) == null)
             {
+                gridView.SetColumnError(colLT, "Lớp lý thuyết không được để trống");
                 e.Valid = false;
-                e.ErrorText = "SOTIET_LT is not null!";
+                e.ErrorText = "The value is not correct! ";
             }
             if (gridView.GetRowCellValue(e.RowHandle, colTH) == null)
             {
+                gridView.SetColumnError(colLT, "Lớp thực hành không được để trống");
                 e.Valid = false;
-                e.ErrorText = "SOTIET_TH is not null!";
+                e.ErrorText = "The value is not correct! ";
+            }
+
+            if(gridView.GetRowCellValue(e.RowHandle, colTH) != null || gridView.GetRowCellValue(e.RowHandle, colLT) != null)
+            {
+                int LT = Int32.Parse(gridView.GetRowCellValue(e.RowHandle, colLT).ToString());
+                int TH = Int32.Parse(gridView.GetRowCellValue(e.RowHandle, colTH).ToString());
+                if ((LT + TH) % 15 != 0||(LT+TH)<=0)
+                {
+                    gridView.SetColumnError(colLT, "Số tiết lý  thuyết + Thực hành chia hết cho 15");
+                    gridView.SetColumnError(colTH, "Số tiết lý  thuyết + Thực hành chia hết cho 15");
+                    e.Valid = false;
+                    e.ErrorText = "The value is not correct! ";
+                }
+
             }
         }
     }

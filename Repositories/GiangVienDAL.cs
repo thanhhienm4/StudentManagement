@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DapperParameters;
 using StudentManagement.Model;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Repositories
 {
-    public class GiangVienDAL 
+    class GiangVienDAL
     {
         public DataResponse<List<GIANGVIEN>> GetListGiangVien()
         {
@@ -24,6 +25,52 @@ namespace StudentManagement.Repositories
             catch (Exception)
             {
                 return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
+        public DataResponse<bool> UpdateGiangVien(List<UPDATEGIANGVIEN> list)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<bool>("Lỗi kết nối");
+            try
+            {
+                string command = "exec [dbo].[SP_UPDATE_GIANGVIEN] @GIANGVIEN";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.AddTable("@GIANGVIEN", "TYPE_NEWUPDATE_GIANGVIEN", list);
+                Program.conn.Execute(command, parameters);
+                return new DataResponeSuccess<bool>(true);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
+        public DataResponse<bool> CheckLop(string magv)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<bool>("Lỗi kết nối");
+            try
+            {
+                string command = "select [dbo].[FUNC_KT_MAGV_KHOANGOAI] (@MAGV)";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@MAGV", magv);
+                var res = Program.conn.ExecuteScalar<bool>(command, parameters);
+                return new DataResponeSuccess<bool>(res);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<bool>("Lỗi hệ thống");
             }
             finally
             {
