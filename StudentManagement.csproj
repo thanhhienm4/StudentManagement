@@ -143,6 +143,7 @@
     <Compile Include="Model\HOCPHITONGHOP.cs" />
     <Compile Include="Model\INHOCPHI.cs" />
     <Compile Include="Model\KHOA.cs" />
+    <Compile Include="Model\KHOAHOC.cs" />
     <Compile Include="Model\LOP.cs" />
     <Compile Include="Model\LOPTINCHI.cs" />
     <Compile Include="Model\MONHOC.cs" />
@@ -153,7 +154,9 @@
     <Compile Include="Model\KHOALOP.cs" />
     <Compile Include="Model\UpdateDangKy.cs" />
     <Compile Include="Model\UpdateGrade.cs" />
+    <Compile Include="Model\UPDATELOP.cs" />
     <Compile Include="Model\UpdateLopTinChi.cs" />
+    <Compile Include="Model\UPDATESINHVIEN.cs" />
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,8 +176,10 @@
     <Compile Include="Repositories\DangKyDAL.cs" />
     <Compile Include="Repositories\GiangVienDAL.cs" />
     <Compile Include="Repositories\HocPhiDAL.cs" />
+    <Compile Include="Repositories\LopDAL.cs" />
     <Compile Include="Repositories\LopTinChiDAL.cs" />
     <Compile Include="Repositories\MonHocDAL.cs" />
+    <Compile Include="Repositories\SinhVienDAL.cs" />
     <Compile Include="Repositories\SupportDAL.cs" />
     <Compile Include="Repositories\UserDAL.cs" />
     <Compile Include="TestAddLogin.cs">
@@ -182,6 +187,18 @@
     </Compile>
     <Compile Include="TestAddLogin.Designer.cs">
       <DependentUpon>TestAddLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcCreateClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcCreateClass.Designer.cs">
+      <DependentUpon>UcCreateClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcCreateStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcCreateStudent.Designer.cs">
+      <DependentUpon>UcCreateStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="UcCreditClass.cs">
       <SubType>UserControl</SubType>
@@ -244,6 +261,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestAddLogin.resx">
       <DependentUpon>TestAddLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcCreateClass.resx">
+      <DependentUpon>UcCreateClass.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcCreateStudent.resx">
+      <DependentUpon>UcCreateStudent.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UcCreditClass.resx">
       <DependentUpon>UcCreditClass.cs</DependentUpon>
