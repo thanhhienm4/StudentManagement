@@ -19,9 +19,12 @@ namespace StudentManagement
         {
             this.pTenKhoa.Value = tenKhoa;
             this.pMaLop.Value = maLop;
-            objectDataSource1.DataSource = data;
-
+            objectDataSource2.DataSource = data;
+            Console.WriteLine("aa");
+            Console.WriteLine(this.xrTableCell12.Value);
         }
+
+        //public void convert
 
     }
 }

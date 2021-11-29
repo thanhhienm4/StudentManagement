@@ -49,12 +49,26 @@ namespace StudentManagement
                 return;
             }
 
+            if (bEYear.EditValue is null)
+            {
+                MessageBox.Show("Bạn chưa chọn niên khóa");
+                return;
+            }
+
+            if (bESemester.EditValue is null)
+            {
+                MessageBox.Show("Bạn chưa chọn học kỳ");
+                return;
+            }
+
             String MaLop = textMalop.EditValue.ToString().Trim();
             var check = hocPhiDAL.CheckExistedLop(MaLop);
             string nienKhoa = bEYear.EditValue.ToString();
             int hocKy = int.Parse(bESemester.EditValue.ToString());
 
-            Console.WriteLine(MaLop, nienKhoa, hocKy);
+            Console.WriteLine(MaLop);
+            Console.WriteLine(nienKhoa);
+            Console.WriteLine(hocKy);
             if (check.Data)
             {
                 var res = hocPhiDAL.INDSHPByLop(MaLop, nienKhoa, hocKy);
@@ -66,6 +80,7 @@ namespace StudentManagement
                 }
 
                 report.InitData(MaLop, res.Data, resKhoa.Data.TENKHOA);
+                //report.xR
                 documentViewer1.DocumentSource = report;
                 report.CreateDocument();
             }
@@ -76,5 +91,6 @@ namespace StudentManagement
             }
             
         }
+
     }
 }
