@@ -169,5 +169,13 @@ namespace StudentManagement
             FormPrintFee form = new FormPrintFee();
             form.ShowDialog();
         }
+
+        private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+            FormReportStudentCreditClass form = new FormReportStudentCreditClass();
+            form.ShowDialog();
+
+        }
     }
 }

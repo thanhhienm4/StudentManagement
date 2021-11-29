@@ -360,16 +360,4 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-FodyWeavers.xsd
-/Helper
-/Repositories
-/Resources
-/FormReportCreditClass.cs
-/FormReportCreditClass.resx
-/FormReportCreditClass.Designer.cs
-/FormReportStudentCreditClass.cs
-/FormReportStudentCreditClass.Designer.cs
-/FormReportStudentCreditClass.resx
-/ReportSudentInCreditClass.cs
-/ReportSudentInCreditClass.Designer.cs
-/ReportSudentInCreditClass.resx
+
