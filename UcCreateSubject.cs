@@ -315,23 +315,23 @@ namespace StudentManagement
             if(gridView.GetRowCellValue(e.RowHandle, idSubject) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "It not null";
+                e.ErrorText = "MAMH is not null";
             }
 
             if (gridView.GetRowCellValue(e.RowHandle, colSubjectName) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "Không để rỗng!";
+                e.ErrorText = "TENMH is not null!";
             }
             if (gridView.GetRowCellValue(e.RowHandle, colLT) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "Không để rỗng!";
+                e.ErrorText = "SOTIET_LT is not null!";
             }
             if (gridView.GetRowCellValue(e.RowHandle, colTH) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "Không để rỗng!";
+                e.ErrorText = "SOTIET_TH is not null!";
             }
         }
     }

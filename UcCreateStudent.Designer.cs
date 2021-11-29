@@ -41,7 +41,7 @@ namespace StudentManagement
             this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rilkLOP = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -169,7 +169,7 @@ namespace StudentManagement
             this.colPHAI,
             this.colTEN,
             this.colMASV,
-            this.colMAMH,
+            this.colMALOP,
             this.colHO,
             this.colDANGHIHOC});
             this.gvCreditClass.DetailHeight = 294;
@@ -181,6 +181,8 @@ namespace StudentManagement
             this.gvCreditClass.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged);
             this.gvCreditClass.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
             this.gvCreditClass.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanging);
+            this.gvCreditClass.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvCreditClass_ValidateRow);
+            this.gvCreditClass.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvCreditClass_ValidatingEditor);
             // 
             // colPASSWORD
             // 
@@ -242,16 +244,16 @@ namespace StudentManagement
             this.colMASV.VisibleIndex = 0;
             this.colMASV.Width = 87;
             // 
-            // colMAMH
+            // colMALOP
             // 
-            this.colMAMH.Caption = "Mã lớp";
-            this.colMAMH.ColumnEdit = this.rilkLOP;
-            this.colMAMH.FieldName = "MALOP";
-            this.colMAMH.MinWidth = 23;
-            this.colMAMH.Name = "colMAMH";
-            this.colMAMH.Visible = true;
-            this.colMAMH.VisibleIndex = 6;
-            this.colMAMH.Width = 87;
+            this.colMALOP.Caption = "Mã lớp";
+            this.colMALOP.ColumnEdit = this.rilkLOP;
+            this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.MinWidth = 23;
+            this.colMALOP.Name = "colMALOP";
+            this.colMALOP.Visible = true;
+            this.colMALOP.VisibleIndex = 6;
+            this.colMALOP.Width = 87;
             // 
             // rilkLOP
             // 
@@ -912,7 +914,7 @@ namespace StudentManagement
         private DevExpress.XtraGrid.GridControl gcCreditClass;
         private DevExpress.XtraGrid.Views.Grid.GridView gvCreditClass;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
         private DevExpress.XtraBars.BarButtonItem bEUndo;

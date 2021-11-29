@@ -314,5 +314,71 @@ namespace StudentManagement
             ActionUndo action = new ActionUndo(1, gc, value);
             undo.Push(action, new ActionUndo(1, gc, e.Value));
         }
+
+        private void gvCreditClass_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            GridView gridView = sender as GridView;
+            if (gridView.FocusedColumn.FieldName == "MASV")
+            {
+                if (e.Value.Equals(""))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Không để rỗng!";
+                }
+            }
+
+            if (gridView.FocusedColumn.FieldName == "HO")
+            {
+                if (e.Value.Equals(""))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Không để rỗng!";
+                }
+            }
+
+            if (gridView.FocusedColumn.FieldName == "TEN")
+            {
+                if (e.Value.Equals(""))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Không để rỗng!";
+                }
+            }
+
+            if (gridView.FocusedColumn.FieldName == "MALOP")
+            {
+                if (e.Value.Equals(""))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Không để rỗng!";
+                }
+            }
+        }
+
+        private void gvCreditClass_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            GridView gridView = sender as GridView;
+            if (gridView.GetRowCellValue(e.RowHandle, colMASV) == null)
+            {
+                e.Valid = false;
+                e.ErrorText = "MASV not null!";
+            }
+
+            if (gridView.GetRowCellValue(e.RowHandle, colHO) == null)
+            {
+                e.Valid = false;
+                e.ErrorText = "HO is not null";
+            }
+            if (gridView.GetRowCellValue(e.RowHandle, colTEN) == null)
+            {
+                e.Valid = false;
+                e.ErrorText = "TEN is not null!";
+            }
+            if (gridView.GetRowCellValue(e.RowHandle, colMALOP) == null)
+            {
+                e.Valid = false;
+                e.ErrorText = "MALOP is not null!";
+            }
+        }
     }
 }
