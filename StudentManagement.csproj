@@ -135,6 +135,7 @@
     <Compile Include="FormPrintFee.Designer.cs">
       <DependentUpon>FormPrintFee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\ConvertMoney.cs" />
     <Compile Include="Model\CreditClass.cs" />
     <Compile Include="Model\CT_DONGHOCPHI.cs" />
     <Compile Include="Model\DANGKY.cs" />
