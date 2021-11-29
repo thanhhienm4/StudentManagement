@@ -164,6 +164,12 @@
     <Compile Include="ReportCreditClass.Designer.cs">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportSudentInCreditClass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportSudentInCreditClass.Designer.cs">
+      <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportTuitionFee.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -176,6 +182,7 @@
     <Compile Include="Repositories\HocPhiDAL.cs" />
     <Compile Include="Repositories\LopTinChiDAL.cs" />
     <Compile Include="Repositories\MonHocDAL.cs" />
+    <Compile Include="Repositories\SinhVienDAL.cs" />
     <Compile Include="Repositories\SupportDAL.cs" />
     <Compile Include="Repositories\UserDAL.cs" />
     <Compile Include="TestAddLogin.cs">
@@ -239,6 +246,9 @@
     </Compile>
     <EmbeddedResource Include="ReportCreditClass.resx">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSudentInCreditClass.resx">
+      <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTuitionFee.resx">
       <DependentUpon>ReportTuitionFee.cs</DependentUpon>
