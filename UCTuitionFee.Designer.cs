@@ -481,6 +481,7 @@ namespace StudentManagement
             this.gvFee.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvFee.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridFee_FocusedRowChanged);
             this.gvFee.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvFee_BeforeLeaveRow);
+            this.gvFee.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvFee_ValidateRow);
             this.gvFee.RowCountChanged += new System.EventHandler(this.gvFee_RowCountChanged);
             // 
             // nienKhoa
@@ -589,6 +590,7 @@ namespace StudentManagement
             this.gvFeeDetail.Name = "gvFeeDetail";
             this.gvFeeDetail.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvFeeDetail.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvFeeDetail_BeforeLeaveRow);
+            this.gvFeeDetail.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvFeeDetail_ValidateRow);
             this.gvFeeDetail.RowCountChanged += new System.EventHandler(this.gvFeeDetail_RowCountChanged);
             // 
             // ngayDong

@@ -1,4 +1,5 @@
-﻿using StudentManagement.Model;
+﻿using StudentManagement.Helper;
+using StudentManagement.Model;
 using StudentManagement.Repositories;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,18 @@ namespace StudentManagement
             InitializeComponent();
             InitialSchoolYear();
             hocPhiDAL = new HocPhiDAL();
+        }
+
+        public String convertMoneyString(List<INHOCPHI> list)
+        {
+            int money = 0;
+            for(int i = 0; i < list.Count; i++)
+            {
+                money += list[i].SOTIENDONG;
+            }
+            String moneyString = ConvertMoney.NumberToString(money);
+            return moneyString;
+            
         }
 
         private void InitialSchoolYear()
@@ -78,8 +91,8 @@ namespace StudentManagement
                 {
                     return;
                 }
-
-                report.InitData(MaLop, res.Data, resKhoa.Data.TENKHOA);
+                
+                report.InitData(MaLop, res.Data, resKhoa.Data.TENKHOA, convertMoneyString(res.Data));
                 //report.xR
                 documentViewer1.DocumentSource = report;
                 report.CreateDocument();
