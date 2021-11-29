@@ -159,6 +159,7 @@
     <Compile Include="Model\ServerInfo.cs" />
     <Compile Include="Model\SINHVIEN.cs" />
     <Compile Include="Model\KHOALOP.cs" />
+    <Compile Include="Model\TongKetCuoiKhoa.cs" />
     <Compile Include="Model\UpdateDangKy.cs" />
     <Compile Include="Model\UpdateGrade.cs" />
     <Compile Include="Model\UPDATELOP.cs" />
@@ -173,6 +174,12 @@
     </Compile>
     <Compile Include="ReportCreditClass.Designer.cs">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCrosstab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportCrosstab.Designer.cs">
+      <DependentUpon>ReportCrosstab.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportSudentInCreditClass.cs">
       <SubType>Component</SubType>
@@ -272,6 +279,9 @@
     </Compile>
     <EmbeddedResource Include="ReportCreditClass.resx">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCrosstab.resx">
+      <DependentUpon>ReportCrosstab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportSudentInCreditClass.resx">
       <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>

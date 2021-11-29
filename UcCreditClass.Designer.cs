@@ -134,26 +134,26 @@ namespace StudentManagement
             // 
             this.panelControl2.Controls.Add(this.gcCreditClass);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 61);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelControl2.Location = new System.Drawing.Point(0, 69);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(959, 542);
+            this.panelControl2.Size = new System.Drawing.Size(1233, 655);
             this.panelControl2.TabIndex = 6;
             // 
             // gcCreditClass
             // 
             this.gcCreditClass.DataSource = this.dSSPCreditClass;
             this.gcCreditClass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcCreditClass.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gcCreditClass.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gcCreditClass.Location = new System.Drawing.Point(2, 2);
             this.gcCreditClass.MainView = this.gvCreditClass;
-            this.gcCreditClass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gcCreditClass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gcCreditClass.MenuManager = this.barManager;
             this.gcCreditClass.Name = "gcCreditClass";
             this.gcCreditClass.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rilkMAMH,
             this.rilkMAGV});
-            this.gcCreditClass.Size = new System.Drawing.Size(955, 538);
+            this.gcCreditClass.Size = new System.Drawing.Size(1229, 651);
             this.gcCreditClass.TabIndex = 0;
             this.gcCreditClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCreditClass});
@@ -178,10 +178,11 @@ namespace StudentManagement
             this.colMAKHOA,
             this.colTENKHOA,
             this.colHUYLOP});
-            this.gvCreditClass.DetailHeight = 294;
+            this.gvCreditClass.DetailHeight = 349;
             this.gvCreditClass.FixedLineWidth = 1;
             this.gvCreditClass.GridControl = this.gcCreditClass;
             this.gvCreditClass.Name = "gvCreditClass";
+            this.gvCreditClass.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gvCreditClass.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvCreditClass.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvCreditClass_InitNewRow);
             this.gvCreditClass.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged);
@@ -191,30 +192,30 @@ namespace StudentManagement
             // colMALTC
             // 
             this.colMALTC.FieldName = "MALTC";
-            this.colMALTC.MinWidth = 23;
+            this.colMALTC.MinWidth = 30;
             this.colMALTC.Name = "colMALTC";
             this.colMALTC.OptionsColumn.AllowEdit = false;
             this.colMALTC.Visible = true;
             this.colMALTC.VisibleIndex = 0;
-            this.colMALTC.Width = 87;
+            this.colMALTC.Width = 112;
             // 
             // colNIENKHOA
             // 
             this.colNIENKHOA.FieldName = "NIENKHOA";
-            this.colNIENKHOA.MinWidth = 23;
+            this.colNIENKHOA.MinWidth = 30;
             this.colNIENKHOA.Name = "colNIENKHOA";
             this.colNIENKHOA.OptionsColumn.AllowEdit = false;
-            this.colNIENKHOA.Width = 87;
+            this.colNIENKHOA.Width = 112;
             // 
             // colMAMH
             // 
             this.colMAMH.ColumnEdit = this.rilkMAMH;
             this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 23;
+            this.colMAMH.MinWidth = 30;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 3;
-            this.colMAMH.Width = 87;
+            this.colMAMH.Width = 112;
             // 
             // rilkMAMH
             // 
@@ -234,48 +235,48 @@ namespace StudentManagement
             // colHOCKY
             // 
             this.colHOCKY.FieldName = "HOCKY";
-            this.colHOCKY.MinWidth = 23;
+            this.colHOCKY.MinWidth = 30;
             this.colHOCKY.Name = "colHOCKY";
             this.colHOCKY.OptionsColumn.AllowEdit = false;
-            this.colHOCKY.Width = 87;
+            this.colHOCKY.Width = 112;
             // 
             // colNHOM
             // 
             this.colNHOM.FieldName = "NHOM";
-            this.colNHOM.MinWidth = 23;
+            this.colNHOM.MinWidth = 30;
             this.colNHOM.Name = "colNHOM";
             this.colNHOM.Visible = true;
             this.colNHOM.VisibleIndex = 1;
-            this.colNHOM.Width = 87;
+            this.colNHOM.Width = 112;
             // 
             // colSOSVTOITHIEU
             // 
             this.colSOSVTOITHIEU.FieldName = "SOSVTOITHIEU";
-            this.colSOSVTOITHIEU.MinWidth = 23;
+            this.colSOSVTOITHIEU.MinWidth = 30;
             this.colSOSVTOITHIEU.Name = "colSOSVTOITHIEU";
             this.colSOSVTOITHIEU.Visible = true;
             this.colSOSVTOITHIEU.VisibleIndex = 2;
-            this.colSOSVTOITHIEU.Width = 87;
+            this.colSOSVTOITHIEU.Width = 112;
             // 
             // colTENMH
             // 
             this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 23;
+            this.colTENMH.MinWidth = 30;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.OptionsColumn.AllowEdit = false;
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 4;
-            this.colTENMH.Width = 87;
+            this.colTENMH.Width = 112;
             // 
             // colMAGV
             // 
             this.colMAGV.ColumnEdit = this.rilkMAGV;
             this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.MinWidth = 23;
+            this.colMAGV.MinWidth = 30;
             this.colMAGV.Name = "colMAGV";
             this.colMAGV.Visible = true;
             this.colMAGV.VisibleIndex = 5;
-            this.colMAGV.Width = 87;
+            this.colMAGV.Width = 112;
             // 
             // rilkMAGV
             // 
@@ -295,35 +296,35 @@ namespace StudentManagement
             // colTENGV
             // 
             this.colTENGV.FieldName = "TENGV";
-            this.colTENGV.MinWidth = 23;
+            this.colTENGV.MinWidth = 30;
             this.colTENGV.Name = "colTENGV";
             this.colTENGV.OptionsColumn.AllowEdit = false;
             this.colTENGV.Visible = true;
             this.colTENGV.VisibleIndex = 6;
-            this.colTENGV.Width = 87;
+            this.colTENGV.Width = 112;
             // 
             // colMAKHOA
             // 
             this.colMAKHOA.FieldName = "MAKHOA";
-            this.colMAKHOA.MinWidth = 23;
+            this.colMAKHOA.MinWidth = 30;
             this.colMAKHOA.Name = "colMAKHOA";
-            this.colMAKHOA.Width = 87;
+            this.colMAKHOA.Width = 112;
             // 
             // colTENKHOA
             // 
             this.colTENKHOA.FieldName = "TENKHOA";
-            this.colTENKHOA.MinWidth = 23;
+            this.colTENKHOA.MinWidth = 30;
             this.colTENKHOA.Name = "colTENKHOA";
-            this.colTENKHOA.Width = 87;
+            this.colTENKHOA.Width = 112;
             // 
             // colHUYLOP
             // 
             this.colHUYLOP.FieldName = "HUYLOP";
-            this.colHUYLOP.MinWidth = 23;
+            this.colHUYLOP.MinWidth = 30;
             this.colHUYLOP.Name = "colHUYLOP";
             this.colHUYLOP.Visible = true;
             this.colHUYLOP.VisibleIndex = 7;
-            this.colHUYLOP.Width = 87;
+            this.colHUYLOP.Width = 112;
             // 
             // barManager
             // 
@@ -353,37 +354,37 @@ namespace StudentManagement
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 61);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 69);
             this.barDockControlTop.Manager = this.barManager;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControlTop.Size = new System.Drawing.Size(959, 0);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1233, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 603);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 724);
             this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControlBottom.Size = new System.Drawing.Size(959, 0);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1233, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 61);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 69);
             this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 542);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 655);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(959, 61);
+            this.barDockControlRight.Location = new System.Drawing.Point(1233, 69);
             this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 542);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 655);
             // 
             // barButtonItem1
             // 
@@ -519,37 +520,37 @@ namespace StudentManagement
             // 
             this.barDockControl1.CausesValidation = false;
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControl1.Location = new System.Drawing.Point(0, 61);
+            this.barDockControl1.Location = new System.Drawing.Point(0, 69);
             this.barDockControl1.Manager = this.barManager1;
-            this.barDockControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControl1.Size = new System.Drawing.Size(959, 0);
+            this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControl1.Size = new System.Drawing.Size(1233, 0);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 603);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 724);
             this.barDockControl2.Manager = this.barManager1;
-            this.barDockControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControl2.Size = new System.Drawing.Size(959, 20);
+            this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControl2.Size = new System.Drawing.Size(1233, 20);
             // 
             // barDockControl3
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 61);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 69);
             this.barDockControl3.Manager = this.barManager1;
-            this.barDockControl3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControl3.Size = new System.Drawing.Size(0, 542);
+            this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 655);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(959, 61);
+            this.barDockControl4.Location = new System.Drawing.Point(1233, 69);
             this.barDockControl4.Manager = this.barManager1;
-            this.barDockControl4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControl4.Size = new System.Drawing.Size(0, 542);
+            this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 655);
             // 
             // barButtonItem5
             // 
@@ -767,35 +768,35 @@ namespace StudentManagement
             this.barDockControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl5.Location = new System.Drawing.Point(0, 0);
             this.barDockControl5.Manager = this.barManager2;
-            this.barDockControl5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControl5.Size = new System.Drawing.Size(959, 61);
+            this.barDockControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControl5.Size = new System.Drawing.Size(1233, 69);
             // 
             // barDockControl6
             // 
             this.barDockControl6.CausesValidation = false;
             this.barDockControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl6.Location = new System.Drawing.Point(0, 623);
+            this.barDockControl6.Location = new System.Drawing.Point(0, 744);
             this.barDockControl6.Manager = this.barManager2;
-            this.barDockControl6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControl6.Size = new System.Drawing.Size(959, 20);
+            this.barDockControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControl6.Size = new System.Drawing.Size(1233, 20);
             // 
             // barDockControl7
             // 
             this.barDockControl7.CausesValidation = false;
             this.barDockControl7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl7.Location = new System.Drawing.Point(0, 61);
+            this.barDockControl7.Location = new System.Drawing.Point(0, 69);
             this.barDockControl7.Manager = this.barManager2;
-            this.barDockControl7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControl7.Size = new System.Drawing.Size(0, 562);
+            this.barDockControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControl7.Size = new System.Drawing.Size(0, 675);
             // 
             // barDockControl8
             // 
             this.barDockControl8.CausesValidation = false;
             this.barDockControl8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl8.Location = new System.Drawing.Point(959, 61);
+            this.barDockControl8.Location = new System.Drawing.Point(1233, 69);
             this.barDockControl8.Manager = this.barManager2;
-            this.barDockControl8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.barDockControl8.Size = new System.Drawing.Size(0, 562);
+            this.barDockControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControl8.Size = new System.Drawing.Size(0, 675);
             // 
             // barEditItem4
             // 
@@ -828,7 +829,7 @@ namespace StudentManagement
             // 
             // UcCreditClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.barDockControlLeft);
@@ -843,9 +844,9 @@ namespace StudentManagement
             this.Controls.Add(this.barDockControl8);
             this.Controls.Add(this.barDockControl6);
             this.Controls.Add(this.barDockControl5);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UcCreditClass";
-            this.Size = new System.Drawing.Size(959, 643);
+            this.Size = new System.Drawing.Size(1233, 764);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).EndInit();

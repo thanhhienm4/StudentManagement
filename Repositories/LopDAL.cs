@@ -143,5 +143,28 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+        public DataResponse<List<TongKetCuoiKhoa>> GetListTongKetCuoiKhoa(string malop)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<TongKetCuoiKhoa>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_DS_TONGKETCUOIKHOA @malop";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@malop", malop);
+
+                var data = Program.conn.Query<TongKetCuoiKhoa>(command,malop).ToList();
+                return new DataResponeSuccess<List<TongKetCuoiKhoa>>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<List<TongKetCuoiKhoa>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
     }
 }
