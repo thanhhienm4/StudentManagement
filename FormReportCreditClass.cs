@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace StudentManagement
 {
-    public partial class FormCreditClass : DevExpress.XtraEditors.XtraForm
+    public partial class FormReportCreditClass : DevExpress.XtraEditors.XtraForm
     {
         private LopTinChiDAL _lopTinChiDAL;
         ReportCreditClass report = new ReportCreditClass();
-        public FormCreditClass()
+        public FormReportCreditClass()
         {
             InitializeComponent();
             _lopTinChiDAL = new LopTinChiDAL();

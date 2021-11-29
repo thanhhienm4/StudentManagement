@@ -39,8 +39,9 @@ namespace StudentManagement
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.beUpdateGrade = new DevExpress.XtraBars.BarButtonItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.bbReports = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -49,9 +50,9 @@ namespace StudentManagement
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.pnContent = new DevExpress.XtraEditors.PanelControl();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).BeginInit();
@@ -72,10 +73,11 @@ namespace StudentManagement
             this.beUpdateGrade,
             this.bbReports,
             this.barButtonItem5,
-            this.barButtonItem6});
+            this.barButtonItem6,
+            this.barButtonItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbon.MaxItemId = 17;
+            this.ribbon.MaxItemId = 18;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -135,11 +137,6 @@ namespace StudentManagement
             this.beUpdateGrade.Name = "beUpdateGrade";
             this.beUpdateGrade.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beUpdateGrade_ItemClick);
             // 
-            // popupMenu1
-            // 
-            this.popupMenu1.Name = "popupMenu1";
-            this.popupMenu1.Ribbon = this.ribbon;
-            // 
             // bbReports
             // 
             this.bbReports.Caption = "Báo cáo";
@@ -148,8 +145,22 @@ namespace StudentManagement
             this.bbReports.LargeWidth = 80;
             this.bbReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7)});
             this.bbReports.Name = "bbReports";
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Lớp tín chi";
+            this.barButtonItem5.Id = 15;
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Bảng điểm";
+            this.barButtonItem6.Id = 16;
+            this.barButtonItem6.Name = "barButtonItem6";
             // 
             // ribbonPage1
             // 
@@ -207,6 +218,11 @@ namespace StudentManagement
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1297, 36);
             // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbon;
+            // 
             // pnContent
             // 
             this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -216,18 +232,12 @@ namespace StudentManagement
             this.pnContent.Size = new System.Drawing.Size(1297, 382);
             this.pnContent.TabIndex = 2;
             // 
-            // barButtonItem5
+            // barButtonItem7
             // 
-            this.barButtonItem5.Caption = "Lớp tín chi";
-            this.barButtonItem5.Id = 15;
-            this.barButtonItem5.Name = "barButtonItem5";
-            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "Bảng điểm";
-            this.barButtonItem6.Id = 16;
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem7.Caption = "Danh sách sinh viên trong lớp tín chỉ";
+            this.barButtonItem7.Id = 17;
+            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
             // 
             // FormMain
             // 
@@ -275,5 +285,6 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarSubItem bbReports;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
     }
 }

@@ -8,6 +8,8 @@ namespace StudentManagement.Model
 {
     public class SINHVIEN
     {
+        public string HO { get; set; }
+        public string TEN { get; set; }
         public string MASV { get; set; }
         public string HOTEN { get; set; }
         public string MALOP { get; set; }

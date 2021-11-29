@@ -160,7 +160,13 @@ namespace StudentManagement
 
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FormCreditClass form = new FormCreditClass();
+            FormReportCreditClass form = new FormReportCreditClass();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormReportStudentCreditClass form = new FormReportStudentCreditClass();
             form.ShowDialog();
         }
     }
