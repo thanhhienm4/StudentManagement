@@ -35,7 +35,6 @@ namespace StudentManagement
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.textMaSV = new DevExpress.XtraBars.BarEditItem();
@@ -69,6 +68,7 @@ namespace StudentManagement
             this.bButtonRedo = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gCFee = new DevExpress.XtraGrid.GridControl();
             this.gvFee = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -161,12 +161,6 @@ namespace StudentManagement
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 19;
-            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // bar3
             // 
@@ -438,6 +432,12 @@ namespace StudentManagement
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 19;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.gCFee);
@@ -480,6 +480,7 @@ namespace StudentManagement
             this.gvFee.Name = "gvFee";
             this.gvFee.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvFee.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridFee_FocusedRowChanged);
+            this.gvFee.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvFee_BeforeLeaveRow);
             this.gvFee.RowCountChanged += new System.EventHandler(this.gvFee_RowCountChanged);
             // 
             // nienKhoa

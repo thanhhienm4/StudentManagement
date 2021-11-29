@@ -167,7 +167,14 @@ namespace StudentManagement
                 String nienKhoa = hOCPHITONGHOP.NIENKHOA;
                 int hocKy = hOCPHITONGHOP.HOCKY;
                 int hocPhi = hOCPHITONGHOP.HOCPHI;
-                //Console.WriteLine(nienKhoa) check xem nien khoa co null ko
+
+                if(nienKhoa is null)
+                {
+                    MessageBox.Show("Bạn chưa nhập niên khóa", "", MessageBoxButtons.OK);
+                    gvFee.FocusedRowHandle = newRowInsert;
+                    editFeeSignal = true;
+                    return;
+                }    
                 String message = "Bạn có muốn thêm " + maSv + " khóa " + nienKhoa + " học kỳ " + hocKy + " với học phí là " + hocPhi;
                 DialogResult dialog = MessageBox.Show(message, "", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
@@ -250,7 +257,7 @@ namespace StudentManagement
             }
             else
             {
-                MessageBox.Show("Lỗi", "", MessageBoxButtons.OK);
+                MessageBox.Show(res.Response.Message, "", MessageBoxButtons.OK);
                 // Xóa dòng lỗi
                 insertFeeDetailSignal = false;
                 gvFeeDetail.DeleteRow(gvFeeDetail.RowCount - 2);
@@ -274,7 +281,7 @@ namespace StudentManagement
                 if (soTienDong <= 0 || soTienDong > hOCPHITONGHOP.HOCPHI - hOCPHITONGHOP.DADONG)
                 {
                     MessageBox.Show("Số tiền đóng không thể nhỏ hơn bằng 0 hoặc lớn hơn số tiền cần đóng", "", MessageBoxButtons.OK);
-                    //gvFeeDetail.SelectRow(newRowInsert);
+                    gvFeeDetail.FocusedRowHandle = newRowInsert;
                     editFeeDetailSignal = true;
                     return;
                 }
@@ -284,6 +291,29 @@ namespace StudentManagement
             
         }
 
+        private void gvFee_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
+        {
+            if (editFeeSignal)
+            {
+                int newRowInsert = gvFee.RowCount - 2;
+                HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(newRowInsert);
+                String maSv = textMaSV.EditValue.ToString();
+                String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+                int hocKy = hOCPHITONGHOP.HOCKY;
+                int hocPhi = hOCPHITONGHOP.HOCPHI;
+
+                if (nienKhoa is null)
+                {
+                    MessageBox.Show("Bạn chưa nhập niên khóa", "", MessageBoxButtons.OK);
+                    gvFee.FocusedRowHandle = newRowInsert;
+                    editFeeSignal = true;
+                    return;
+                }
+                insertFee(maSv, nienKhoa, hocKy, hocPhi);
+                editFeeSignal = false;
+
+            }
+        }
     }
 
 
