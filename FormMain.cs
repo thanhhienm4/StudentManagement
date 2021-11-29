@@ -18,6 +18,7 @@ namespace StudentManagement
         FormLogin fromLogin;
         UcCreditClass ucCreditClass;
         UcCreateClass ucCreateClass;
+        UcCreateSubject ucCreateSubject;
         UcCreateStudent ucCreateStudent;
         UCRegisterCreditClass uCRegisterCreditClass;
         UCTuitionFee uCTuitionFee;
@@ -192,6 +193,17 @@ namespace StudentManagement
 
             pnContent.Controls.Clear();
             pnContent.Controls.Add(ucCreateStudent);
+        }
+
+        private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (ucCreateSubject == null)
+                ucCreateSubject = new UcCreateSubject();
+
+            ucCreateSubject.Dock = DockStyle.Fill;
+
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(ucCreateSubject);
         }
     }
 }
