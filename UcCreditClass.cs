@@ -211,7 +211,6 @@ namespace StudentManagement
             {
                 // notify susscess
             }
-            LoadData();
 
 
         }

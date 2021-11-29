@@ -8,7 +8,6 @@ namespace StudentManagement.Helper
 {
     public class ConvertMoney
     {
-
         public static string NumberToText(double inputNumber, bool suffix = true)
         {
             string[] unitNumbers = new string[] { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };

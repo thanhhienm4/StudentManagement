@@ -17,8 +17,10 @@ namespace StudentManagement
     public partial class UCTuitionFee : DevExpress.XtraEditors.XtraUserControl
     {
         private HocPhiDAL hocPhiDAL;
-        int rowsFeeNow = 0;
-        int rowsFeeDetailNow = 0;
+        bool insertFeeSignal = true;
+        bool insertFeeDetailSignal = true;
+        bool editFeeSignal = false;
+        bool editFeeDetailSignal = false;
 
         public UCTuitionFee()
         {
@@ -43,19 +45,11 @@ namespace StudentManagement
             //r.EditValue = String.Format("{0}-{1}", now.Year, now.Year + 1);
         }
 
-        private void gcFee_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("click111");
-        }
-
-        private void gcFeeDetail_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("click222");
-        }
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             hocPhiDAL = new HocPhiDAL();
+            insertFeeSignal = false;
             
             if (textMaSV.EditValue is null)
             {
@@ -68,51 +62,54 @@ namespace StudentManagement
 
             if (check.Data)
             {
-                var res = hocPhiDAL.GetInfoSinhvien(MASV);
-                textHoTenSV.EditValue = res.Data.HOTEN;
-                textMaLop.EditValue = res.Data.MALOP;
-
-                var dsHocPhi = hocPhiDAL.DSHocPhiByMASV(MASV);
-
-                if (dsHocPhi.Response.State == ResponseState.Fail)
-                {
-                    return;
-                }
-
-                gCFee.DataSource = new BindingList<HOCPHITONGHOP>(dsHocPhi.Data);
-                rowsFeeNow = gvFee.RowCount;
-                
+                loadDataFee(MASV);
             }
             
             else
             {
                 MessageBox.Show("Mã sinh viên không tồn tại", "", MessageBoxButtons.OK);
             }
-
+            insertFeeSignal = true;
             
         }
-
-        private void barEditItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void loadDataFee(String MASV)
         {
+            var res = hocPhiDAL.GetInfoSinhvien(MASV);
+            textHoTenSV.EditValue = res.Data.HOTEN;
+            textMaLop.EditValue = res.Data.MALOP;
 
+            var dsHocPhi = hocPhiDAL.DSHocPhiByMASV(MASV);
+
+            if (dsHocPhi.Response.State == ResponseState.Fail)
+            {
+                return;
+            }
+
+            gCFee.DataSource = new BindingList<HOCPHITONGHOP>(dsHocPhi.Data);
         }
 
         private void gridFee_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            insertFeeDetailSignal = false;
             if (gvFee.IsValidRowHandle(e.FocusedRowHandle) && gvFee.GetFocusedRow() != null)
             {
                 HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.FocusedRowHandle);
                 String nienKhoa = hOCPHITONGHOP.NIENKHOA;
                 int hocKy = hOCPHITONGHOP.HOCKY;
-                var cthp = hocPhiDAL.DSCTHocPhi(textMaSV.EditValue.ToString(), nienKhoa, hocKy);
-                if(cthp.Response.State == ResponseState.Fail)
-                {
-                    return;
-                }
-                gCFeeDetail.DataSource = new BindingList<CT_DONGHOCPHI>(cthp.Data);
-                rowsFeeDetailNow = gvFeeDetail.RowCount;
+                loadDataFeeDetail(textMaSV.EditValue.ToString(), nienKhoa, hocKy);
 
             }
+            insertFeeDetailSignal = true;
+        }
+
+        private void loadDataFeeDetail(string maSV, string nienKhoa, int hocKy)
+        {
+            var cthp = hocPhiDAL.DSCTHocPhi(maSV, nienKhoa, hocKy);
+            if (cthp.Response.State == ResponseState.Fail)
+            {
+                return;
+            }
+            gCFeeDetail.DataSource = new BindingList<CT_DONGHOCPHI>(cthp.Data);
         }
 
         private void bButtonDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -150,66 +147,171 @@ namespace StudentManagement
         }
 
         private void bButtonInsert_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        { 
+
+        }
+
+
+        private void bButtonInsertCTHP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //gvFee.ClearSelection();
-            //gvFee.FocusInvalidRow();
-            //isInsert = true;
-            //checkThemHocPhi();
-            HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.RowCount - 2);
-            String maSv = textMaSV.EditValue.ToString();
-            String nienKhoa = hOCPHITONGHOP.NIENKHOA;
-            int hocKy = hOCPHITONGHOP.HOCKY;
-            int hocPhi = hOCPHITONGHOP.HOCPHI;
+
+        }
+
+        private void gvFee_RowCountChanged(object sender, EventArgs e)
+        {
+            if(insertFeeSignal)
+            {
+                int newRowInsert = gvFee.RowCount - 2;
+                HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(newRowInsert);
+                String maSv = textMaSV.EditValue.ToString();
+                String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+                int hocKy = hOCPHITONGHOP.HOCKY;
+                int hocPhi = hOCPHITONGHOP.HOCPHI;
+
+                if(nienKhoa is null)
+                {
+                    MessageBox.Show("Bạn chưa nhập niên khóa", "", MessageBoxButtons.OK);
+                    gvFee.FocusedRowHandle = newRowInsert;
+                    editFeeSignal = true;
+                    return;
+                }    
+                String message = "Bạn có muốn thêm " + maSv + " khóa " + nienKhoa + " học kỳ " + hocKy + " với học phí là " + hocPhi;
+                DialogResult dialog = MessageBox.Show(message, "", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    insertFee(maSv, nienKhoa, hocKy, hocPhi);
+                }
+                else
+                {
+                    // Cancel
+                    insertFeeSignal = false;
+                    gvFee.DeleteRow(newRowInsert);
+                    insertFeeSignal = true;
+                    return;
+                }
+            }    
+        }
+
+        private void gvFeeDetail_RowCountChanged(object sender, EventArgs e)
+        {
+            if (insertFeeDetailSignal)
+            {
+                int newRowInsert = gvFeeDetail.RowCount - 2;
+
+                HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.FocusedRowHandle);
+                String maSv = textMaSV.EditValue.ToString();
+                String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+                int hocKy = hOCPHITONGHOP.HOCKY;
+                CT_DONGHOCPHI cthp = (CT_DONGHOCPHI)gvFeeDetail.GetRow(newRowInsert);
+                int soTienDong = cthp.SOTIENDONG;
+                DateTime ngayDong = cthp.NGAYDONG;
+                if (soTienDong <= 0 || soTienDong > hOCPHITONGHOP.HOCPHI - hOCPHITONGHOP.DADONG)
+                {
+                    MessageBox.Show("Số tiền đóng không thể nhỏ hơn bằng 0 hoặc lớn hơn số tiền cần đóng", "", MessageBoxButtons.OK);
+                    editFeeDetailSignal = true;
+                    return;
+                }
+                String message = "Bạn có muốn thêm " + maSv + " khóa " + nienKhoa + " học kỳ " + hocKy + " đóng số tiền là " + soTienDong;
+                DialogResult dialog = MessageBox.Show(message, "", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    insertFeeDetail(maSv, nienKhoa, hocKy, ngayDong, soTienDong);
+                }
+                else
+                {
+                    // Cancel
+                    insertFeeDetailSignal = false;
+                    gvFeeDetail.DeleteRow(newRowInsert);
+                    insertFeeDetailSignal = true;
+                }
+            }
+        }
+
+        private void insertFee(String maSv, String nienKhoa, int hocKy, int hocPhi)
+        {
             var res = hocPhiDAL.ThemHocPhi(maSv, nienKhoa, hocKy, hocPhi);
             if (res.Data)
             {
                 MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
+                return;
             }
             else
             {
                 MessageBox.Show("Lỗi", "", MessageBoxButtons.OK);
-            }    
-
+                // Xóa dòng lỗi
+                insertFeeSignal = false;
+                gvFee.DeleteRow(gvFee.RowCount - 2);
+                insertFeeSignal = true;
+            }
         }
 
-        private void checkThemHocPhi()
+        private void insertFeeDetail(string maSv, string nienKhoa, int hocKy, DateTime ngayDong, int soTienDong)
         {
-            if (textMaSV.EditValue is null)
-            {
-                MessageBox.Show("Bạn chưa nhập mã sinh viên");
-                return;
-            }
-            HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.RowCount - 2);
-            String nienKhoa = hOCPHITONGHOP.NIENKHOA;
-            int hocKy = hOCPHITONGHOP.HOCKY;
-            Console.WriteLine(nienKhoa, hocKy);
-        }
-
-        private void bButtonInsertCTHP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.FocusedRowHandle);
-            String maSv = textMaSV.EditValue.ToString();
-            String nienKhoa = hOCPHITONGHOP.NIENKHOA;
-            int hocKy = hOCPHITONGHOP.HOCKY;
-            int hocPhi = hOCPHITONGHOP.HOCPHI;
-            CT_DONGHOCPHI cthp = (CT_DONGHOCPHI)gvFeeDetail.GetRow(gvFeeDetail.RowCount - 2);
-            int soTienDong = cthp.SOTIENDONG;
-            DateTime ngayDong = cthp.NGAYDONG;
-            if(soTienDong <= 0 || soTienDong > hOCPHITONGHOP.HOCPHI - hOCPHITONGHOP.DADONG)
-            {
-                MessageBox.Show("Số tiền đóng không thể nhỏ hơn bằng 0 hoặc lớn hơn số tiền cần đóng", "", MessageBoxButtons.OK);
-                return;
-            }
             var res = hocPhiDAL.SVDongHocPhi(maSv, nienKhoa, hocKy, ngayDong, soTienDong);
             if (res.Data)
             {
                 MessageBox.Show("Nộp thành công", "", MessageBoxButtons.OK);
-                
+                insertFeeSignal = false;
+                loadDataFee(maSv);
+                insertFeeSignal = false;
             }
             else
             {
-                MessageBox.Show("Lỗi", "", MessageBoxButtons.OK);
-                return;
+                MessageBox.Show(res.Response.Message, "", MessageBoxButtons.OK);
+                // Xóa dòng lỗi
+                insertFeeDetailSignal = false;
+                gvFeeDetail.DeleteRow(gvFeeDetail.RowCount - 2);
+                insertFeeDetailSignal = true;
+            }
+        }
+
+        private void gvFeeDetail_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
+        {
+            if (editFeeDetailSignal)
+            {
+                int newRowInsert = gvFeeDetail.RowCount - 2;
+
+                HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.FocusedRowHandle);
+                String maSv = textMaSV.EditValue.ToString();
+                String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+                int hocKy = hOCPHITONGHOP.HOCKY;
+                CT_DONGHOCPHI cthp = (CT_DONGHOCPHI)gvFeeDetail.GetRow(newRowInsert);
+                int soTienDong = cthp.SOTIENDONG;
+                DateTime ngayDong = cthp.NGAYDONG;
+                if (soTienDong <= 0 || soTienDong > hOCPHITONGHOP.HOCPHI - hOCPHITONGHOP.DADONG)
+                {
+                    MessageBox.Show("Số tiền đóng không thể nhỏ hơn bằng 0 hoặc lớn hơn số tiền cần đóng", "", MessageBoxButtons.OK);
+                    gvFeeDetail.FocusedRowHandle = newRowInsert;
+                    editFeeDetailSignal = true;
+                    return;
+                }
+                insertFeeDetail(maSv, nienKhoa, hocKy, ngayDong, soTienDong);
+                editFeeDetailSignal = false;
+            }
+            
+        }
+
+        private void gvFee_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
+        {
+            if (editFeeSignal)
+            {
+                int newRowInsert = gvFee.RowCount - 2;
+                HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(newRowInsert);
+                String maSv = textMaSV.EditValue.ToString();
+                String nienKhoa = hOCPHITONGHOP.NIENKHOA;
+                int hocKy = hOCPHITONGHOP.HOCKY;
+                int hocPhi = hOCPHITONGHOP.HOCPHI;
+
+                if (nienKhoa is null)
+                {
+                    MessageBox.Show("Bạn chưa nhập niên khóa", "", MessageBoxButtons.OK);
+                    gvFee.FocusedRowHandle = newRowInsert;
+                    editFeeSignal = true;
+                    return;
+                }
+                insertFee(maSv, nienKhoa, hocKy, hocPhi);
+                editFeeSignal = false;
+
             }
         }
     }

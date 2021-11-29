@@ -35,13 +35,6 @@ namespace StudentManagement
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.bButtonSave = new DevExpress.XtraBars.BarButtonItem();
-            this.bButtonInsert = new DevExpress.XtraBars.BarButtonItem();
-            this.bButtonDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.bButtonInsertCTHP = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.bButtonUndo = new DevExpress.XtraBars.BarButtonItem();
-            this.bButtonRedo = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.textMaSV = new DevExpress.XtraBars.BarEditItem();
@@ -67,7 +60,15 @@ namespace StudentManagement
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.barEditItem5 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.bButtonSave = new DevExpress.XtraBars.BarButtonItem();
+            this.bButtonDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.bButtonInsert = new DevExpress.XtraBars.BarButtonItem();
+            this.bButtonUndo = new DevExpress.XtraBars.BarButtonItem();
+            this.bButtonInsertCTHP = new DevExpress.XtraBars.BarButtonItem();
+            this.bButtonRedo = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gCFee = new DevExpress.XtraGrid.GridControl();
             this.gvFee = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -135,9 +136,10 @@ namespace StudentManagement
             this.bButtonInsertCTHP,
             this.bButtonRedo,
             this.barButtonItem2,
-            this.barButtonItem3});
+            this.barButtonItem3,
+            this.barButtonItem4});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 19;
+            this.barManager1.MaxItemId = 20;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHypertextLabel1,
             this.repositoryItemCheckedComboBoxEdit1,
@@ -156,72 +158,9 @@ namespace StudentManagement
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.FloatLocation = new System.Drawing.Point(565, 177);
-            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bButtonSave, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bButtonInsert),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bButtonInsertCTHP)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
-            // 
-            // bButtonSave
-            // 
-            this.bButtonSave.Caption = "Lưu";
-            this.bButtonSave.Id = 7;
-            this.bButtonSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonSave.ImageOptions.SvgImage")));
-            this.bButtonSave.Name = "bButtonSave";
-            this.bButtonSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // bButtonInsert
-            // 
-            this.bButtonInsert.Caption = "Thêm học phí";
-            this.bButtonInsert.Id = 9;
-            this.bButtonInsert.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonInsert.ImageOptions.SvgImage")));
-            this.bButtonInsert.Name = "bButtonInsert";
-            this.bButtonInsert.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bButtonInsert.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bButtonInsert_ItemClick);
-            // 
-            // bButtonDelete
-            // 
-            this.bButtonDelete.Caption = "Xóa";
-            this.bButtonDelete.Id = 8;
-            this.bButtonDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonDelete.ImageOptions.SvgImage")));
-            this.bButtonDelete.Name = "bButtonDelete";
-            this.bButtonDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bButtonDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bButtonDelete_ItemClick);
-            // 
-            // bButtonInsertCTHP
-            // 
-            this.bButtonInsertCTHP.Caption = "Thêm chi tiết HP";
-            this.bButtonInsertCTHP.Id = 15;
-            this.bButtonInsertCTHP.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonInsertCTHP.ImageOptions.SvgImage")));
-            this.bButtonInsertCTHP.Name = "bButtonInsertCTHP";
-            this.bButtonInsertCTHP.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bButtonInsertCTHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bButtonInsertCTHP_ItemClick);
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Xóa chi tiết HP";
-            this.barButtonItem3.Id = 18;
-            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // bButtonUndo
-            // 
-            this.bButtonUndo.Caption = "Hoàn tác";
-            this.bButtonUndo.Id = 10;
-            this.bButtonUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonUndo.ImageOptions.SvgImage")));
-            this.bButtonUndo.Name = "bButtonUndo";
-            this.bButtonUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // bButtonRedo
-            // 
-            this.bButtonRedo.Caption = "Quay lại";
-            this.bButtonRedo.Id = 16;
-            this.bButtonRedo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonRedo.ImageOptions.SvgImage")));
-            this.bButtonRedo.Name = "bButtonRedo";
-            this.bButtonRedo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // bar3
             // 
@@ -272,7 +211,6 @@ namespace StudentManagement
             this.textHoTenSV.Id = 12;
             this.textHoTenSV.Name = "textHoTenSV";
             this.textHoTenSV.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.Caption;
-            this.textHoTenSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem7_ItemClick);
             // 
             // repositoryItemTextEdit2
             // 
@@ -309,7 +247,7 @@ namespace StudentManagement
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(747, 61);
+            this.barDockControlTop.Size = new System.Drawing.Size(747, 51);
             // 
             // barDockControlBottom
             // 
@@ -324,19 +262,19 @@ namespace StudentManagement
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 61);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 459);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 469);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(747, 61);
+            this.barDockControlRight.Location = new System.Drawing.Point(747, 51);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 459);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 469);
             // 
             // barButtonItem1
             // 
@@ -429,11 +367,76 @@ namespace StudentManagement
             0});
             this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
             // 
+            // bButtonSave
+            // 
+            this.bButtonSave.Caption = "Lưu";
+            this.bButtonSave.Id = 7;
+            this.bButtonSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonSave.ImageOptions.SvgImage")));
+            this.bButtonSave.Name = "bButtonSave";
+            this.bButtonSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // bButtonDelete
+            // 
+            this.bButtonDelete.Caption = "Xóa";
+            this.bButtonDelete.Id = 8;
+            this.bButtonDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonDelete.ImageOptions.SvgImage")));
+            this.bButtonDelete.Name = "bButtonDelete";
+            this.bButtonDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bButtonDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bButtonDelete_ItemClick);
+            // 
+            // bButtonInsert
+            // 
+            this.bButtonInsert.Caption = "Thêm học phí";
+            this.bButtonInsert.Id = 9;
+            this.bButtonInsert.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonInsert.ImageOptions.SvgImage")));
+            this.bButtonInsert.Name = "bButtonInsert";
+            this.bButtonInsert.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bButtonInsert.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bButtonInsert_ItemClick);
+            // 
+            // bButtonUndo
+            // 
+            this.bButtonUndo.Caption = "Hoàn tác";
+            this.bButtonUndo.Id = 10;
+            this.bButtonUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonUndo.ImageOptions.SvgImage")));
+            this.bButtonUndo.Name = "bButtonUndo";
+            this.bButtonUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // bButtonInsertCTHP
+            // 
+            this.bButtonInsertCTHP.Caption = "Thêm chi tiết HP";
+            this.bButtonInsertCTHP.Id = 15;
+            this.bButtonInsertCTHP.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonInsertCTHP.ImageOptions.SvgImage")));
+            this.bButtonInsertCTHP.Name = "bButtonInsertCTHP";
+            this.bButtonInsertCTHP.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bButtonInsertCTHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bButtonInsertCTHP_ItemClick);
+            // 
+            // bButtonRedo
+            // 
+            this.bButtonRedo.Caption = "Quay lại";
+            this.bButtonRedo.Id = 16;
+            this.bButtonRedo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bButtonRedo.ImageOptions.SvgImage")));
+            this.bButtonRedo.Name = "bButtonRedo";
+            this.bButtonRedo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "Xóa chi tiết HP";
             this.barButtonItem2.Id = 17;
             this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Xóa chi tiết HP";
+            this.barButtonItem3.Id = 18;
+            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 19;
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // groupControl1
             // 
@@ -464,7 +467,6 @@ namespace StudentManagement
             this.gCFee.TabIndex = 0;
             this.gCFee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFee});
-            this.gCFee.Click += new System.EventHandler(this.gcFee_Click);
             // 
             // gvFee
             // 
@@ -478,6 +480,8 @@ namespace StudentManagement
             this.gvFee.Name = "gvFee";
             this.gvFee.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvFee.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridFee_FocusedRowChanged);
+            this.gvFee.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvFee_BeforeLeaveRow);
+            this.gvFee.RowCountChanged += new System.EventHandler(this.gvFee_RowCountChanged);
             // 
             // nienKhoa
             // 
@@ -555,7 +559,7 @@ namespace StudentManagement
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(747, 234);
+            this.groupControl2.Size = new System.Drawing.Size(747, 244);
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "Chi tiết đóng học phí";
             // 
@@ -571,11 +575,10 @@ namespace StudentManagement
             this.gCFeeDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gCFeeDetail.MenuManager = this.barManager1;
             this.gCFeeDetail.Name = "gCFeeDetail";
-            this.gCFeeDetail.Size = new System.Drawing.Size(743, 204);
+            this.gCFeeDetail.Size = new System.Drawing.Size(743, 214);
             this.gCFeeDetail.TabIndex = 0;
             this.gCFeeDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFeeDetail});
-            this.gCFeeDetail.Click += new System.EventHandler(this.gcFeeDetail_Click);
             // 
             // gvFeeDetail
             // 
@@ -585,6 +588,8 @@ namespace StudentManagement
             this.gvFeeDetail.GridControl = this.gCFeeDetail;
             this.gvFeeDetail.Name = "gvFeeDetail";
             this.gvFeeDetail.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvFeeDetail.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvFeeDetail_BeforeLeaveRow);
+            this.gvFeeDetail.RowCountChanged += new System.EventHandler(this.gvFeeDetail_RowCountChanged);
             // 
             // ngayDong
             // 
@@ -614,14 +619,14 @@ namespace StudentManagement
             // 
             this.splitCC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitCC.Horizontal = false;
-            this.splitCC.Location = new System.Drawing.Point(0, 61);
+            this.splitCC.Location = new System.Drawing.Point(0, 51);
             this.splitCC.Margin = new System.Windows.Forms.Padding(2);
             this.splitCC.Name = "splitCC";
             this.splitCC.Panel1.Controls.Add(this.groupControl1);
             this.splitCC.Panel1.Text = "Panel1";
             this.splitCC.Panel2.Controls.Add(this.groupControl2);
             this.splitCC.Panel2.Text = "Panel2";
-            this.splitCC.Size = new System.Drawing.Size(747, 459);
+            this.splitCC.Size = new System.Drawing.Size(747, 469);
             this.splitCC.SplitterPosition = 213;
             this.splitCC.TabIndex = 13;
             // 
@@ -714,5 +719,6 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox riNienKhoa;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
     }
 }

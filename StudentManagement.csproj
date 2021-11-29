@@ -105,11 +105,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormReportCreditClass.cs">
+    <Compile Include="FormCreditClass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormReportCreditClass.Designer.cs">
-      <DependentUpon>FormReportCreditClass.cs</DependentUpon>
+    <Compile Include="FormCreditClass.Designer.cs">
+      <DependentUpon>FormCreditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFeeByClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeeByClass.Designer.cs">
+      <DependentUpon>FormFeeByClass.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -123,11 +129,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReportStudentCreditClass.cs">
+    <Compile Include="FormPrintFee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormReportStudentCreditClass.Designer.cs">
-      <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
+    <Compile Include="FormPrintFee.Designer.cs">
+      <DependentUpon>FormPrintFee.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ConvertMoney.cs" />
     <Compile Include="Model\CreditClass.cs" />
@@ -136,6 +142,7 @@
     <Compile Include="Model\GIANGVIEN.cs" />
     <Compile Include="Model\HOCPHI.cs" />
     <Compile Include="Model\HOCPHITONGHOP.cs" />
+    <Compile Include="Model\INHOCPHI.cs" />
     <Compile Include="Model\KHOA.cs" />
     <Compile Include="Model\LOP.cs" />
     <Compile Include="Model\LOPTINCHI.cs" />
@@ -144,23 +151,24 @@
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\ServerInfo.cs" />
     <Compile Include="Model\SINHVIEN.cs" />
+    <Compile Include="Model\KHOALOP.cs" />
     <Compile Include="Model\UpdateDangKy.cs" />
     <Compile Include="Model\UpdateGrade.cs" />
     <Compile Include="Model\UpdateLopTinChi.cs" />
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportSudentInCreditClass.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReportSudentInCreditClass.Designer.cs">
-      <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReportCreditClass.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReportCreditClass.Designer.cs">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportTuitionFee.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTuitionFee.Designer.cs">
+      <DependentUpon>ReportTuitionFee.cs</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BaseDAL.cs" />
     <Compile Include="Repositories\DangKyDAL.cs" />
@@ -168,7 +176,6 @@
     <Compile Include="Repositories\HocPhiDAL.cs" />
     <Compile Include="Repositories\LopTinChiDAL.cs" />
     <Compile Include="Repositories\MonHocDAL.cs" />
-    <Compile Include="Repositories\SinhVienDAL.cs" />
     <Compile Include="Repositories\SupportDAL.cs" />
     <Compile Include="Repositories\UserDAL.cs" />
     <Compile Include="TestAddLogin.cs">
@@ -203,8 +210,11 @@
     </Compile>
     <Compile Include="Undo\ActionUndo.cs" />
     <Compile Include="Undo\SUndo.cs" />
-    <EmbeddedResource Include="FormReportCreditClass.resx">
-      <DependentUpon>FormReportCreditClass.cs</DependentUpon>
+    <EmbeddedResource Include="FormCreditClass.resx">
+      <DependentUpon>FormCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFeeByClass.resx">
+      <DependentUpon>FormFeeByClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -213,8 +223,8 @@
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReportStudentCreditClass.resx">
-      <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
+    <EmbeddedResource Include="FormPrintFee.resx">
+      <DependentUpon>FormPrintFee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -227,11 +237,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReportSudentInCreditClass.resx">
-      <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReportCreditClass.resx">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTuitionFee.resx">
+      <DependentUpon>ReportTuitionFee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestAddLogin.resx">
       <DependentUpon>TestAddLogin.cs</DependentUpon>
@@ -319,9 +329,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\defaultprinter.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\actions_refresh2.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,6 +33,29 @@ namespace StudentManagement.Repositories
             }
         }
 
+        public DataResponse<KHOALOP> GetTenKhoaByMaLop(string maLop)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<KHOALOP>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_GetTenKhoaByMaLop @maLop";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@maLop", maLop);
+                var data = Program.conn.Query<KHOALOP>(command, parameters).FirstOrDefault();
+                return new DataResponeSuccess<KHOALOP>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<KHOALOP>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
         public DataResponse<List<HOCPHITONGHOP>> DSHocPhiByMASV(string maSV)
         {
             if (!BaseDAl.Connect())
@@ -152,6 +175,54 @@ namespace StudentManagement.Repositories
             {
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
+        public DataResponse<bool> CheckExistedLop(string maLop)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<bool>("Lỗi kết nối");
+            try
+            {
+                string command = "select [dbo].[checkExistedLop] (@MALOP)";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@MALOP", maLop);
+                var res = Program.conn.ExecuteScalar<bool>(command, parameters);
+                return new DataResponeSuccess<bool>(res);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
+        public DataResponse<List<INHOCPHI>> INDSHPByLop(string maLop, string nienKhoa, int hocKy)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<INHOCPHI>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_InDSHPByLop @malop, @nienkhoa, @hocky";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@malop", maLop);
+                parameters.Add("@nienkhoa", nienKhoa);
+                parameters.Add("@hocky", hocKy);
+                var data = Program.conn.Query<INHOCPHI>(command, parameters).ToList();
+                return new DataResponeSuccess<List<INHOCPHI>>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<List<INHOCPHI>>("Lỗi hệ thống");
             }
             finally
             {

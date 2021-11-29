@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Model
 {
-    class SINHVIEN
+    class KHOALOP
     {
-        public string MASV { get; set; }
-        public string HOTEN { get; set; }
-        public string MALOP { get; set; }
+        public string TENKHOA { get; set; }
     }
 }
