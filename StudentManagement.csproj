@@ -156,6 +156,7 @@
     <Compile Include="Model\UpdateGrade.cs" />
     <Compile Include="Model\UPDATELOP.cs" />
     <Compile Include="Model\UpdateLopTinChi.cs" />
+    <Compile Include="Model\UPDATEMONHOC.cs" />
     <Compile Include="Model\UPDATESINHVIEN.cs" />
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Program.cs" />
