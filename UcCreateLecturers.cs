@@ -16,7 +16,7 @@ using DevExpress.XtraGrid.Views.Base;
 
 namespace StudentManagement
 {
-    public partial class UcCreateStudent : DevExpress.XtraEditors.XtraUserControl
+    public partial class UcCreateLecturers : DevExpress.XtraEditors.XtraUserControl
     {
         bool isInsert = false;
         private LopTinChiDAL lopTinChiDAL;
@@ -26,7 +26,8 @@ namespace StudentManagement
         private SUndo undo;
         private LopDAL lopDAL;
         private bool stateUndo;
-        public UcCreateStudent()
+        private String MAKHOA;
+        public UcCreateLecturers()
         {
             InitializeComponent();
             lopTinChiDAL = new LopTinChiDAL();
@@ -98,31 +99,27 @@ namespace StudentManagement
             if (GetSelelectRow() == -1)
                 return;
 
-            string masv = gvCreditClass.GetRowCellValue(GetSelelectRow(), "MASV").ToString();
-            var res = sinhVienDAL.CheckSinhvien(masv);
+            string magv = gvCreditClass.GetRowCellValue(GetSelelectRow(), "MAGV").ToString();
+            var res = giangVienDAL.CheckGiangVien(magv);
             if (res.Response.State == ResponseState.Fail)
             {
                 // notify error
             }
 
-            if (res.Data)
-            {
-                gvCreditClass.SetFocusedRowCellValue("DANGHIHOC", 1);
-            }
-            else
+            if (!res.Data)
             {
                 //  notify error
                 if (GetSelelectRow() != -1)
                 {
-                    SINHVIEN sinhvien = (SINHVIEN)gvCreditClass.GetRow(GetSelelectRow());
-                    undo.Push(new ActionUndo(3, GetSelelectRow(), sinhvien), new ActionUndo(2, GetSelelectRow(), null));
+                    GIANGVIEN GIANGVIENs = (GIANGVIEN)gvCreditClass.GetRow(GetSelelectRow());
+                    undo.Push(new ActionUndo(3, GetSelelectRow(), GIANGVIENs), new ActionUndo(2, GetSelelectRow(), null));
                     gvCreditClass.DeleteSelectedRows();
                     return;
 
                 }
-
-
-
+            }
+            else
+            {              
             }
 
 
@@ -144,14 +141,14 @@ namespace StudentManagement
         private void LoadData()
         {
 
-            rilkLOP.DataSource = new LopDAL().GetListLop().Data;
-            var res = sinhVienDAL.GetListSinhVien();
+            rilkKHOA.DataSource = giangVienDAL.GetListKhoa().Data;
+            var res = giangVienDAL.GetListAllGiangVien();
             if (res.Response.State == ResponseState.Fail)
             {
                 // Notify error
             }
 
-            gcCreditClass.DataSource = new BindingList<SINHVIEN>(res.Data);
+            gcCreditClass.DataSource = new BindingList<GIANGVIEN>(res.Data);
             //gcCreditClass.DataSource = res.Data;
             gvCreditClass.FocusInvalidRow();
 
@@ -160,7 +157,7 @@ namespace StudentManagement
 
         private void LoadDataByIdClass()
         {
-            rilkLOP.DataSource = new LopDAL().GetListLop().Data;
+            rilkKHOA.DataSource = new LopDAL().GetListLop().Data;
             string idClass = bESchoolYear.EditValue.ToString();
             var res = sinhVienDAL.GetListSinhVienByLop(idClass);
             if (res.Response.State == ResponseState.Fail)
@@ -217,10 +214,10 @@ namespace StudentManagement
         private void bESave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             gvCreditClass.FocusInvalidRow();
-            List<UPDATESINHVIEN> listUpdate;
-            var binding = (BindingList<SINHVIEN>)gvCreditClass.DataSource;
-            listUpdate = binding.ToList().Select(x => new UPDATESINHVIEN(x)).ToList();
-            var res = sinhVienDAL.UpdateSinhVien(listUpdate);
+            List<UPDATEGIANGVIEN> listUpdate;
+            var binding = (BindingList<GIANGVIEN>)gvCreditClass.DataSource;
+            listUpdate = binding.ToList().Select(x => new UPDATEGIANGVIEN(x)).ToList();
+            var res = giangVienDAL.UpdateGiangVien(listUpdate);
             if (res.Response.State == ResponseState.Fail)
             {
                 // Notify error
@@ -238,10 +235,10 @@ namespace StudentManagement
         {
             if (e.NewValue == null)
                 return;
-            LOP LOPs = ((List<LOP>)rilkLOP.DataSource).FirstOrDefault(x => x.MALOP == e.NewValue.ToString());
-            if (LOPs == null)
+            KHOA KHOAs = ((List<KHOA>)rilkKHOA.DataSource).FirstOrDefault(x => x.MAKHOA == e.NewValue.ToString());
+            if (KHOAs == null)
                 return;
-            gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "TENLOP", LOPs.TENLOP);
+            gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "TENKHOA", KHOAs.TENKHOA);
         }
 
         private void gcCreditClass_Click(object sender, EventArgs e)
@@ -289,10 +286,10 @@ namespace StudentManagement
                     break;
                 case 3:
 
-                    List<SINHVIEN> SINHVIENs = (gvCreditClass.DataSource as BindingList<SINHVIEN>).ToList();
-                    SINHVIENs.Insert(int.Parse(action.obj.ToString()), action.value as SINHVIEN);
+                    List<GIANGVIEN> gIANGVIENs = (gvCreditClass.DataSource as BindingList<GIANGVIEN>).ToList();
+                    gIANGVIENs.Insert(int.Parse(action.obj.ToString()), action.value as GIANGVIEN);
 
-                    gcCreditClass.DataSource = new BindingList<SINHVIEN>(SINHVIENs);
+                    gcCreditClass.DataSource = new BindingList<GIANGVIEN>(gIANGVIENs);
                     gvCreditClass.FocusedRowHandle = int.Parse(action.obj.ToString());
                     break;
             }
@@ -303,7 +300,7 @@ namespace StudentManagement
         {
 
 
-            if (e.Column.FieldName == "MASV")
+            if (e.Column.FieldName == "MAGV")
                 return;
 
             if (stateUndo)
@@ -318,7 +315,7 @@ namespace StudentManagement
         private void gvCreditClass_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
         {
             GridView gridView = sender as GridView;
-            if (gridView.FocusedColumn.FieldName == "MASV")
+            if (gridView.FocusedColumn.FieldName == "MAGV")
             {
                 string MASV = (e.Value.ToString());
                 if (MASV==null)
@@ -346,7 +343,7 @@ namespace StudentManagement
                 }
             }
 
-            if (gridView.FocusedColumn.FieldName == "MALOP")
+            if (gridView.FocusedColumn.FieldName == "MAKHOA")
             {
                 if (e.Value.Equals(""))
                 {
@@ -359,7 +356,7 @@ namespace StudentManagement
         private void gvCreditClass_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             GridView gridView = sender as GridView;
-            if (gridView.GetRowCellValue(e.RowHandle, colMASV) == null)
+            if (gridView.GetRowCellValue(e.RowHandle, colMAGV) == null)
             {
                 e.Valid = false;
                 e.ErrorText = "MASV not null!";
@@ -375,10 +372,10 @@ namespace StudentManagement
                 e.Valid = false;
                 e.ErrorText = "TEN is not null!";
             }
-            if (gridView.GetRowCellValue(e.RowHandle, colMALOP) == null)
+            if (gridView.GetRowCellValue(e.RowHandle, colMAKHOA) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "MALOP is not null!";
+                e.ErrorText = "MAKHOA is not null!";
             }
         }
     }
