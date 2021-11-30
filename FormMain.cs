@@ -18,6 +18,7 @@ namespace StudentManagement
         FormLogin fromLogin;
         UcCreditClass ucCreditClass;
         UcCreateClass ucCreateClass;
+        UcCreateLecturers ucCreateLecturers;
         UcCreateSubject ucCreateSubject;
         UcCreateStudent ucCreateStudent;
         UCRegisterCreditClass uCRegisterCreditClass;
@@ -204,6 +205,17 @@ namespace StudentManagement
 
             pnContent.Controls.Clear();
             pnContent.Controls.Add(ucCreateSubject);
+        }
+
+        private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (ucCreateLecturers == null)
+                ucCreateLecturers = new UcCreateLecturers();
+
+            ucCreateLecturers.Dock = DockStyle.Fill;
+
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(ucCreateLecturers);
         }
     }
 }

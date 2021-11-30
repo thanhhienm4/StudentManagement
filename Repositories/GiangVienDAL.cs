@@ -32,6 +32,27 @@ namespace StudentManagement.Repositories
             }
         }
 
+        public DataResponse<List<GIANGVIEN>> GetListAllGiangVien()
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<GIANGVIEN>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_DS_All_GiangVien";
+                DynamicParameters parameters = new DynamicParameters();
+                var data = Program.conn.Query<GIANGVIEN>(command).ToList();
+                return new DataResponeSuccess<List<GIANGVIEN>>(data);
+            }
+            catch (Exception)
+            {
+                return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
         public DataResponse<bool> UpdateGiangVien(List<UPDATEGIANGVIEN> list)
         {
             if (!BaseDAl.Connect())
@@ -55,7 +76,7 @@ namespace StudentManagement.Repositories
             }
         }
 
-        public DataResponse<bool> CheckLop(string magv)
+        public DataResponse<bool> CheckGiangVien(string magv)
         {
             if (!BaseDAl.Connect())
                 return new DataResponeFail<bool>("Lỗi kết nối");
@@ -71,6 +92,27 @@ namespace StudentManagement.Repositories
             {
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
+
+        public DataResponse<List<KHOA>> GetListKhoa()
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<KHOA>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_DS_KHOA";
+                DynamicParameters parameters = new DynamicParameters();
+                var data = Program.conn.Query<KHOA>(command).ToList();
+                return new DataResponeSuccess<List<KHOA>>(data);
+            }
+            catch (Exception)
+            {
+                return new DataResponeFail<List<KHOA>>("Lỗi hệ thống");
             }
             finally
             {

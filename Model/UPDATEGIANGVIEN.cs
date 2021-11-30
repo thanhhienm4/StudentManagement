@@ -22,7 +22,7 @@ namespace StudentManagement.Model
         public UPDATEGIANGVIEN(GIANGVIEN model)
         {
             MAGV = model.MAGV;
-            MAKHOA = model.MAKHOA;
+            MAKHOA = model.MAKHOA.Trim();
             TEN = model.TEN;
             HO = model.HO;
             HOCVI = model.HOCVI;
