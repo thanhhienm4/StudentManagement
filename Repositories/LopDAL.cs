@@ -153,7 +153,7 @@ namespace StudentManagement.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@malop", malop);
 
-                var data = Program.conn.Query<TongKetCuoiKhoa>(command,malop).ToList();
+                var data = Program.conn.Query<TongKetCuoiKhoa>(command,parameters).ToList();
                 return new DataResponeSuccess<List<TongKetCuoiKhoa>>(data);
             }
             catch (Exception e)

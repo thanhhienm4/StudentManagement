@@ -27,6 +27,5 @@ namespace StudentManagement.Model
 
         public Guid rowguid { get; set; }
 
-        public virtual KHOA KHOA { get; set; }
     }
 }

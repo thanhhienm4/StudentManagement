@@ -142,7 +142,6 @@
       <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ConvertMoney.cs" />
-    <Compile Include="Model\CreditClass.cs" />
     <Compile Include="Model\CT_DONGHOCPHI.cs" />
     <Compile Include="Model\DANGKY.cs" />
     <Compile Include="Model\GIANGVIEN.cs" />
@@ -175,17 +174,23 @@
     <Compile Include="ReportCreditClass.Designer.cs">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportCrosstab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReportCrosstab.Designer.cs">
-      <DependentUpon>ReportCrosstab.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReportSudentInCreditClass.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReportSudentInCreditClass.Designer.cs">
       <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportSumaryFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportSumaryFinal.Designer.cs">
+      <DependentUpon>FormReportSumaryFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSummaryFinal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportSummaryFinal.Designer.cs">
+      <DependentUpon>ReportSummaryFinal.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportTuitionFee.cs">
       <SubType>Component</SubType>
@@ -280,11 +285,14 @@
     <EmbeddedResource Include="ReportCreditClass.resx">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportCrosstab.resx">
-      <DependentUpon>ReportCrosstab.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReportSudentInCreditClass.resx">
       <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportSumaryFinal.resx">
+      <DependentUpon>FormReportSumaryFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSummaryFinal.resx">
+      <DependentUpon>ReportSummaryFinal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTuitionFee.resx">
       <DependentUpon>ReportTuitionFee.cs</DependentUpon>
