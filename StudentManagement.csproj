@@ -135,6 +135,12 @@
     <Compile Include="FormPrintFee.Designer.cs">
       <DependentUpon>FormPrintFee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPrintStudentTranscripts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintStudentTranscripts.Designer.cs">
+      <DependentUpon>FormPrintStudentTranscripts.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReportStudentCreditClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,7 @@
     <Compile Include="Model\GIANGVIEN.cs" />
     <Compile Include="Model\HOCPHI.cs" />
     <Compile Include="Model\HOCPHITONGHOP.cs" />
+    <Compile Include="Model\INBANGDIEM.cs" />
     <Compile Include="Model\INHOCPHI.cs" />
     <Compile Include="Model\KHOA.cs" />
     <Compile Include="Model\KHOAHOC.cs" />
@@ -173,6 +180,12 @@
     </Compile>
     <Compile Include="ReportCreditClass.Designer.cs">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportStudentTranscripts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportStudentTranscripts.Designer.cs">
+      <DependentUpon>ReportStudentTranscripts.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportSudentInCreditClass.cs">
       <SubType>Component</SubType>
@@ -256,6 +269,9 @@
     <EmbeddedResource Include="FormPrintFee.resx">
       <DependentUpon>FormPrintFee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintStudentTranscripts.resx">
+      <DependentUpon>FormPrintStudentTranscripts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportStudentCreditClass.resx">
       <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +288,9 @@
     </Compile>
     <EmbeddedResource Include="ReportCreditClass.resx">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportStudentTranscripts.resx">
+      <DependentUpon>ReportStudentTranscripts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportSudentInCreditClass.resx">
       <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>

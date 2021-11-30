@@ -33,6 +33,29 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+
+        public DataResponse<List<INBANGDIEM>> InBangDiemSV(string maSV, string role)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<INBANGDIEM>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_InBangDiemSV @maSV, @role";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@maSV", maSV);
+                parameters.Add("@role", role);
+                var data = Program.conn.Query<INBANGDIEM>(command, parameters).ToList();
+                return new DataResponeSuccess<List<INBANGDIEM>>(data);
+            }
+            catch (Exception e)
+            {
+                return new DataResponeFail<List<INBANGDIEM>>(e.ToString().Substring(0, 128));
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
         public DataResponse<List<LOPTINCHI>> GetListLopTinChiActive(string nienKhoa, int hocKy)
         {
             if (!BaseDAl.Connect())

@@ -199,5 +199,11 @@ namespace StudentManagement
             FormReportStudentCreditClass form = new FormReportStudentCreditClass();
             form.ShowDialog();
         }
+
+        private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormPrintStudentTranscripts form = new FormPrintStudentTranscripts();
+            form.ShowDialog();
+        }
     }
 }

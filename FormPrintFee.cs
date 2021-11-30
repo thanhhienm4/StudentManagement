@@ -89,6 +89,7 @@ namespace StudentManagement
 
                 if (res.Response.State == ResponseState.Fail)
                 {
+                    MessageBox.Show(res.Response.Message, "", MessageBoxButtons.OK);
                     return;
                 }
                 
