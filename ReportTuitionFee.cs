@@ -15,10 +15,11 @@ namespace StudentManagement
             InitializeComponent();
         }
 
-        public void InitData(string maLop, List<INHOCPHI> data, string tenKhoa)
+        public void InitData(string maLop, List<INHOCPHI> data, string tenKhoa, string money)
         {
             this.pTenKhoa.Value = tenKhoa;
             this.pMaLop.Value = maLop;
+            this.pStringMoney.Value = money;
             objectDataSource2.DataSource = data;
         }
 

@@ -25,7 +25,7 @@ namespace StudentManagement.Repositories
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return new DataResponeFail<SINHVIEN>("Lỗi hệ thống");
+                return new DataResponeFail<SINHVIEN>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {
@@ -48,7 +48,7 @@ namespace StudentManagement.Repositories
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return new DataResponeFail<KHOALOP>("Lỗi hệ thống");
+                return new DataResponeFail<KHOALOP>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {
@@ -71,7 +71,7 @@ namespace StudentManagement.Repositories
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return new DataResponeFail<List<HOCPHITONGHOP>>("Lỗi hệ thống");
+                return new DataResponeFail<List<HOCPHITONGHOP>>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {
@@ -96,7 +96,7 @@ namespace StudentManagement.Repositories
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return new DataResponeFail<List<CT_DONGHOCPHI>>("Lỗi hệ thống");
+                return new DataResponeFail<List<CT_DONGHOCPHI>>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {
@@ -123,7 +123,7 @@ namespace StudentManagement.Repositories
             }
             catch(Exception e)
             {
-                return new DataResponeFail<bool>("Lỗi hệ thống, " + e.ToString());
+                return new DataResponeFail<bool>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {
@@ -151,7 +151,7 @@ namespace StudentManagement.Repositories
             }
             catch (Exception e)
             {
-                return new DataResponeFail<bool>("Lỗi hệ thống, " + e.ToString());
+                return new DataResponeFail<bool>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {
@@ -174,7 +174,7 @@ namespace StudentManagement.Repositories
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return new DataResponeFail<bool>("Lỗi hệ thống");
+                return new DataResponeFail<bool>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {
@@ -197,7 +197,7 @@ namespace StudentManagement.Repositories
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return new DataResponeFail<bool>("Lỗi hệ thống");
+                return new DataResponeFail<bool>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {
@@ -222,7 +222,7 @@ namespace StudentManagement.Repositories
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return new DataResponeFail<List<INHOCPHI>>("Lỗi hệ thống");
+                return new DataResponeFail<List<INHOCPHI>>("Lỗi hệ thống, Lỗi SQL");
             }
             finally
             {

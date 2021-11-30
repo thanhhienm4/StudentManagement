@@ -8,92 +8,102 @@ namespace StudentManagement.Helper
 {
     public class ConvertMoney
     {
-        public static string NumberToText(double inputNumber, bool suffix = true)
+
+        public static string threeNumber(int n)
         {
-            string[] unitNumbers = new string[] { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
-            string[] placeValues = new string[] { "", "nghìn", "triệu", "tỷ" };
-            bool isNegative = false;
+            int first, second, third;
 
-            // -12345678.3445435 => "-12345678"
-            string sNumber = inputNumber.ToString("#");
-            double number = Convert.ToDouble(sNumber);
-            if (number < 0)
+            first = n % 10;
+            n /= 10;
+            second = n % 10;
+            n /= 10;
+            third = n % 10;
+
+            string[] allNumbers = new string[] { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
+            string ans = "";
+
+            if(third > 0)
             {
-                number = -number;
-                sNumber = number.ToString();
-                isNegative = true;
+                ans += allNumbers[third] + " trăm ";
             }
+            
 
-
-            int ones, tens, hundreds;
-
-            int positionDigit = sNumber.Length;   // last -> first
-
-            string result = " ";
-
-
-            if (positionDigit == 0)
-                result = unitNumbers[0] + result;
-            else
+            if(second > 0)
             {
-                // 0:       ###
-                // 1: nghìn ###,###
-                // 2: triệu ###,###,###
-                // 3: tỷ    ###,###,###,###
-                int placeValue = 0;
-
-                while (positionDigit > 0)
+                if(second == 1)
                 {
-                    // Check last 3 digits remain ### (hundreds tens ones)
-                    tens = hundreds = -1;
-                    ones = Convert.ToInt32(sNumber.Substring(positionDigit - 1, 1));
-                    positionDigit--;
-                    if (positionDigit > 0)
-                    {
-                        tens = Convert.ToInt32(sNumber.Substring(positionDigit - 1, 1));
-                        positionDigit--;
-                        if (positionDigit > 0)
-                        {
-                            hundreds = Convert.ToInt32(sNumber.Substring(positionDigit - 1, 1));
-                            positionDigit--;
-                        }
-                    }
-
-                    if ((ones > 0) || (tens > 0) || (hundreds > 0) || (placeValue == 3))
-                        result = placeValues[placeValue] + result;
-
-                    placeValue++;
-                    if (placeValue > 3) placeValue = 1;
-
-                    if ((ones == 1) && (tens > 1))
-                        result = "một " + result;
-                    else
-                    {
-                        if ((ones == 5) && (tens > 0))
-                            result = "lăm " + result;
-                        else if (ones > 0)
-                            result = unitNumbers[ones] + " " + result;
-                    }
-                    if (tens < 0)
-                        break;
-                    else
-                    {
-                        if ((tens == 0) && (ones > 0)) result = "lẻ " + result;
-                        if (tens == 1) result = "mười " + result;
-                        if (tens > 1) result = unitNumbers[tens] + " mươi " + result;
-                    }
-                    if (hundreds < 0) break;
-                    else
-                    {
-                        if ((hundreds > 0) || (tens > 0) || (ones > 0))
-                            result = unitNumbers[hundreds] + " trăm " + result;
-                    }
-                    result = " " + result;
+                    ans += "mười ";
+                }
+                else
+                {
+                    ans += allNumbers[second] + " mươi ";
                 }
             }
-            result = result.Trim();
-            if (isNegative) result = "Âm " + result;
-            return result + (suffix ? " đồng chẵn" : "");
+
+            if(first > 0)
+            {
+                if(second == 0 && third != 0)
+                {
+                    ans += "lẻ ";
+                }
+                if (first == 1 && second != 0)
+                {
+                    ans += "mốt";
+                }
+                else if (first == 5 && (second != 0 || third != 0))
+                {
+                    ans += "lăm";
+                }
+                else if (first == 5 && (second == 0 || third != 0))
+                {
+                    ans += "năm";
+                }
+                else
+                {
+                    ans += allNumbers[first];
+                }
+                    
+            }
+            return ans;
+        }
+        public static string NumberToString(int inputNumber)
+        {
+            string ans = "";
+            int unit = 0, thousand = 0, million = 0, billion = 0;
+
+            if (inputNumber == 0)
+            {
+                return "Không";
+            }
+            else {
+                unit = inputNumber % 1000;
+                inputNumber /= 1000;
+                thousand = inputNumber % 1000;
+                inputNumber /= 1000;
+                million = inputNumber % 1000;
+                inputNumber /= 1000;
+                billion = inputNumber % 1000;
+                inputNumber /= 1000;
+
+                if(billion > 0)
+                {
+                    ans += threeNumber(billion) + " tỷ ";
+                }
+                if (million > 0)
+                {
+                    ans += threeNumber(million) + " triệu ";
+                }
+                if (thousand > 0)
+                {
+                    ans += threeNumber(thousand) + " nghìn ";
+                }
+                if (unit > 0)
+                {
+                    ans += threeNumber(unit);
+                }
+            }
+            ans = ans.Substring(0, 1).ToUpper() + ans.Substring(1, ans.Length - 1);
+            return ans.Trim() + " Việt Nam Đồng";
         }
     }
 }
