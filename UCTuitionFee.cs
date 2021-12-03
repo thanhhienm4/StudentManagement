@@ -20,6 +20,8 @@ namespace StudentManagement
         private HocPhiDAL hocPhiDAL;
         bool insertFeeSignal = true;
         bool insertFeeDetailSignal = true;
+        bool validationFee = true;
+        bool validationFeeDetail = true;
         //bool editFeeSignal = false;
         //bool editFeeDetailSignal = false;
 
@@ -83,6 +85,7 @@ namespace StudentManagement
 
             if (dsHocPhi.Response.State == ResponseState.Fail)
             {
+                MessageBox.Show(dsHocPhi.Response.Message, "", MessageBoxButtons.OK);
                 return;
             }
 
@@ -108,6 +111,7 @@ namespace StudentManagement
             var cthp = hocPhiDAL.DSCTHocPhi(maSV, nienKhoa, hocKy);
             if (cthp.Response.State == ResponseState.Fail)
             {
+                MessageBox.Show(cthp.Response.Message, "", MessageBoxButtons.OK);
                 return;
             }
             gCFeeDetail.DataSource = new BindingList<CT_DONGHOCPHI>(cthp.Data);
@@ -160,7 +164,7 @@ namespace StudentManagement
 
         private void gvFee_RowCountChanged(object sender, EventArgs e)
         {
-            if (insertFeeSignal)
+            if (insertFeeSignal && validationFee)
             {
                 int newRowInsert = gvFee.RowCount - 2;
                 HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(newRowInsert);
@@ -188,7 +192,7 @@ namespace StudentManagement
 
         private void gvFeeDetail_RowCountChanged(object sender, EventArgs e)
         {
-            if (insertFeeDetailSignal)
+            if (insertFeeDetailSignal && validationFeeDetail)
             {
                 int newRowInsert = gvFeeDetail.RowCount - 2;
 
@@ -307,6 +311,7 @@ namespace StudentManagement
         private void gvFee_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             GridView gridView = sender as GridView;
+            gridView.ClearColumnErrors();
 
             if (gridView.GetRowCellValue(e.RowHandle, nienKhoa) == null)
             {
@@ -316,15 +321,24 @@ namespace StudentManagement
 
             if (int.Parse(gridView.GetRowCellValue(e.RowHandle, hocPhi).ToString()) <= 0)
             {
-                gridView.SetColumnError(hocPhi, "Học phí không hợp lệ");
+                gridView.SetColumnError(hocPhi, "Học phí không hợp lệ, phải > 0");
                 e.Valid = false;
             }
 
             if (int.Parse(gridView.GetRowCellValue(e.RowHandle, hocKy).ToString()) <= 0
                 || int.Parse(gridView.GetRowCellValue(e.RowHandle, hocKy).ToString()) > 4)
             {
-                gridView.SetColumnError(hocKy, "Học kỳ phải nằm trong khoảng từ 1-3");
+                gridView.SetColumnError(hocKy, "Học kỳ phải nằm trong khoảng từ 1-4");
                 e.Valid = false;
+            }
+
+            if (!e.Valid)
+            {
+                validationFee = false;
+            }
+            else
+            {
+                validationFee = true;
             }
 
         }
@@ -332,6 +346,7 @@ namespace StudentManagement
         private void gvFeeDetail_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             GridView gridView = sender as GridView;
+            gridView.ClearColumnErrors();
 
             HOCPHITONGHOP hOCPHITONGHOP = (HOCPHITONGHOP)gvFee.GetRow(gvFee.FocusedRowHandle);
             int canDong = hOCPHITONGHOP.HOCPHI -hOCPHITONGHOP.DADONG;
@@ -342,10 +357,20 @@ namespace StudentManagement
                 e.Valid = false;
             }
 
-            if (int.Parse(gridView.GetRowCellValue(e.RowHandle, soTienDong).ToString()) > canDong)
+            if (int.Parse(gridView.GetRowCellValue(e.RowHandle, soTienDong).ToString()) > canDong || 
+                int.Parse(gridView.GetRowCellValue(e.RowHandle, soTienDong).ToString()) <= 0)
             {
-                gridView.SetColumnError(hocPhi, "Phải đóng nhỏ hơn hoặc bằng số tiền cần đóng");
+                gridView.SetColumnError(soTienDong, "Phải đóng nhỏ hơn hoặc bằng số tiền cần đóng và lớn hơn 0");
                 e.Valid = false;
+            }
+
+            if (!e.Valid)
+            {
+                validationFeeDetail = false;
+            }
+            else
+            {
+                validationFeeDetail = true;
             }
         }
     }

@@ -202,6 +202,12 @@ namespace StudentManagement
 
         private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
         {
+            FormPrintStudentTranscripts form = new FormPrintStudentTranscripts();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
+        {
             FormReportSumaryFinal form = new FormReportSumaryFinal();
             form.ShowDialog();
         }
