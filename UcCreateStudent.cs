@@ -108,6 +108,7 @@ namespace StudentManagement
             if (res.Data)
             {
                 gvCreditClass.SetFocusedRowCellValue("DANGHIHOC", 1);
+                MessageBox.Show("Thành công");
             }
             else
             {
@@ -117,6 +118,7 @@ namespace StudentManagement
                     SINHVIEN sinhvien = (SINHVIEN)gvCreditClass.GetRow(GetSelelectRow());
                     undo.Push(new ActionUndo(3, GetSelelectRow(), sinhvien), new ActionUndo(2, GetSelelectRow(), null));
                     gvCreditClass.DeleteSelectedRows();
+                    MessageBox.Show("Xóa Thành công");
                     return;
 
                 }
@@ -216,18 +218,25 @@ namespace StudentManagement
 
         private void bESave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gvCreditClass.FocusInvalidRow();
-            List<UPDATESINHVIEN> listUpdate;
-            var binding = (BindingList<SINHVIEN>)gvCreditClass.DataSource;
-            listUpdate = binding.ToList().Select(x => new UPDATESINHVIEN(x)).ToList();
-            var res = sinhVienDAL.UpdateSinhVien(listUpdate);
-            if (res.Response.State == ResponseState.Fail)
+            DialogResult d;
+            d = MessageBox.Show("Bạn có chắc là muốn lưu không?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (d == DialogResult.Yes)
             {
-                // Notify error
-            }
-            else
-            {
-                // notify susscess
+                gvCreditClass.FocusInvalidRow();
+                List<UPDATESINHVIEN> listUpdate;
+                var binding = (BindingList<SINHVIEN>)gvCreditClass.DataSource;
+                listUpdate = binding.ToList().Select(x => new UPDATESINHVIEN(x)).ToList();
+                var res = sinhVienDAL.UpdateSinhVien(listUpdate);
+                if (res.Response.State == ResponseState.Fail)
+                {
+                    MessageBox.Show("Lưu thất bại");
+
+                }
+                else
+                {
+                    MessageBox.Show("Lưu thành công");
+                    InitialSchoolYear();
+                }
             }
 
 
