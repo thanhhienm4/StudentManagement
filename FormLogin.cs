@@ -65,9 +65,6 @@ namespace StudentManagement
                 default: LoginStaff(); break;
                 
             }
-
-           
-
         }
         void LoginStudent()
         {
