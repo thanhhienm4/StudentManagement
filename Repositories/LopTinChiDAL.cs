@@ -126,5 +126,31 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+
+        public DataResponse<List<REPORTDIEMLTC>> ReportDiemLTC(string nienKhoa, int hocKy,string mamh,int nhom)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<REPORTDIEMLTC>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_REPORT_LOPTINHCHI @nienKhoa,@hocKy,@mamh,@nhom";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@nienKhoa", nienKhoa);
+                parameters.Add("@hocKy", hocKy);
+                parameters.Add("@mamh", mamh);
+                parameters.Add("@nhom", nhom);
+                var data = Program.conn.Query<REPORTDIEMLTC>(command, parameters).ToList();
+                return new DataResponeSuccess<List<REPORTDIEMLTC>>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<List<REPORTDIEMLTC>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
     }
 }

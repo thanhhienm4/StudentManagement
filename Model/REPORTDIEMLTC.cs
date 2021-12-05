@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Model
 {
-    class REPORTDIEMLTC
+    public class REPORTDIEMLTC
     {
         public string MASV { get; set; }
         public string HO { get; set; }

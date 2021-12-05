@@ -50,7 +50,6 @@ namespace StudentManagement
             docVIew.DocumentSource = report;
             report.CreateDocument();
 
-
         }
         //public PrintReport(string nienKhoa, int hocKy, List)
         //{

@@ -107,7 +107,7 @@ namespace StudentManagement
             }
             else
             {
-                MessageBox.Show("Xóa thất bại. Mã môn học này đã được dùng ở nơi nào đó rồi");
+                MessageBox.Show("Xóa thất bại. Mã môn học này đã được dùng ở nơi nào đó rồi","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
 
@@ -186,12 +186,12 @@ namespace StudentManagement
                 var res = monHocDAL.UpdateMonHoc(listUpdate);
                 if (res.Response.State == ResponseState.Fail)
                 {
-                    MessageBox.Show("Lưu thất bại");
+                    MessageBox.Show("Lưu thất bại","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Lưu thành công");
-                    cbxSchoolYear.Items.Clear();
+                    MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
                 }
             }
 
@@ -317,6 +317,16 @@ namespace StudentManagement
             {
                 gridView.SetColumnError(idSubject, "Mã môn học không được để trống");
                 e.Valid = false;
+            }
+            else
+            {
+                string mamh = gridView.GetRowCellValue(e.RowHandle, idSubject).ToString();
+                if (monHocDAL.CheckMaMonHoc(mamh).Data == false)
+                {
+                    gridView.SetColumnError(idSubject, "Mã môn học bị trùng");
+                    e.Valid = false;
+                    e.ErrorText = "The value is not correct! ";
+                }
             }
 
             if (gridView.GetRowCellValue(e.RowHandle, colSubjectName) == null)

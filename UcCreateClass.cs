@@ -301,5 +301,17 @@ namespace StudentManagement
             ActionUndo action = new ActionUndo(1, gc, value);
             undo.Push(action, new ActionUndo(1, gc, e.Value));
         }
+
+        private void gvCreditClass_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            GridView gridView = sender as GridView;
+            string malop = gridView.GetRowCellValue(e.RowHandle, idClass).ToString();
+            if (lopDAL.CheckMaLopLop(malop).Data == false)
+            {
+                gridView.SetColumnError(idClass, "Mã lớp bị trùng");
+                e.Valid = false;
+                e.ErrorText = "The value is not correct! ";
+            }
+        }
     }
 }

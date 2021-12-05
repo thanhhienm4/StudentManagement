@@ -211,5 +211,11 @@ namespace StudentManagement
             FormReportSumaryFinal form = new FormReportSumaryFinal();
             form.ShowDialog();
         }
+
+        private void btn_inDiemLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FromPrintDiemLTC ltc = new FromPrintDiemLTC();
+            ltc.ShowDialog();
+        }
     }
 }
