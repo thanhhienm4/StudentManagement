@@ -318,6 +318,16 @@ namespace StudentManagement
                 gridView.SetColumnError(idSubject, "Mã môn học không được để trống");
                 e.Valid = false;
             }
+            else
+            {
+                string mamh = gridView.GetRowCellValue(e.RowHandle, idSubject).ToString();
+                if (monHocDAL.CheckMaMonHoc(mamh).Data == false)
+                {
+                    gridView.SetColumnError(idSubject, "Mã môn học bị trùng");
+                    e.Valid = false;
+                    e.ErrorText = "The value is not correct! ";
+                }
+            }
 
             if (gridView.GetRowCellValue(e.RowHandle, colSubjectName) == null)
             {

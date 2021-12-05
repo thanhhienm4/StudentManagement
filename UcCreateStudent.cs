@@ -370,24 +370,38 @@ namespace StudentManagement
             GridView gridView = sender as GridView;
             if (gridView.GetRowCellValue(e.RowHandle, colMASV) == null)
             {
+                gridView.SetColumnError(colMASV, "Họ không để trống");
                 e.Valid = false;
-                e.ErrorText = "MASV not null!";
+                e.ErrorText = "The value is not correct! ";
+            }
+            else
+            {
+                string masv = gridView.GetRowCellValue(e.RowHandle, colMASV).ToString();
+                if (sinhVienDAL.CheckSinhvienUpdate(masv).Data == false)
+                {
+                    gridView.SetColumnError(colMASV, "Mã sinh viên bị trùng");
+                    e.Valid = false;
+                    e.ErrorText = "The value is not correct! ";
+                }
             }
 
             if (gridView.GetRowCellValue(e.RowHandle, colHO) == null)
             {
+                gridView.SetColumnError(colHO, "Họ không để trống");
                 e.Valid = false;
-                e.ErrorText = "HO is not null";
+                e.ErrorText = "The value is not correct! ";
             }
             if (gridView.GetRowCellValue(e.RowHandle, colTEN) == null)
             {
+                gridView.SetColumnError(colTEN, "Tên không để trống");
                 e.Valid = false;
-                e.ErrorText = "TEN is not null!";
+                e.ErrorText = "The value is not correct! ";
             }
             if (gridView.GetRowCellValue(e.RowHandle, colMALOP) == null)
             {
+                gridView.SetColumnError(colMALOP, "Mã lớp không trống");
                 e.Valid = false;
-                e.ErrorText = "MALOP is not null!";
+                e.ErrorText = "The value is not correct! ";
             }
         }
     }
