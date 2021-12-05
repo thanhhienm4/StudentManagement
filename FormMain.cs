@@ -217,5 +217,11 @@ namespace StudentManagement
             pnContent.Controls.Clear();
             pnContent.Controls.Add(ucCreateLecturers);
         }
+
+        private void btn_inDiemLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FromPrintDiemLTC ltc = new FromPrintDiemLTC();
+            ltc.ShowDialog();
+        }
     }
 }
