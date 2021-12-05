@@ -154,7 +154,6 @@
     <Compile Include="FromPrintDiemLTC.Designer.cs">
       <DependentUpon>FromPrintDiemLTC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\CreditClass.cs" />
     <Compile Include="Model\CT_DONGHOCPHI.cs" />
     <Compile Include="Model\DANGKY.cs" />
     <Compile Include="Model\GIANGVIEN.cs" />
