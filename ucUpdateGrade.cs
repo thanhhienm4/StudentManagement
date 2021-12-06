@@ -31,13 +31,17 @@ namespace StudentManagement
 
 
             _supportDAL = new SupportDAL();
-            lkFaculty.DataSource = _supportDAL.GetListPhanManh();
+            lkFaculty.DataSource = Program.servers;
 
             lkFaculty.DisplayMember = "TENCN";
             lkFaculty.ValueMember = "TENSERVER";
             lkFaculty.PopulateColumns();
             lkFaculty.Columns["TENSERVER"].Visible = false;
             beFaculty.EditValue = Program.serverName;
+
+
+            if (Program.group == Role.KHOA)
+                beFaculty.Enabled = false;
         }
         public void InitialSchoolYear()
         {

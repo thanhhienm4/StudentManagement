@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using StudentManagement.Model;
 using StudentManagement.Repositories;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,11 @@ namespace StudentManagement
             InitializeComponent();
             var res = lopDAL.GetListLop();
             rilkLop.DataSource = res.Data;
-            rilkKhoa2.DataSource = supportDAL.GetListPhanManh();
+            rilkKhoa2.DataSource = Program.servers;
             beKhoa.EditValue = Program.serverName;
+
+            if (Program.group == Role.KHOA)
+                beKhoa.Enabled = false;
 
         }
         

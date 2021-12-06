@@ -42,13 +42,17 @@ namespace StudentManagement
 
 
             SupportDAL connectionDAL = new SupportDAL();
-            lkFaculty.DataSource = connectionDAL.GetListPhanManh();
+            lkFaculty.DataSource =  Program.servers;
+            bEFaculty.EditValue = Program.serverName;
+
+            if (Program.group == Role.KHOA)
+                bEFaculty.Enabled = false;
 
             lkFaculty.DisplayMember = "TENCN";
             lkFaculty.ValueMember = "TENSERVER";
             lkFaculty.PopulateColumns();
             lkFaculty.Columns["TENSERVER"].Visible = false;
-            bEFaculty.EditValue = Program.serverName;
+            
 
 
 

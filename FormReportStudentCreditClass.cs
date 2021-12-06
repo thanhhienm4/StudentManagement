@@ -33,8 +33,11 @@ namespace StudentManagement
             }
             rilkMonHoc.DataSource = res.Data;
             InitialSchoolYear();
-            rilkKhoa1.DataSource = _supportDAL.GetListPhanManh();
+            rilkKhoa1.DataSource = Program.servers  ;
             beKhoa.EditValue = Program.serverName;
+
+            if (Program.group == Role.KHOA)
+                beKhoa.Enabled = false;
 
 
 

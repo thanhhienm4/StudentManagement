@@ -27,16 +27,14 @@ namespace StudentManagement
         void Initial()
         {
             SupportDAL connectionDAL = new SupportDAL();
-            Program.servers = connectionDAL.GetListPhanManh();
-            cbx.DataSource = Program.servers;
+            cbx.DataSource = connectionDAL.GetListPhanManh();
+
+            Program.servers = connectionDAL.GetListPhanManh().Where(x => x.TENCN.Trim() != "PHONG KT").ToList();
             cbx.DisplayMember = "TENCN";
             cbx.ValueMember = "TENSERVER";
 
 
             cbxRole.Properties.Items.Add(Role.SV);
-            //cbxRole.Properties.Items.Add(Role.KHOA);
-            //cbxRole.Properties.Items.Add(Role.PGV);
-            //cbxRole.Properties.Items.Add(Role.PKT);
             cbxRole.Properties.Items.Add(Role.GIANGVIEN);
             
 

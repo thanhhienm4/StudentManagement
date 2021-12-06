@@ -24,8 +24,12 @@ namespace StudentManagement
             _lopTinChiDAL = new LopTinChiDAL();
             _supportDAL = new SupportDAL();
 
-            rilkKhoa.DataSource = _supportDAL.GetListPhanManh();
+            rilkKhoa.DataSource = Program.servers;
             beKHOA.EditValue = Program.serverName;
+
+
+            if (Program.group == Role.KHOA)
+                beKHOA.Enabled = false;
             InitialSchoolYear();
 
 
