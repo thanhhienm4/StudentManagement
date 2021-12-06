@@ -61,9 +61,9 @@ namespace StudentManagement
             this.nienKhoa = new DevExpress.XtraReports.Parameters.Parameter();
             this.tenKhoa = new DevExpress.XtraReports.Parameters.Parameter();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.cnt = new DevExpress.XtraReports.Parameters.Parameter();
-            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbCreditClass)).BeginInit();
@@ -85,61 +85,71 @@ namespace StudentManagement
             // 
             // xrLabel5
             // 
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(294.0555F, 63.19444F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(344.5555F, 63.19444F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel5.Text = "Học kì";
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(50.50003F, 23F);
+            this.xrLabel5.StylePriority.UseTextAlignment = false;
+            this.xrLabel5.Text = "Học kì:";
+            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel4
             // 
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(64.19444F, 63.19444F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(138.7778F, 63.19444F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel4.Text = "Niên khóa";
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(75.22224F, 23F);
+            this.xrLabel4.StylePriority.UseTextAlignment = false;
+            this.xrLabel4.Text = "Niên khóa:";
+            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel3
             // 
             this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?tenKhoa")});
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(240.5555F, 32.99999F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(278.5833F, 32.99999F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel3.StylePriority.UseTextAlignment = false;
             this.xrLabel3.Text = "xrLabel3";
+            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel2
             // 
             this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?nienKhoa")});
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(182.4721F, 63.19444F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(214F, 63.19444F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(76.38904F, 23F);
+            this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "xrLabel2";
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel1
             // 
             this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?hocKy")});
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(410.2499F, 63.19444F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(395.25F, 63.19444F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(49.30557F, 23F);
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
             this.xrLabel1.Text = "xrLabel1";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTable2
             // 
             this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(4.000007F, 129.8611F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 129.8611F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -167,7 +177,7 @@ namespace StudentManagement
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
             this.xrTableCell6.Text = "STT";
             this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell6.Weight = 0.44314525448620395D;
+            this.xrTableCell6.Weight = 0.48314563792804305D;
             // 
             // xrTableCell7
             // 
@@ -176,7 +186,7 @@ namespace StudentManagement
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "Nhóm";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell7.Weight = 1.6568549804446138D;
+            this.xrTableCell7.Weight = 1.6601051789691139D;
             // 
             // xrTableCell8
             // 
@@ -185,7 +195,7 @@ namespace StudentManagement
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "Họ tên giảng viên";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell8.Weight = 1.3055556661971555D;
+            this.xrTableCell8.Weight = 1.3023047810271136D;
             // 
             // xrTableCell9
             // 
@@ -194,7 +204,7 @@ namespace StudentManagement
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.Text = "Số sinh viên tối thiểu";
             this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell9.Weight = 1.5069446852293793D;
+            this.xrTableCell9.Weight = 1.5069443800535831D;
             // 
             // xrTableCell10
             // 
@@ -203,15 +213,17 @@ namespace StudentManagement
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.Text = "Số sinh viên đã đăng ký";
             this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell10.Weight = 1.5874997341078811D;
+            this.xrTableCell10.Weight = 1.5475003424873799D;
             // 
             // label1
             // 
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(182.4721F, 2.986972F);
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(200.4189F, 2.986972F);
             this.label1.Name = "label1";
             this.label1.SizeF = new System.Drawing.SizeF(244.1367F, 30.01302F);
             this.label1.StyleName = "TitleStyle";
+            this.label1.StylePriority.UseTextAlignment = false;
             this.label1.Text = "Danh Sách lớp tín chỉ";
+            this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // Detail
             // 
@@ -336,22 +348,6 @@ namespace StudentManagement
             this.ReportFooter.HeightF = 57.63889F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // xrLabel6
-            // 
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(4.000007F, 10.00002F);
-            this.xrLabel6.Multiline = true;
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(135.4167F, 23F);
-            this.xrLabel6.Text = "Số lượng lớp đã mở:";
-            // 
-            // cnt
-            // 
-            this.cnt.Description = "Parameter1";
-            this.cnt.Name = "cnt";
-            this.cnt.Type = typeof(int);
-            this.cnt.ValueInfo = "0";
-            // 
             // xrLabel7
             // 
             this.xrLabel7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
@@ -361,9 +357,29 @@ namespace StudentManagement
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel7.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel7.StylePriority.UseTextAlignment = false;
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrLabel7.Summary = xrSummary2;
             this.xrLabel7.Text = "xrLabel7";
+            this.xrLabel7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel6
+            // 
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0F, 9.999996F);
+            this.xrLabel6.Multiline = true;
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(135.4167F, 23F);
+            this.xrLabel6.StylePriority.UseTextAlignment = false;
+            this.xrLabel6.Text = "Số lượng lớp đã mở:";
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // cnt
+            // 
+            this.cnt.Description = "Parameter1";
+            this.cnt.Name = "cnt";
+            this.cnt.Type = typeof(int);
+            this.cnt.ValueInfo = "0";
             // 
             // objectDataSource1
             // 

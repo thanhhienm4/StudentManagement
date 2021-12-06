@@ -148,6 +148,12 @@
       <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ConvertMoney.cs" />
+    <Compile Include="FormPrintDiemLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintDiemLTC.Designer.cs">
+      <DependentUpon>FormPrintDiemLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\CT_DONGHOCPHI.cs" />
     <Compile Include="Model\DANGKY.cs" />
     <Compile Include="Model\GIANGVIEN.cs" />
@@ -223,11 +229,17 @@
     <Compile Include="Repositories\SinhVienDAL.cs" />
     <Compile Include="Repositories\SupportDAL.cs" />
     <Compile Include="Repositories\UserDAL.cs" />
-    <Compile Include="TestAddLogin.cs">
+    <Compile Include="FormAddLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestAddLogin.Designer.cs">
-      <DependentUpon>TestAddLogin.cs</DependentUpon>
+    <Compile Include="FormAddLogin.Designer.cs">
+      <DependentUpon>FormAddLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCAddLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAddLogin.Designer.cs">
+      <DependentUpon>UCAddLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="UcCreateLecturers.cs">
       <SubType>UserControl</SubType>
@@ -265,6 +277,12 @@
     <Compile Include="UCRegisterCreditClass.Designer.cs">
       <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportDiemLTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportDiemLTC.Designer.cs">
+      <DependentUpon>ReportDiemLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucUpdateGrade.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -301,6 +319,9 @@
     <EmbeddedResource Include="FormReportStudentCreditClass.resx">
       <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintDiemLTC.resx">
+      <DependentUpon>FormPrintDiemLTC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -330,8 +351,11 @@
     <EmbeddedResource Include="ReportTuitionFee.resx">
       <DependentUpon>ReportTuitionFee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TestAddLogin.resx">
-      <DependentUpon>TestAddLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddLogin.resx">
+      <DependentUpon>FormAddLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAddLogin.resx">
+      <DependentUpon>UCAddLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcCreateLecturers.resx">
       <DependentUpon>UcCreateLecturers.cs</DependentUpon>
@@ -355,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCRegisterCreditClass.resx">
       <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDiemLTC.resx">
+      <DependentUpon>ReportDiemLTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUpdateGrade.resx">
       <DependentUpon>ucUpdateGrade.cs</DependentUpon>
@@ -432,6 +459,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\defaultprinter.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_refresh2.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monthview.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business_money.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\showallsubtotalsattoppivottable.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_department.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_kpi_scorecard.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subtotal.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editquery.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editquery1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\currency.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_employee.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subtotalspivottable.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewers.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\datapanel.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

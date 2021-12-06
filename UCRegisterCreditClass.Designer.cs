@@ -248,7 +248,7 @@ namespace StudentManagement
             this.gcCreditClass.MainView = this.gvCreditClass;
             this.gcCreditClass.MenuManager = this.barManager1;
             this.gcCreditClass.Name = "gcCreditClass";
-            this.gcCreditClass.Size = new System.Drawing.Size(891, 266);
+            this.gcCreditClass.Size = new System.Drawing.Size(897, 266);
             this.gcCreditClass.TabIndex = 1;
             this.gcCreditClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCreditClass});
@@ -342,17 +342,15 @@ namespace StudentManagement
             // 
             // splitContainerControl1
             // 
-            this.splitContainerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(3, 40);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 34);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(895, 552);
+            this.splitContainerControl1.Size = new System.Drawing.Size(901, 587);
             this.splitContainerControl1.SplitterPosition = 302;
             this.splitContainerControl1.TabIndex = 16;
             // 
@@ -362,7 +360,7 @@ namespace StudentManagement
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(895, 302);
+            this.groupControl1.Size = new System.Drawing.Size(901, 302);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Danh sách môn học";
             // 
@@ -372,7 +370,7 @@ namespace StudentManagement
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(895, 235);
+            this.groupControl2.Size = new System.Drawing.Size(901, 270);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "Danh sách môn đăng kí";
             // 
@@ -383,7 +381,7 @@ namespace StudentManagement
             this.gcRegister.MainView = this.gvRegister;
             this.gcRegister.MenuManager = this.barManager1;
             this.gcRegister.Name = "gcRegister";
-            this.gcRegister.Size = new System.Drawing.Size(891, 199);
+            this.gcRegister.Size = new System.Drawing.Size(897, 234);
             this.gcRegister.TabIndex = 2;
             this.gcRegister.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvRegister});

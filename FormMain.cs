@@ -77,59 +77,43 @@ namespace StudentManagement
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var form = new TestAddLogin();
-            form.Show();
+            
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (uCRegisterCreditClass == null)
-                uCRegisterCreditClass = new UCRegisterCreditClass();
-
-            uCRegisterCreditClass.Dock = DockStyle.Fill;
-            pnContent.Controls.Clear();
-            pnContent.Controls.Add(uCRegisterCreditClass);
+          
         }
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (uCTuitionFee == null)
-                uCTuitionFee = new UCTuitionFee();
-
-            uCTuitionFee.Dock = DockStyle.Fill;
-            pnContent.Controls.Clear();
-            pnContent.Controls.Add(uCTuitionFee);
+          
         }
 
         private void svPermission()
         {
-            //barButtonItem1.Enabled = false;
-            //barButtonItem2.Enabled = false;
-            //barButtonItem3.Enabled = false;
-            //barButtonItem4.Enabled = false;
+            rbgKhoa.Visible = false;
+            rbgBaoCao.Visible = false;
+            rbgTaiKhoan.Visible = false;
         }
 
         private void pgvPermission()
         {
-            //barButtonItem1.Enabled = false;
-            //barButtonItem2.Enabled = false;
-            //barButtonItem3.Enabled = false;
-            //barButtonItem4.Enabled = false;
+            rbgSinhVien.Visible = false;
+            rbgKt.Visible = false;
+            rbgDSHocPhi.Visible = false;
         }
         
         private void pktPermission()
         {
-            //barButtonItem1.Enabled = false;
-            //barButtonItem2.Enabled = false;
-            //barButtonItem3.Enabled = false;
-            //barButtonItem4.Enabled = false;
+            rbgSinhVien.Visible = false;
+            rbgKhoa.Visible = false;
         }
         private void khoaPermission()
         {
-            //barButtonItem1.Enabled = false;
-            //barButtonItem2.Enabled = false;
-            //barButtonItem3.Enabled = false;
-            //barButtonItem4.Enabled = false;
+            rbgSinhVien.Visible = false;
+            rbgKt.Visible = false;
+            rbgDSHocPhi.Visible = false;
         }
 
         private void decentralization()
@@ -210,6 +194,97 @@ namespace StudentManagement
         {
             FormReportSumaryFinal form = new FormReportSumaryFinal();
             form.ShowDialog();
+        }
+
+        private void btn_inDiemLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormPrintDiemLTC ltc = new FormPrintDiemLTC();
+            ltc.ShowDialog();
+        }
+
+        public async void Notify(string messasge)
+        {
+            
+            btnNotice.ItemAppearance.Normal.BackColor = Color.LightGreen;
+            btnNotice.LargeWidth = 500;
+            btnNotice.Caption = messasge + new string(' ',200 - messasge.Length);
+            await Task.Delay(2000);
+            btnNotice.Caption = "";
+            btnNotice.ItemAppearance.Normal.BackColor = Color.LightGray;
+
+        }
+
+        private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormCreditClass form = new FormCreditClass();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem16_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormPrintDiemLTC form = new FormPrintDiemLTC();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormReportSumaryFinal form = new FormReportSumaryFinal();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem20_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (uCRegisterCreditClass == null)
+                uCRegisterCreditClass = new UCRegisterCreditClass();
+
+            uCRegisterCreditClass.Dock = DockStyle.Fill;
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(uCRegisterCreditClass);
+        }
+
+        private void barButtonItem3_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            if (uCTuitionFee == null)
+                uCTuitionFee = new UCTuitionFee();
+
+            uCTuitionFee.Dock = DockStyle.Fill;
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(uCTuitionFee);
+        }
+
+        private void barButtonItem21_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var form = new FormAddLogin();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormFeeByClass form = new FormFeeByClass();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormReportStudentCreditClass form = new FormReportStudentCreditClass();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormPrintStudentTranscripts form = new FormPrintStudentTranscripts();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem23_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (ucCreateClass == null)
+                ucCreateClass = new UcCreateClass();
+
+            ucCreateClass.Dock = DockStyle.Fill;
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(ucCreateClass);
+
         }
     }
 }

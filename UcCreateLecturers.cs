@@ -213,18 +213,24 @@ namespace StudentManagement
 
         private void bESave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gvCreditClass.FocusInvalidRow();
-            List<UPDATEGIANGVIEN> listUpdate;
-            var binding = (BindingList<GIANGVIEN>)gvCreditClass.DataSource;
-            listUpdate = binding.ToList().Select(x => new UPDATEGIANGVIEN(x)).ToList();
-            var res = giangVienDAL.UpdateGiangVien(listUpdate);
-            if (res.Response.State == ResponseState.Fail)
+            DialogResult d;
+            d = MessageBox.Show("Bạn có chắc là muốn lưu không?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (d == DialogResult.Yes)
             {
-                // Notify error
-            }
-            else
-            {
-                // notify susscess
+                gvCreditClass.FocusInvalidRow();
+                List<UPDATEGIANGVIEN> listUpdate;
+                var binding = (BindingList<GIANGVIEN>)gvCreditClass.DataSource;
+                listUpdate = binding.ToList().Select(x => new UPDATEGIANGVIEN(x)).ToList();
+                var res = giangVienDAL.UpdateGiangVien(listUpdate);
+                if (res.Response.State == ResponseState.Fail)
+                {
+                    MessageBox.Show("Lưu thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InitialSchoolYear();
+                }
             }
 
 

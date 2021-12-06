@@ -75,5 +75,28 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+
+        public DataResponse<bool> CheckMaMonHoc(string mamh)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<bool>("Lỗi kết nối");
+            try
+            {
+                string command = "select [dbo].[FUNC_KT_MAMONHOC] (@MAMH)";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@MAMH", mamh);
+                var res = Program.conn.ExecuteScalar<bool>(command, parameters);
+                return new DataResponeSuccess<bool>(res);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
     }
 }

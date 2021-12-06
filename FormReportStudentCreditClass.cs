@@ -18,12 +18,14 @@ namespace StudentManagement
        
         private SinhVienDAL _sinhVienDAL;
         private MonHocDAL _monHocDAL;
+        private SupportDAL _supportDAL;
         ReportSudentInCreditClass report = new ReportSudentInCreditClass();
         public FormReportStudentCreditClass()
         {
             InitializeComponent();
             _sinhVienDAL = new SinhVienDAL();
             _monHocDAL = new MonHocDAL();
+            _supportDAL = new SupportDAL();
             var res = _monHocDAL.GetListMonHoc();
             if (res.Response.State == ResponseState.Fail)
             {
@@ -31,6 +33,8 @@ namespace StudentManagement
             }
             rilkMonHoc.DataSource = res.Data;
             InitialSchoolYear();
+            rilkKhoa1.DataSource = _supportDAL.GetListPhanManh();
+            beKhoa.EditValue = Program.serverName;
 
 
 
@@ -58,11 +62,23 @@ namespace StudentManagement
         private void beLoad_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (beMonHoc.EditValue == null)
+            {
+                MessageBox.Show("Môn học không được bỏ trống");
                 return;
+            }    
+               
 
-            string nienKhoa = beNienKhoa.EditValue.ToString();
+            string nienKhoa = beNienKhoa.EditValue.ToString().Trim();
+
+            if(nienKhoa == "")
+            {
+                MessageBox.Show("Niên khóa không được bỏ trống");
+                return;
+            }    
             int hocKy = Convert.ToInt32(beHocKy.EditValue);
             string mamh = beMonHoc.EditValue.ToString();
+           
+
             int nhom = Convert.ToInt32(beNhom.EditValue);
 
             foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
@@ -78,6 +94,11 @@ namespace StudentManagement
             report.InitData(nienKhoa, hocKy, nhom,tenKhoa, res.Data, rilkMonHoc.GetDisplayText(beMonHoc.EditValue));
             docView.DocumentSource = report;
             report.CreateDocument();
+        }
+
+        private void barEditItem3_EditValueChanged(object sender, EventArgs e)
+        {
+            Program.currentServer = beKhoa.EditValue.ToString();
         }
     }
 }

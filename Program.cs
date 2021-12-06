@@ -27,13 +27,18 @@ namespace StudentManagement
         public static SqlConnection conn { get; set; } 
         public static List<ServerInfo> servers { get; set; }
         public static string conmStr { get; set; }
+        public static FormMain formMain;
+       
 
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain ());
+
+            formMain = new FormMain();
+            Application.Run(formMain);
         }
     }
 }

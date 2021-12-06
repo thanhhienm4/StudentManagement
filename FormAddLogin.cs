@@ -12,11 +12,13 @@ using System.Windows.Forms;
 
 namespace StudentManagement
 {
-    public partial class TestAddLogin : DevExpress.XtraEditors.XtraForm
+    public partial class FormAddLogin : DevExpress.XtraEditors.XtraForm
     {
-        public TestAddLogin()
+        public FormAddLogin()
         {
             InitializeComponent();
+            pn.Controls.Clear();
+            pn.Controls.Add(new UCAddLogin());
         }
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
@@ -26,14 +28,7 @@ namespace StudentManagement
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            string login = teLogin.Text;
-            string password = tePW.Text;
-            string user = teUser.Text;
-            string role = teRole.Text;
-
-            var res = new UserDAL().CreateLogin(login, password, user, role);
-            if (res.Response.State == Model.ResponseState.Fail)
-                MessageBox.Show(res.Response.Message);
+          
         }
     }
 }

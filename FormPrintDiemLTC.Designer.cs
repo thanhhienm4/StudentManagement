@@ -1,7 +1,7 @@
 ﻿
 namespace StudentManagement
 {
-    partial class FormCreditClass
+    partial class FormPrintDiemLTC
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@ namespace StudentManagement
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreditClass));
-            this.docVIew = new DevExpress.XtraPrinting.Preview.DocumentViewer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrintDiemLTC));
+            this.documentViewer1 = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             this.documentViewerBarManager1 = new DevExpress.XtraPrinting.Preview.DocumentViewerBarManager(this.components);
             this.previewBar1 = new DevExpress.XtraPrinting.Preview.PreviewBar();
             this.bbiDocumentMap = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
@@ -72,6 +72,21 @@ namespace StudentManagement
             this.zoomTrackBarEditItem1 = new DevExpress.XtraPrinting.Preview.ZoomTrackBarEditItem();
             this.repositoryItemZoomTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
             this.previewBar3 = new DevExpress.XtraPrinting.Preview.PreviewBar();
+            this.bEcourse = new DevExpress.XtraBars.BarEditItem();
+            this.comboboxCourse = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.bEsemester = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.bEsubject = new DevExpress.XtraBars.BarEditItem();
+            this.cobboxSubject = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.bEgroup = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.bEload = new DevExpress.XtraBars.BarButtonItem();
+            this.bEFaculty = new DevExpress.XtraBars.BarEditItem();
+            this.lkFaculty = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.miFile = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
             this.miView = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
             this.miPageLayout = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
@@ -79,17 +94,6 @@ namespace StudentManagement
             this.miPageLayoutContinuous = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.miToolbars = new DevExpress.XtraBars.BarToolbarsListItem();
             this.miBackground = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
-            this.beKHOA = new DevExpress.XtraBars.BarEditItem();
-            this.rilkKhoa = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.beNienKhoa = new DevExpress.XtraBars.BarEditItem();
-            this.rilkNienKhoa = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.beHocky = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.beLoad = new DevExpress.XtraBars.BarButtonItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.printPreviewBarCheckItem1 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.printPreviewBarCheckItem2 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.printPreviewBarCheckItem3 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
@@ -109,23 +113,35 @@ namespace StudentManagement
             this.printPreviewBarCheckItem17 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.printPreviewBarCheckItem18 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.printPreviewBarCheckItem19 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barEditItem3 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItem8 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rilkNienKhoa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboboxCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cobboxSubject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             this.SuspendLayout();
             // 
-            // docVIew
+            // documentViewer1
             // 
-            this.docVIew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.docVIew.IsMetric = false;
-            this.docVIew.Location = new System.Drawing.Point(0, 69);
-            this.docVIew.Name = "docVIew";
-            this.docVIew.Size = new System.Drawing.Size(1311, 663);
-            this.docVIew.TabIndex = 0;
+            this.documentViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.documentViewer1.IsMetric = false;
+            this.documentViewer1.Location = new System.Drawing.Point(0, 87);
+            this.documentViewer1.Name = "documentViewer1";
+            this.documentViewer1.Size = new System.Drawing.Size(1116, 274);
+            this.documentViewer1.TabIndex = 0;
             // 
             // documentViewerBarManager1
             // 
@@ -137,7 +153,7 @@ namespace StudentManagement
             this.documentViewerBarManager1.DockControls.Add(this.barDockControlBottom);
             this.documentViewerBarManager1.DockControls.Add(this.barDockControlLeft);
             this.documentViewerBarManager1.DockControls.Add(this.barDockControlRight);
-            this.documentViewerBarManager1.DocumentViewer = this.docVIew;
+            this.documentViewerBarManager1.DocumentViewer = this.documentViewer1;
             this.documentViewerBarManager1.Form = this;
             this.documentViewerBarManager1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("documentViewerBarManager1.ImageStream")));
             this.documentViewerBarManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -200,20 +216,31 @@ namespace StudentManagement
             this.printPreviewBarCheckItem17,
             this.printPreviewBarCheckItem18,
             this.printPreviewBarCheckItem19,
-            this.beNienKhoa,
-            this.beHocky,
-            this.beLoad,
-            this.beKHOA});
+            this.barEditItem1,
+            this.barStaticItem1,
+            this.barEditItem3,
+            this.bEcourse,
+            this.bEsemester,
+            this.bEgroup,
+            this.barEditItem8,
+            this.bEload,
+            this.bEsubject,
+            this.bEFaculty});
             this.documentViewerBarManager1.MainMenu = this.previewBar3;
-            this.documentViewerBarManager1.MaxItemId = 63;
+            this.documentViewerBarManager1.MaxItemId = 71;
             this.documentViewerBarManager1.PreviewBar = this.previewBar1;
             this.documentViewerBarManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemProgressBar1,
             this.repositoryItemZoomTrackBar1,
             this.printPreviewRepositoryItemComboBox1,
-            this.rilkNienKhoa,
+            this.repositoryItemComboBox1,
+            this.repositoryItemTextEdit1,
+            this.comboboxCourse,
             this.repositoryItemSpinEdit1,
-            this.rilkKhoa});
+            this.repositoryItemSpinEdit2,
+            this.repositoryItemImageEdit1,
+            this.cobboxSubject,
+            this.lkFaculty});
             this.documentViewerBarManager1.StatusBar = this.previewBar2;
             this.documentViewerBarManager1.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
             // 
@@ -541,7 +568,7 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(this.progressBarEditItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.printPreviewBarItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.printPreviewStaticItem2, true),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.zoomTrackBarEditItem1, "", false, true, true, 142)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.zoomTrackBarEditItem1)});
             this.previewBar2.OptionsBar.AllowQuickCustomization = false;
             this.previewBar2.OptionsBar.DrawDragBorder = false;
             this.previewBar2.OptionsBar.UseWholeRow = true;
@@ -618,16 +645,128 @@ namespace StudentManagement
             this.previewBar3.DockRow = 0;
             this.previewBar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.previewBar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.miFile),
-            new DevExpress.XtraBars.LinkPersistInfo(this.miView),
-            new DevExpress.XtraBars.LinkPersistInfo(this.miBackground),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beKHOA, "", false, true, true, 137),
-            new DevExpress.XtraBars.LinkPersistInfo(this.beNienKhoa),
-            new DevExpress.XtraBars.LinkPersistInfo(this.beHocky),
-            new DevExpress.XtraBars.LinkPersistInfo(this.beLoad)});
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bEFaculty, "", false, true, true, 149, null, DevExpress.XtraBars.BarItemPaintStyle.Caption),
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bEcourse, "", false, true, true, 95, null, DevExpress.XtraBars.BarItemPaintStyle.Caption),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bEsemester, DevExpress.XtraBars.BarItemPaintStyle.Caption),
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bEsubject, "", false, true, true, 158, null, DevExpress.XtraBars.BarItemPaintStyle.Caption),
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bEgroup, "", false, true, true, 71, null, DevExpress.XtraBars.BarItemPaintStyle.Caption),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bEload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.previewBar3.OptionsBar.MultiLine = true;
             this.previewBar3.OptionsBar.UseWholeRow = true;
             this.previewBar3.Text = "Main Menu";
+            // 
+            // bEcourse
+            // 
+            this.bEcourse.Caption = "Niên Khóa";
+            this.bEcourse.Edit = this.comboboxCourse;
+            this.bEcourse.Id = 63;
+            this.bEcourse.Name = "bEcourse";
+            // 
+            // comboboxCourse
+            // 
+            this.comboboxCourse.AutoHeight = false;
+            this.comboboxCourse.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboboxCourse.Name = "comboboxCourse";
+            // 
+            // bEsemester
+            // 
+            this.bEsemester.Caption = "Học kỳ";
+            this.bEsemester.Edit = this.repositoryItemSpinEdit1;
+            this.bEsemester.Id = 64;
+            this.bEsemester.Name = "bEsemester";
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            // 
+            // bEsubject
+            // 
+            this.bEsubject.Caption = "Môn học";
+            this.bEsubject.Edit = this.cobboxSubject;
+            this.bEsubject.Id = 69;
+            this.bEsubject.Name = "bEsubject";
+            // 
+            // cobboxSubject
+            // 
+            this.cobboxSubject.AutoHeight = false;
+            this.cobboxSubject.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cobboxSubject.DisplayMember = "TENMH";
+            this.cobboxSubject.Name = "cobboxSubject";
+            this.cobboxSubject.ValueMember = "MAMH";
+            // 
+            // bEgroup
+            // 
+            this.bEgroup.Caption = "Nhóm";
+            this.bEgroup.Edit = this.repositoryItemSpinEdit2;
+            this.bEgroup.Id = 66;
+            this.bEgroup.Name = "bEgroup";
+            // 
+            // repositoryItemSpinEdit2
+            // 
+            this.repositoryItemSpinEdit2.AutoHeight = false;
+            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
+            // 
+            // bEload
+            // 
+            this.bEload.Caption = "Tải dữ liệu";
+            this.bEload.Id = 68;
+            this.bEload.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.actions_refresh;
+            this.bEload.Name = "bEload";
+            this.bEload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bEload_ItemClick);
+            // 
+            // bEFaculty
+            // 
+            this.bEFaculty.Caption = "Khoa";
+            this.bEFaculty.Edit = this.lkFaculty;
+            this.bEFaculty.Id = 70;
+            this.bEFaculty.Name = "bEFaculty";
+            this.bEFaculty.EditValueChanged += new System.EventHandler(this.bEFaculty_EditValueChanged);
+            // 
+            // lkFaculty
+            // 
+            this.lkFaculty.AutoHeight = false;
+            this.lkFaculty.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkFaculty.Name = "lkFaculty";
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.documentViewerBarManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1116, 87);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 361);
+            this.barDockControlBottom.Manager = this.documentViewerBarManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1116, 27);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 87);
+            this.barDockControlLeft.Manager = this.documentViewerBarManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 274);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1116, 87);
+            this.barDockControlRight.Manager = this.documentViewerBarManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 274);
             // 
             // miFile
             // 
@@ -698,113 +837,6 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiFillBackground),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiWatermark)});
             this.miBackground.Name = "miBackground";
-            // 
-            // beKHOA
-            // 
-            this.beKHOA.Edit = this.rilkKhoa;
-            this.beKHOA.Id = 62;
-            this.beKHOA.Name = "beKHOA";
-            this.beKHOA.EditValueChanged += new System.EventHandler(this.beKHOA_EditValueChanged);
-            // 
-            // rilkKhoa
-            // 
-            this.rilkKhoa.AutoHeight = false;
-            this.rilkKhoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.rilkKhoa.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENCN", "KHOA"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENSERVER", "SERVER", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.rilkKhoa.DisplayMember = "TENCN";
-            this.rilkKhoa.Name = "rilkKhoa";
-            this.rilkKhoa.NullText = "";
-            this.rilkKhoa.ValueMember = "TENSERVER";
-            // 
-            // beNienKhoa
-            // 
-            this.beNienKhoa.Caption = "Niên khóa";
-            this.beNienKhoa.Edit = this.rilkNienKhoa;
-            this.beNienKhoa.EditWidth = 80;
-            this.beNienKhoa.Id = 59;
-            this.beNienKhoa.Name = "beNienKhoa";
-            this.beNienKhoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.beNienKhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem1_ItemClick);
-            // 
-            // rilkNienKhoa
-            // 
-            this.rilkNienKhoa.AutoHeight = false;
-            this.rilkNienKhoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.rilkNienKhoa.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.rilkNienKhoa.Name = "rilkNienKhoa";
-            this.rilkNienKhoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            // 
-            // beHocky
-            // 
-            this.beHocky.Caption = "Học kỳ";
-            this.beHocky.Edit = this.repositoryItemSpinEdit1;
-            this.beHocky.Id = 60;
-            this.beHocky.Name = "beHocky";
-            this.beHocky.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // repositoryItemSpinEdit1
-            // 
-            this.repositoryItemSpinEdit1.AutoHeight = false;
-            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit1.IsFloatValue = false;
-            this.repositoryItemSpinEdit1.Mask.EditMask = "N00";
-            this.repositoryItemSpinEdit1.MaxValue = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.repositoryItemSpinEdit1.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
-            // 
-            // beLoad
-            // 
-            this.beLoad.Caption = "Tải dữ liệu";
-            this.beLoad.Id = 61;
-            this.beLoad.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.actions_refresh1;
-            this.beLoad.Name = "beLoad";
-            this.beLoad.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.beLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beLoad_ItemClick);
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.documentViewerBarManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1311, 69);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 732);
-            this.barDockControlBottom.Manager = this.documentViewerBarManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1311, 30);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 69);
-            this.barDockControlLeft.Manager = this.documentViewerBarManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 663);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1311, 69);
-            this.barDockControlRight.Manager = this.documentViewerBarManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 663);
             // 
             // printPreviewBarCheckItem1
             // 
@@ -1000,25 +1032,76 @@ namespace StudentManagement
             this.printPreviewBarCheckItem19.Id = 58;
             this.printPreviewBarCheckItem19.Name = "printPreviewBarCheckItem19";
             // 
-            // FormCreditClass
+            // barEditItem1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.barEditItem1.Caption = "Khoa";
+            this.barEditItem1.Edit = this.repositoryItemComboBox1;
+            this.barEditItem1.Id = 59;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "barStaticItem1";
+            this.barStaticItem1.Id = 60;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // barEditItem3
+            // 
+            this.barEditItem3.Caption = "barEditItem3";
+            this.barEditItem3.Edit = this.repositoryItemTextEdit1;
+            this.barEditItem3.Id = 62;
+            this.barEditItem3.Name = "barEditItem3";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // barEditItem8
+            // 
+            this.barEditItem8.Caption = "barEditItem8";
+            this.barEditItem8.Edit = this.repositoryItemImageEdit1;
+            this.barEditItem8.Id = 67;
+            this.barEditItem8.Name = "barEditItem8";
+            // 
+            // repositoryItemImageEdit1
+            // 
+            this.repositoryItemImageEdit1.AutoHeight = false;
+            this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
+            // 
+            // FromPrintDiemLTC
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 762);
-            this.Controls.Add(this.docVIew);
+            this.ClientSize = new System.Drawing.Size(1116, 388);
+            this.Controls.Add(this.documentViewer1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "FormCreditClass";
-            this.Text = "Danh sách lớp tín chỉ";
+            this.Name = "FromPrintDiemLTC";
+            this.Text = "FromPrintDiemLTC";
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rilkNienKhoa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboboxCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cobboxSubject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1026,7 +1109,7 @@ namespace StudentManagement
 
         #endregion
 
-        private DevExpress.XtraPrinting.Preview.DocumentViewer docVIew;
+        private DevExpress.XtraPrinting.Preview.DocumentViewer documentViewer1;
         private DevExpress.XtraPrinting.Preview.DocumentViewerBarManager documentViewerBarManager1;
         private DevExpress.XtraPrinting.Preview.PreviewBar previewBar1;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiDocumentMap;
@@ -1097,12 +1180,23 @@ namespace StudentManagement
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem printPreviewBarCheckItem17;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem printPreviewBarCheckItem18;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem printPreviewBarCheckItem19;
-        private DevExpress.XtraBars.BarEditItem beNienKhoa;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox rilkNienKhoa;
-        private DevExpress.XtraBars.BarEditItem beHocky;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarEditItem bEcourse;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox comboboxCourse;
+        private DevExpress.XtraBars.BarEditItem barEditItem3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.BarEditItem bEsemester;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
-        private DevExpress.XtraBars.BarButtonItem beLoad;
-        private DevExpress.XtraBars.BarEditItem beKHOA;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilkKhoa;
+        private DevExpress.XtraBars.BarEditItem bEgroup;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
+        private DevExpress.XtraBars.BarEditItem barEditItem8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
+        private DevExpress.XtraBars.BarButtonItem bEload;
+        private DevExpress.XtraBars.BarEditItem bEsubject;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cobboxSubject;
+        private DevExpress.XtraBars.BarEditItem bEFaculty;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lkFaculty;
     }
 }

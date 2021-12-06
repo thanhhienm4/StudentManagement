@@ -254,17 +254,15 @@ namespace StudentManagement
             // 
             // splitContainerControl1
             // 
-            this.splitContainerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(3, 40);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 34);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gcCreditClass);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.gcUpdateGrade);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(917, 484);
+            this.splitContainerControl1.Size = new System.Drawing.Size(932, 515);
             this.splitContainerControl1.SplitterPosition = 197;
             this.splitContainerControl1.TabIndex = 4;
             // 
@@ -275,7 +273,7 @@ namespace StudentManagement
             this.gcCreditClass.MainView = this.gvCreditClass;
             this.gcCreditClass.MenuManager = this.barManager1;
             this.gcCreditClass.Name = "gcCreditClass";
-            this.gcCreditClass.Size = new System.Drawing.Size(917, 197);
+            this.gcCreditClass.Size = new System.Drawing.Size(932, 197);
             this.gcCreditClass.TabIndex = 1;
             this.gcCreditClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCreditClass});
@@ -360,7 +358,7 @@ namespace StudentManagement
             this.gcUpdateGrade.MainView = this.gvUpdateGrade;
             this.gcUpdateGrade.MenuManager = this.barManager1;
             this.gcUpdateGrade.Name = "gcUpdateGrade";
-            this.gcUpdateGrade.Size = new System.Drawing.Size(917, 272);
+            this.gcUpdateGrade.Size = new System.Drawing.Size(932, 303);
             this.gcUpdateGrade.TabIndex = 0;
             this.gcUpdateGrade.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvUpdateGrade});

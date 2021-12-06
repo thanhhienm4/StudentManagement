@@ -66,7 +66,7 @@ namespace StudentManagement
             this.previewBar2 = new DevExpress.XtraPrinting.Preview.PreviewBar();
             this.printPreviewStaticItem1 = new DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem();
             this.progressBarEditItem1 = new DevExpress.XtraPrinting.Preview.ProgressBarEditItem();
-            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.rilkKhoa = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.printPreviewBarItem1 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.printPreviewStaticItem2 = new DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem();
             this.zoomTrackBarEditItem1 = new DevExpress.XtraPrinting.Preview.ZoomTrackBarEditItem();
@@ -79,6 +79,8 @@ namespace StudentManagement
             this.miPageLayoutContinuous = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.miToolbars = new DevExpress.XtraBars.BarToolbarsListItem();
             this.miBackground = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
+            this.beKhoa = new DevExpress.XtraBars.BarEditItem();
+            this.rilkKhoa2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.beLop = new DevExpress.XtraBars.BarEditItem();
             this.rilkLop = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -106,13 +108,20 @@ namespace StudentManagement
             this.printPreviewBarCheckItem18 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.printPreviewBarCheckItem19 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.rilkKhoa1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // docView
@@ -199,16 +208,21 @@ namespace StudentManagement
             this.printPreviewBarCheckItem19,
             this.barEditItem1,
             this.beLop,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.beKhoa});
             this.documentViewerBarManager1.MainMenu = this.previewBar3;
-            this.documentViewerBarManager1.MaxItemId = 62;
+            this.documentViewerBarManager1.MaxItemId = 64;
             this.documentViewerBarManager1.PreviewBar = this.previewBar1;
             this.documentViewerBarManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemProgressBar1,
+            this.rilkKhoa,
             this.repositoryItemZoomTrackBar1,
             this.printPreviewRepositoryItemComboBox1,
-            this.repositoryItemTextEdit1,
-            this.rilkLop});
+            this.rilkKhoa1,
+            this.rilkLop,
+            this.repositoryItemTextEdit2,
+            this.repositoryItemLookUpEdit1,
+            this.repositoryItemLookUpEdit2,
+            this.rilkKhoa2});
             this.documentViewerBarManager1.StatusBar = this.previewBar2;
             this.documentViewerBarManager1.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
             // 
@@ -554,16 +568,16 @@ namespace StudentManagement
             // 
             // progressBarEditItem1
             // 
-            this.progressBarEditItem1.Edit = this.repositoryItemProgressBar1;
+            this.progressBarEditItem1.Edit = this.rilkKhoa;
             this.progressBarEditItem1.EditHeight = 12;
             this.progressBarEditItem1.EditWidth = 150;
             this.progressBarEditItem1.Id = 1;
             this.progressBarEditItem1.Name = "progressBarEditItem1";
             this.progressBarEditItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
-            // repositoryItemProgressBar1
+            // rilkKhoa
             // 
-            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
+            this.rilkKhoa.Name = "rilkKhoa";
             // 
             // printPreviewBarItem1
             // 
@@ -616,7 +630,8 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(this.miFile),
             new DevExpress.XtraBars.LinkPersistInfo(this.miView),
             new DevExpress.XtraBars.LinkPersistInfo(this.miBackground),
-            new DevExpress.XtraBars.LinkPersistInfo(this.beLop, true),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beKhoa, "", false, true, true, 166),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beLop, "", false, true, true, 125),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
             this.previewBar3.OptionsBar.MultiLine = true;
             this.previewBar3.OptionsBar.UseWholeRow = true;
@@ -692,6 +707,28 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiWatermark)});
             this.miBackground.Name = "miBackground";
             // 
+            // beKhoa
+            // 
+            this.beKhoa.Caption = "barEditItem2";
+            this.beKhoa.Edit = this.rilkKhoa2;
+            this.beKhoa.Id = 63;
+            this.beKhoa.Name = "beKhoa";
+            this.beKhoa.EditValueChanged += new System.EventHandler(this.beKhoa_EditValueChanged);
+            this.beKhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beKhoa_ItemClick);
+            // 
+            // rilkKhoa2
+            // 
+            this.rilkKhoa2.AutoHeight = false;
+            this.rilkKhoa2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rilkKhoa2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENCN", "KHOA"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENSERVER", "KHOA", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.rilkKhoa2.DisplayMember = "TENCN";
+            this.rilkKhoa2.Name = "rilkKhoa2";
+            this.rilkKhoa2.NullText = "";
+            this.rilkKhoa2.ValueMember = "TENSERVER";
+            // 
             // beLop
             // 
             this.beLop.Caption = "barEditItem2";
@@ -708,9 +745,11 @@ namespace StudentManagement
             this.rilkLop.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MALOP", "Mã lớp"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENLOP", "Tên lớp")});
+            this.rilkLop.DisplayMember = "MALOP";
             this.rilkLop.Name = "rilkLop";
             this.rilkLop.NullText = "";
             this.rilkLop.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.rilkLop.ValueMember = "MALOP";
             // 
             // barButtonItem1
             // 
@@ -948,14 +987,33 @@ namespace StudentManagement
             // barEditItem1
             // 
             this.barEditItem1.Caption = "barEditItem1";
-            this.barEditItem1.Edit = this.repositoryItemTextEdit1;
+            this.barEditItem1.Edit = this.rilkKhoa1;
             this.barEditItem1.Id = 59;
             this.barEditItem1.Name = "barEditItem1";
             // 
-            // repositoryItemTextEdit1
+            // rilkKhoa1
             // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            this.rilkKhoa1.AutoHeight = false;
+            this.rilkKhoa1.Name = "rilkKhoa1";
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // repositoryItemLookUpEdit1
+            // 
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            // 
+            // repositoryItemLookUpEdit2
+            // 
+            this.repositoryItemLookUpEdit2.AutoHeight = false;
+            this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
             // 
             // FormReportSumaryFinal
             // 
@@ -971,10 +1029,14 @@ namespace StudentManagement
             this.Text = "ReportSumaryFinal";
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1017,7 +1079,7 @@ namespace StudentManagement
         private DevExpress.XtraPrinting.Preview.PreviewBar previewBar2;
         private DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem printPreviewStaticItem1;
         private DevExpress.XtraPrinting.Preview.ProgressBarEditItem progressBarEditItem1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar rilkKhoa;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem printPreviewBarItem1;
         private DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem printPreviewStaticItem2;
         private DevExpress.XtraPrinting.Preview.ZoomTrackBarEditItem zoomTrackBarEditItem1;
@@ -1057,6 +1119,11 @@ namespace StudentManagement
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilkLop;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rilkKhoa1;
+        private DevExpress.XtraBars.BarEditItem beKhoa;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilkKhoa2;
     }
 }

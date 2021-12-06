@@ -176,6 +176,8 @@ namespace StudentManagement
         private void beSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             List<LOPTINCHI> lOPTINCHIs = (List<LOPTINCHI>)gcRegister.DataSource;
+            if (lOPTINCHIs == null)
+                return;
             var listUpdate = lOPTINCHIs.Select(x => new UpdateDangKy()
             {
                 HUYDANGKY = false,

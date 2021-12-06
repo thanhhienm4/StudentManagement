@@ -115,8 +115,18 @@ namespace StudentManagement
         private void beSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             List<DANGKY> listDangky = (List<DANGKY>)gvUpdateGrade.DataSource;
+            if (listDangky == null)
+                return;
             List<UpdateGrade> listUpdateGrade = listDangky.Select(x => new UpdateGrade(x)).ToList();
             var res = _dangKyDAL.UpdateDiem(listUpdateGrade);
+            if(res.Response.State == ResponseState.Success)
+            {
+                Program.formMain.Notify("Lưu thành công");
+            }else
+            {
+                MessageBox.Show("Lưu thông tin thất bại");
+            }    
+
         }
 
         private void beFaculty_EditValueChanged(object sender, EventArgs e)

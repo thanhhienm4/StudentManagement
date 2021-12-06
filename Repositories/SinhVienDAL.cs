@@ -122,5 +122,28 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+
+        public DataResponse<bool> CheckSinhvienUpdate(string masv)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<bool>("Lỗi kết nối");
+            try
+            {
+                string command = "select [dbo].[FUNC_KT_MASINHVIEN] (@MASV)";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@MASV", masv);
+                var res = Program.conn.ExecuteScalar<bool>(command, parameters);
+                return new DataResponeSuccess<bool>(res);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
     }
 }

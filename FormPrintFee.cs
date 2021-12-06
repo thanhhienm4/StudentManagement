@@ -22,6 +22,7 @@ namespace StudentManagement
             InitializeComponent();
             InitialSchoolYear();
             hocPhiDAL = new HocPhiDAL();
+            bESemester.EditValue = 1;
         }
 
         public String convertMoneyString(List<INHOCPHI> list)

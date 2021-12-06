@@ -210,6 +210,7 @@ namespace StudentManagement
             } else
             {
                 // notify susscess
+                Program.formMain.Notify("Lưu thành công");
             }
 
 
