@@ -194,8 +194,7 @@ namespace StudentManagement
                 }
                 else
                 {
-                    MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
+                    Program.formMain.Notify("Lưu thành công");
                 }
             }
 

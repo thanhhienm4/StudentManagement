@@ -234,7 +234,7 @@ namespace StudentManagement
                 }
                 else
                 {
-                    MessageBox.Show("Lưu thành công");
+                    Program.formMain.Notify("Lưu thành công");
                     InitialSchoolYear();
                 }
             }

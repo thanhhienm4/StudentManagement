@@ -118,6 +118,11 @@ namespace StudentManagement
 
         private void beSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (gvUpdateGrade.RowCount > 0)
+            {
+                gvUpdateGrade.SetRowCellValue(0, "DIEM_CK", gvUpdateGrade.GetRowCellValue(0, "DIEM_CK"));
+            }
+
             List<DANGKY> listDangky = (List<DANGKY>)gvUpdateGrade.DataSource;
             if (listDangky == null)
                 return;

@@ -198,7 +198,10 @@ namespace StudentManagement
 
         private void bESave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gvCreditClass.FocusInvalidRow();
+            if(gvCreditClass.RowCount >0)
+            {
+                gvCreditClass.SetRowCellValue(0, "MALTC", gvCreditClass.GetRowCellValue(0, "MALTC"));
+            }    
             List<UpdateLopTinChi> listUpdate;
             var binding = (BindingList<LOPTINCHI>)gvCreditClass.DataSource;
             listUpdate =  binding.ToList().Select(x => new UpdateLopTinChi(x)).ToList();
@@ -235,7 +238,7 @@ namespace StudentManagement
 
         private void gvCreditClass_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            
+            Console.WriteLine('A');
         }
 
         private void rilkMAGV_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -250,6 +253,7 @@ namespace StudentManagement
 
         private void gvCreditClass_InitNewRow(object sender, InitNewRowEventArgs e)
         {
+
             if (stateUndo)
                 return;
             undo.Push(new ActionUndo(2, gvCreditClass.RowCount, null), new ActionUndo(3, GetSelelectRow(), new LOPTINCHI()));
@@ -306,6 +310,47 @@ namespace StudentManagement
             var value = (sender as GridView).GetRowCellValue(gc.RowHandle, gc.Column.FieldName);
             ActionUndo action = new ActionUndo(1, gc, value);
             undo.Push(action, new ActionUndo(1, gc, e.Value));
+        }
+
+        private void gvCreditClass_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            GridView gridView = sender as GridView;
+            if(gridView.GetRowCellValue(e.RowHandle,"NHOM") == null || (int)gridView.GetRowCellValue(e.RowHandle, "NHOM") == 0)
+            {
+                e.ErrorText = "Nhóm không được để trống hoặc bằng 0";
+                e.Valid = false;
+            }
+            if (gridView.GetRowCellValue(e.RowHandle, "SOSVTOITHIEU") == null || (int)gridView.GetRowCellValue(e.RowHandle, "SOSVTOITHIEU") == 0)
+            {
+                e.ErrorText = "Số sinh viên tối thiểu không được để trống hoặc bằng 0";
+                e.Valid = false;
+            }
+            if (gridView.GetRowCellValue(e.RowHandle, "MAMH") == null )
+            {
+                e.ErrorText = "Mã môn học không được để trống";
+                e.Valid = false;
+            }
+            if (gridView.GetRowCellValue(e.RowHandle, "MAGV") == null)
+            {
+                e.ErrorText = "Max giảng viên không được để trống";
+
+                e.Valid = false;
+            }
+
+
+            if(gridView.GetRowCellValue(e.RowHandle, "NHOM") != null
+                && gridView.GetRowCellValue(e.RowHandle, "MAMH") != null)
+            {
+                var binding = (BindingList<LOPTINCHI>)gvCreditClass.DataSource;
+                var listUpdate = binding.ToList().Select(x => new UpdateLopTinChi(x)).ToList();
+                if(listUpdate.Exists(x => x.NHOM == (int)(gridView.GetRowCellValue(e.RowHandle, "NHOM") ) &&
+                 x.MAMH == gridView.GetRowCellValue(e.RowHandle, "MAMH").ToString()))
+                    {
+                    e.ErrorText = "Môn học và nhóm đã được đăng kí";
+
+                    e.Valid = false;
+                }
+            }    
         }
     }
 }

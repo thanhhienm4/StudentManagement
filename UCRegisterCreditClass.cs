@@ -187,12 +187,15 @@ namespace StudentManagement
             }).ToList();
             var res = new DangKyDAL().UpdateDangKy(listUpdate, Program.username);
             if (res.Response.State == ResponseState.Success)
+            {
+                Program.formMain.Notify("Lưu thành công");
                 IniData();
+            } 
             else
             {
                 MessageBox.Show(res.Response.Message);
             }
-           // if(res.)
+          
         }
 
       
