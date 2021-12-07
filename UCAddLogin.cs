@@ -41,8 +41,8 @@ namespace StudentManagement
 
         private void Tạo_Click(object sender, EventArgs e)
         {
-            string login = teLogin.Text;
-            string password = tePW.Text;
+            string login = teLogin.Text.Trim();
+            string password = tePW.Text.Trim();
             string user = lkGiangVien.EditValue as string;
             string role = cbxRole.EditValue.ToString();
 
