@@ -95,6 +95,7 @@ namespace StudentManagement
             rbgKhoa.Visible = false;
             rbgBaoCao.Visible = false;
             rbgTaiKhoan.Visible = false;
+            rbgKt.Visible = false;
         }
 
         private void pgvPermission()
@@ -108,6 +109,11 @@ namespace StudentManagement
         {
             rbgSinhVien.Visible = false;
             rbgKhoa.Visible = false;
+            rbGLopTinChi.Visible = false;
+            rgBBangDiem.Visible = false;
+            rgBSVDangKi.Visible = false;
+            rbGPhieuDiem.Visible = false;
+            rbGTongKet.Visible = false;
         }
         private void khoaPermission()
         {
@@ -260,7 +266,7 @@ namespace StudentManagement
 
         private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FormFeeByClass form = new FormFeeByClass();
+            FormPrintFee form = new FormPrintFee();
             form.ShowDialog();
         }
 
