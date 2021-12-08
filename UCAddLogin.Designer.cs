@@ -113,6 +113,7 @@ namespace StudentManagement
             // 
             this.tePW.Location = new System.Drawing.Point(401, 153);
             this.tePW.Name = "tePW";
+            this.tePW.Properties.UseSystemPasswordChar = true;
             this.tePW.Size = new System.Drawing.Size(236, 26);
             this.tePW.TabIndex = 14;
             // 

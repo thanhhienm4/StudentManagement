@@ -68,6 +68,7 @@ namespace StudentManagement
             this.tbPassword.Location = new System.Drawing.Point(180, 105);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(9);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Properties.UseSystemPasswordChar = true;
             this.tbPassword.Size = new System.Drawing.Size(327, 26);
             this.tbPassword.TabIndex = 3;
             // 
