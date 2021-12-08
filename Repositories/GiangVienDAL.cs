@@ -31,6 +31,26 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+        public DataResponse<List<GIANGVIEN>> GetListCurrentGiangVien()
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<GIANGVIEN>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_DS_GiangVien_CURRENT";
+                DynamicParameters parameters = new DynamicParameters();
+                var data = Program.conn.Query<GIANGVIEN>(command).ToList();
+                return new DataResponeSuccess<List<GIANGVIEN>>(data);
+            }
+            catch (Exception)
+            {
+                return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
 
         public DataResponse<List<GIANGVIEN>> GetListAllGiangVien()
         {

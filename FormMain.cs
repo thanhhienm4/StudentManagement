@@ -33,12 +33,14 @@ namespace StudentManagement
         
         void ShowFormLogin()
         {
+            this.Visible = false;
             if (fromLogin == null)
                 fromLogin = new FormLogin();
 
             var dr = fromLogin.ShowDialog();
             if (dr == DialogResult.OK)
             {
+                this.Visible = true;
                 Initial();
             }else
             {
@@ -91,11 +93,27 @@ namespace StudentManagement
           
         }
 
+        void reset()
+        {
+            rbgKhoa.Visible = true;
+            rbgBaoCao.Visible = true;
+            rbgAddLogin.Visible = true;
+            rbgKt.Visible = true;
+            rbgSinhVien.Visible = true;
+            rbgDSHocPhi.Visible = true;
+
+            rbGLopTinChi.Visible = true;
+            rgBBangDiem.Visible = true;
+            rgBSVDangKi.Visible = true;
+            rbGPhieuDiem.Visible = true;
+            rbGTongKet.Visible = true;
+        }
+
         private void svPermission()
         {
             rbgKhoa.Visible = false;
             rbgBaoCao.Visible = false;
-            rbgTaiKhoan.Visible = false;
+            rbgAddLogin.Visible = false;
             rbgKt.Visible = false;
         }
 
@@ -292,6 +310,12 @@ namespace StudentManagement
             pnContent.Controls.Clear();
             pnContent.Controls.Add(ucCreateSubject);
 
+        }
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            reset();
+            ShowFormLogin();
         }
     }
 }

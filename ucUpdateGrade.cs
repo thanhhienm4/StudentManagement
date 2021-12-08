@@ -19,6 +19,7 @@ namespace StudentManagement
         private LopTinChiDAL _lopTinChiDAL;
         private DangKyDAL _dangKyDAL;
         private SupportDAL _supportDAL;
+        private bool isChange = false;
 
         public ucUpdateGrade()
         {
@@ -141,6 +142,38 @@ namespace StudentManagement
         private void beFaculty_EditValueChanged(object sender, EventArgs e)
         {
             Program.currentServer = (string)beFaculty.EditValue;
+        }
+
+        private void gvUpdateGrade_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if(isChange == true)
+            {
+                isChange = false;
+                return;
+            }
+            if(e.Column.FieldName ==  "DIEM_GK" || e.Column.FieldName == "DIEM_CK")
+            {
+                float score;
+                if (!float.TryParse(gvUpdateGrade.GetRowCellValue(e.RowHandle, e.Column).ToString(), out score))
+                    return;
+                
+
+                float odd = score - (float)Math.Floor(score);
+                if(odd < 0.25)
+                {
+                    score += 0;
+                }else
+                {
+                    if (odd < 0.75)
+                        score = (float)Math.Floor(score)+ (float)0.5;
+                    else
+                        score = (float)Math.Floor(score) + 1;
+                }
+
+                isChange = true;
+                gvUpdateGrade.SetRowCellValue(e.RowHandle, e.Column, score);
+                
+            }    
         }
     }
 }

@@ -72,6 +72,8 @@ namespace StudentManagement
             this.zoomTrackBarEditItem1 = new DevExpress.XtraPrinting.Preview.ZoomTrackBarEditItem();
             this.repositoryItemZoomTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
             this.previewBar3 = new DevExpress.XtraPrinting.Preview.PreviewBar();
+            this.bEFaculty = new DevExpress.XtraBars.BarEditItem();
+            this.lkFaculty = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.bEcourse = new DevExpress.XtraBars.BarEditItem();
             this.comboboxCourse = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.bEsemester = new DevExpress.XtraBars.BarEditItem();
@@ -81,8 +83,6 @@ namespace StudentManagement
             this.bEgroup = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.bEload = new DevExpress.XtraBars.BarButtonItem();
-            this.bEFaculty = new DevExpress.XtraBars.BarEditItem();
-            this.lkFaculty = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -124,11 +124,11 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboboxCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cobboxSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
@@ -138,9 +138,10 @@ namespace StudentManagement
             // 
             this.documentViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.documentViewer1.IsMetric = false;
-            this.documentViewer1.Location = new System.Drawing.Point(0, 87);
+            this.documentViewer1.Location = new System.Drawing.Point(0, 69);
+            this.documentViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.documentViewer1.Name = "documentViewer1";
-            this.documentViewer1.Size = new System.Drawing.Size(1116, 274);
+            this.documentViewer1.Size = new System.Drawing.Size(1435, 362);
             this.documentViewer1.TabIndex = 0;
             // 
             // documentViewerBarManager1
@@ -655,6 +656,21 @@ namespace StudentManagement
             this.previewBar3.OptionsBar.UseWholeRow = true;
             this.previewBar3.Text = "Main Menu";
             // 
+            // bEFaculty
+            // 
+            this.bEFaculty.Caption = "Khoa";
+            this.bEFaculty.Edit = this.lkFaculty;
+            this.bEFaculty.Id = 70;
+            this.bEFaculty.Name = "bEFaculty";
+            this.bEFaculty.EditValueChanged += new System.EventHandler(this.bEFaculty_EditValueChanged);
+            // 
+            // lkFaculty
+            // 
+            this.lkFaculty.AutoHeight = false;
+            this.lkFaculty.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkFaculty.Name = "lkFaculty";
+            // 
             // bEcourse
             // 
             this.bEcourse.Caption = "Niên Khóa";
@@ -721,52 +737,41 @@ namespace StudentManagement
             this.bEload.Name = "bEload";
             this.bEload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bEload_ItemClick);
             // 
-            // bEFaculty
-            // 
-            this.bEFaculty.Caption = "Khoa";
-            this.bEFaculty.Edit = this.lkFaculty;
-            this.bEFaculty.Id = 70;
-            this.bEFaculty.Name = "bEFaculty";
-            this.bEFaculty.EditValueChanged += new System.EventHandler(this.bEFaculty_EditValueChanged);
-            // 
-            // lkFaculty
-            // 
-            this.lkFaculty.AutoHeight = false;
-            this.lkFaculty.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkFaculty.Name = "lkFaculty";
-            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.documentViewerBarManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1116, 87);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1435, 69);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 361);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 431);
             this.barDockControlBottom.Manager = this.documentViewerBarManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1116, 27);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1435, 30);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 87);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 69);
             this.barDockControlLeft.Manager = this.documentViewerBarManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 274);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 362);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1116, 87);
+            this.barDockControlRight.Location = new System.Drawing.Point(1435, 69);
             this.barDockControlRight.Manager = this.documentViewerBarManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 274);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 362);
             // 
             // miFile
             // 
@@ -1078,27 +1083,28 @@ namespace StudentManagement
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
             // 
-            // FromPrintDiemLTC
+            // FormPrintDiemLTC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 388);
+            this.ClientSize = new System.Drawing.Size(1435, 461);
             this.Controls.Add(this.documentViewer1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "FromPrintDiemLTC";
-            this.Text = "FromPrintDiemLTC";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FormPrintDiemLTC";
+            this.Text = "In điểm lớp tín chỉ";
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboboxCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cobboxSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();

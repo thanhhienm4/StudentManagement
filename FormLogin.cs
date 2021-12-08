@@ -71,7 +71,7 @@ namespace StudentManagement
             var res = userDAL.LoginStudent(tbLogin.Text.Trim(), tbPassword.Text.Trim());
             if (res.Response.State == ResponseState.Fail)
             {
-                lbMessage.Text = res.Response.Message;
+                MessageBox.Show(res.Response.Message);
                 return;
             }
             if (res.Data == null)
@@ -94,7 +94,7 @@ namespace StudentManagement
             var res = userDAL.Login(login);
             if (res.Response.State == ResponseState.Fail)
             {
-                lbMessage.Text = res.Response.Message;
+                MessageBox.Show(res.Response.Message);
                 return;
             }
 

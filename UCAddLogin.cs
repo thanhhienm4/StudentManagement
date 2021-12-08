@@ -23,7 +23,7 @@ namespace StudentManagement
             _userDAL = new UserDAL();
             _giangVienDAL = new GiangVienDAL();
 
-            lkGiangVien.Properties.DataSource = _giangVienDAL.GetListGiangVien().Data;
+            lkGiangVien.Properties.DataSource = _giangVienDAL.GetListCurrentGiangVien().Data;
 
             switch(Program.group)
             {
@@ -41,10 +41,32 @@ namespace StudentManagement
 
         private void Tạo_Click(object sender, EventArgs e)
         {
+            if(lkGiangVien.EditValue == null)
+            {
+                MessageBox.Show("Giảng viên không được để trống");
+                return;
+            }
+            if (cbxRole.EditValue == null)
+            {
+                MessageBox.Show("Chức vụ không được để trống");
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(teLogin.Text))
+            {
+                MessageBox.Show("Tên đăng nhập không được để trống");
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(tePW.Text))
+            {
+                MessageBox.Show("Mật khẩu không được để trống");
+                return;
+            }
+
+
             string login = teLogin.Text.Trim();
             string password = tePW.Text.Trim();
-            string user = lkGiangVien.EditValue as string;
-            string role = cbxRole.EditValue.ToString();
+            string user = (lkGiangVien.EditValue as string).Trim();
+            string role = cbxRole.EditValue.ToString().Trim();
 
             var res = _userDAL.CreateLogin(login, password, user, role);
             if (res.Response.State == Model.ResponseState.Fail)

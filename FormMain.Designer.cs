@@ -62,6 +62,7 @@ namespace StudentManagement
             this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.rbgKhoa = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -79,7 +80,8 @@ namespace StudentManagement
             this.rbgKt = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbgTaiKhoan = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbgAddLogin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbgLogout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -134,10 +136,11 @@ namespace StudentManagement
             this.barButtonItem3,
             this.barButtonItem21,
             this.barButtonItem22,
-            this.barButtonItem23});
+            this.barButtonItem23,
+            this.btnLogout});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ribbon.MaxItemId = 39;
+            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbon.MaxItemId = 40;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbgKhoa,
@@ -149,7 +152,7 @@ namespace StudentManagement
             this.repositoryItemCalcEdit1,
             this.repositoryItemButtonEdit1,
             this.repositoryItemHypertextLabel1});
-            this.ribbon.Size = new System.Drawing.Size(1244, 193);
+            this.ribbon.Size = new System.Drawing.Size(1599, 231);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // bbtnCode
@@ -391,6 +394,15 @@ namespace StudentManagement
             this.barButtonItem23.Name = "barButtonItem23";
             this.barButtonItem23.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem23_ItemClick);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Caption = "Đăng xuất";
+            this.btnLogout.Id = 39;
+            this.btnLogout.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.highimportance;
+            this.btnLogout.LargeWidth = 80;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
+            // 
             // rbgKhoa
             // 
             this.rbgKhoa.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -496,14 +508,21 @@ namespace StudentManagement
             // rbgTaiKhoan
             // 
             this.rbgTaiKhoan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup15});
+            this.rbgAddLogin,
+            this.rbgLogout});
             this.rbgTaiKhoan.Name = "rbgTaiKhoan";
             this.rbgTaiKhoan.Text = "Tài khoản";
             // 
-            // ribbonPageGroup15
+            // rbgAddLogin
             // 
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem21);
-            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            this.rbgAddLogin.ItemLinks.Add(this.barButtonItem21);
+            this.rbgAddLogin.Name = "rbgAddLogin";
+            // 
+            // rbgLogout
+            // 
+            this.rbgLogout.Alignment = DevExpress.XtraBars.Ribbon.RibbonPageGroupAlignment.Far;
+            this.rbgLogout.ItemLinks.Add(this.btnLogout);
+            this.rbgLogout.Name = "rbgLogout";
             // 
             // repositoryItemCalcEdit1
             // 
@@ -522,11 +541,11 @@ namespace StudentManagement
             this.ribbonStatusBar.ItemLinks.Add(this.bbtnFullName);
             this.ribbonStatusBar.ItemLinks.Add(this.bbtnGroup);
             this.ribbonStatusBar.ItemLinks.Add(this.btnNotice);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 517);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 614);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1244, 30);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1599, 36);
             // 
             // popupMenu1
             // 
@@ -536,10 +555,10 @@ namespace StudentManagement
             // pnContent
             // 
             this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContent.Location = new System.Drawing.Point(0, 193);
-            this.pnContent.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pnContent.Location = new System.Drawing.Point(0, 231);
+            this.pnContent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnContent.Name = "pnContent";
-            this.pnContent.Size = new System.Drawing.Size(1244, 324);
+            this.pnContent.Size = new System.Drawing.Size(1599, 383);
             this.pnContent.TabIndex = 2;
             // 
             // btn_inDiemLTC
@@ -583,13 +602,13 @@ namespace StudentManagement
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1244, 547);
+            this.ClientSize = new System.Drawing.Size(1599, 650);
             this.Controls.Add(this.pnContent);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormMain";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -659,7 +678,7 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem21;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbgTaiKhoan;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbgAddLogin;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
@@ -670,5 +689,7 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarButtonItem barButtonItem23;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup bbMonHoc;
+        private DevExpress.XtraBars.BarButtonItem btnLogout;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbgLogout;
     }
 }

@@ -502,5 +502,8 @@
   <ItemGroup>
     <None Include="Resources\datapanel.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highimportance.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

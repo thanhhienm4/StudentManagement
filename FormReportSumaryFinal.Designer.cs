@@ -1026,7 +1026,7 @@ namespace StudentManagement
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FormReportSumaryFinal";
-            this.Text = "ReportSumaryFinal";
+            this.Text = "Tổng kết cuối khóa";
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa)).EndInit();

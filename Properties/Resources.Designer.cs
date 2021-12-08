@@ -243,6 +243,16 @@ namespace StudentManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage highimportance {
+            get {
+                object obj = ResourceManager.GetObject("highimportance", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage modifytablestyle {
             get {
                 object obj = ResourceManager.GetObject("modifytablestyle", resourceCulture);

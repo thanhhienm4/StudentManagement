@@ -275,6 +275,7 @@ namespace StudentManagement
             this.gridColumn1.FieldName = "MALTC";
             this.gridColumn1.MinWidth = 30;
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             this.gridColumn1.Width = 122;
@@ -285,6 +286,7 @@ namespace StudentManagement
             this.gridColumn2.FieldName = "MAMH";
             this.gridColumn2.MinWidth = 30;
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             this.gridColumn2.Width = 122;
@@ -295,6 +297,7 @@ namespace StudentManagement
             this.gridColumn3.FieldName = "TENMH";
             this.gridColumn3.MinWidth = 30;
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             this.gridColumn3.Width = 122;
@@ -305,6 +308,7 @@ namespace StudentManagement
             this.gridColumn4.FieldName = "TENGV";
             this.gridColumn4.MinWidth = 30;
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 122;
@@ -315,6 +319,7 @@ namespace StudentManagement
             this.gridColumn5.FieldName = "NHOM";
             this.gridColumn5.MinWidth = 30;
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
             this.gridColumn5.Width = 118;
@@ -325,6 +330,7 @@ namespace StudentManagement
             this.gridColumn6.FieldName = "SOSVDANGKY";
             this.gridColumn6.MinWidth = 30;
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 5;
             this.gridColumn6.Width = 123;
@@ -406,6 +412,7 @@ namespace StudentManagement
             this.gridColumn7.FieldName = "MALTC";
             this.gridColumn7.MinWidth = 30;
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
             this.gridColumn7.Width = 112;
@@ -416,6 +423,7 @@ namespace StudentManagement
             this.gridColumn8.FieldName = "MAMH";
             this.gridColumn8.MinWidth = 30;
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 1;
             this.gridColumn8.Width = 112;
@@ -426,6 +434,7 @@ namespace StudentManagement
             this.gridColumn9.FieldName = "TENMH";
             this.gridColumn9.MinWidth = 30;
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 2;
             this.gridColumn9.Width = 112;
@@ -436,6 +445,7 @@ namespace StudentManagement
             this.gridColumn10.FieldName = "TENGV";
             this.gridColumn10.MinWidth = 30;
             this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 3;
             this.gridColumn10.Width = 112;
@@ -446,6 +456,7 @@ namespace StudentManagement
             this.gridColumn11.FieldName = "NHOM";
             this.gridColumn11.MinWidth = 30;
             this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 4;
             this.gridColumn11.Width = 112;
@@ -467,6 +478,7 @@ namespace StudentManagement
             this.gridColumn12.FieldName = "TRANGTHAI";
             this.gridColumn12.MinWidth = 30;
             this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 5;
             this.gridColumn12.Width = 112;

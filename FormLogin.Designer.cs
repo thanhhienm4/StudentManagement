@@ -57,7 +57,7 @@ namespace StudentManagement
             // 
             this.tbLogin.EditValue = "ptl";
             this.tbLogin.Location = new System.Drawing.Point(180, 58);
-            this.tbLogin.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.tbLogin.Margin = new System.Windows.Forms.Padding(9);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(327, 26);
             this.tbLogin.TabIndex = 2;
@@ -66,7 +66,7 @@ namespace StudentManagement
             // 
             this.tbPassword.EditValue = "123456";
             this.tbPassword.Location = new System.Drawing.Point(180, 105);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(9);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(327, 26);
             this.tbPassword.TabIndex = 3;
@@ -74,7 +74,7 @@ namespace StudentManagement
             // lbUsername
             // 
             this.lbUsername.Location = new System.Drawing.Point(42, 60);
-            this.lbUsername.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.lbUsername.Margin = new System.Windows.Forms.Padding(9);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(107, 19);
             this.lbUsername.TabIndex = 4;
@@ -84,7 +84,7 @@ namespace StudentManagement
             // lbPassword
             // 
             this.lbPassword.Location = new System.Drawing.Point(42, 108);
-            this.lbPassword.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.lbPassword.Margin = new System.Windows.Forms.Padding(9);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(64, 19);
             this.lbPassword.TabIndex = 5;
@@ -93,7 +93,7 @@ namespace StudentManagement
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(180, 152);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(6);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(120, 35);
             this.btnLogin.TabIndex = 6;
@@ -124,7 +124,7 @@ namespace StudentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 226);
+            this.ClientSize = new System.Drawing.Size(845, 233);
             this.Controls.Add(this.cbxRole);
             this.Controls.Add(this.lbMessage);
             this.Controls.Add(this.btnLogin);
@@ -136,7 +136,7 @@ namespace StudentManagement
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.tbLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxRole.Properties)).EndInit();

@@ -97,9 +97,9 @@ namespace StudentManagement
 
         private void bEdelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (GetSelelectRow() == -1)
+            if (GetSelelectRow() == -1 || gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC") == null)
                 return;
-         
+            
             int maltc = int.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(),"MALTC").ToString());
             var res = lopTinChiDAL.CheckLopTinChi(maltc);
             
@@ -110,7 +110,7 @@ namespace StudentManagement
 
             if(res.Data)
             {
-                
+                MessageBox.Show("Không thế xóa lớp tín chỉ");
             }else
             {
                 //  notify error

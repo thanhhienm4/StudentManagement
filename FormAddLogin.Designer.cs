@@ -48,7 +48,7 @@ namespace StudentManagement
             this.ClientSize = new System.Drawing.Size(761, 506);
             this.Controls.Add(this.pn);
             this.Name = "FormAddLogin";
-            this.Text = "TestAddLogin";
+            this.Text = "Tạo tài khoản";
             ((System.ComponentModel.ISupportInitialize)(this.pn)).EndInit();
             this.ResumeLayout(false);
 

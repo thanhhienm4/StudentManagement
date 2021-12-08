@@ -81,9 +81,9 @@ namespace StudentManagement
             // 
             this.labelControl4.Location = new System.Drawing.Point(132, 273);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(31, 19);
+            this.labelControl4.Size = new System.Drawing.Size(46, 19);
             this.labelControl4.TabIndex = 18;
-            this.labelControl4.Text = "Role";
+            this.labelControl4.Text = "Quyền";
             // 
             // lbGiangVien
             // 
@@ -97,17 +97,17 @@ namespace StudentManagement
             // 
             this.labelControl2.Location = new System.Drawing.Point(132, 160);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(67, 19);
+            this.labelControl2.Size = new System.Drawing.Size(64, 19);
             this.labelControl2.TabIndex = 16;
-            this.labelControl2.Text = "Password";
+            this.labelControl2.Text = "Mật khẩu";
             // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(132, 98);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(39, 19);
+            this.labelControl1.Size = new System.Drawing.Size(107, 19);
             this.labelControl1.TabIndex = 15;
-            this.labelControl1.Text = "Login";
+            this.labelControl1.Text = "Tên đăng nhập";
             // 
             // tePW
             // 
