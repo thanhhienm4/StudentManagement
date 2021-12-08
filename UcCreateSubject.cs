@@ -324,12 +324,15 @@ namespace StudentManagement
             else
             {
                 string mamh = gridView.GetRowCellValue(e.RowHandle, idSubject).ToString();
-                if (monHocDAL.CheckMaMonHoc(mamh).Data == false)
+                var binding = (BindingList<MONHOC>)gvCreditClass.DataSource;
+                var listUpdate = binding.Where(x => x.MAMH.Trim() == mamh).Count();
+                if(listUpdate >= 2)
                 {
                     gridView.SetColumnError(idSubject, "Mã môn học bị trùng");
                     e.Valid = false;
                     e.ErrorText = "The value is not correct! ";
                 }
+               
             }
 
             if (gridView.GetRowCellValue(e.RowHandle, colSubjectName) == null)

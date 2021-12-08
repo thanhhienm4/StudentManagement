@@ -48,7 +48,11 @@ namespace StudentManagement
 
             var res = _userDAL.CreateLogin(login, password, user, role);
             if (res.Response.State == Model.ResponseState.Fail)
-                MessageBox.Show(res.Response.Message);
+                MessageBox.Show(res.Response.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);              
+            }
         }
     }
 }

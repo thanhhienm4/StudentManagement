@@ -52,7 +52,7 @@ namespace StudentManagement
             Console.WriteLine(MaLop);
             if (check.Data)
             {
-                var res = hocPhiDAL.INDSHPByLop(MaLop, "2021-2022", 1);
+                var res = hocPhiDAL.INDSHPByLop(MaLop, cBYear.EditValue.ToString(), Int32.Parse(comboBoxEdit2.EditValue.ToString()));
 
                 if (res.Response.State == ResponseState.Fail)
                 {
@@ -73,6 +73,11 @@ namespace StudentManagement
         public void InitData()
         {
             
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -75,8 +75,8 @@ namespace StudentManagement
             this.timeSpanChartRangeControlClient1 = new DevExpress.XtraEditors.TimeSpanChartRangeControlClient();
             this.sum = new DevExpress.XtraReports.Parameters.Parameter();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
@@ -229,7 +229,7 @@ namespace StudentManagement
             this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0.694402F, 186.2778F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(5.00679E-06F, 186.2778F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -255,7 +255,7 @@ namespace StudentManagement
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
             this.xrTableCell6.Text = "Số thứ tự";
             this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell6.Weight = 0.66666667057917661D;
+            this.xrTableCell6.Weight = 0.67307648878831128D;
             // 
             // xrTableCell7
             // 
@@ -300,7 +300,7 @@ namespace StudentManagement
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.Text = "Mã lớp";
             this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell10.Weight = 1D;
+            this.xrTableCell10.Weight = 0.99359018179086533D;
             // 
             // BottomMargin
             // 
@@ -342,8 +342,7 @@ namespace StudentManagement
             // 
             // xrTable1
             // 
-            this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right) 
+            this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrTable1.Name = "xrTable1";
@@ -351,6 +350,7 @@ namespace StudentManagement
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
             this.xrTable1.SizeF = new System.Drawing.SizeF(650F, 21.52778F);
+            this.xrTable1.StylePriority.UseBorders = false;
             // 
             // xrTableRow1
             // 
@@ -481,11 +481,6 @@ namespace StudentManagement
             this.ReportFooter.HeightF = 42.33335F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // objectDataSource1
-            // 
-            this.objectDataSource1.DataSource = typeof(StudentManagement.Model.SINHVIEN);
-            this.objectDataSource1.Name = "objectDataSource1";
-            // 
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -503,6 +498,11 @@ namespace StudentManagement
             this.xrLabel1});
             this.ReportHeader.HeightF = 207.8056F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // objectDataSource1
+            // 
+            this.objectDataSource1.DataSource = typeof(StudentManagement.Model.SINHVIEN);
+            this.objectDataSource1.Name = "objectDataSource1";
             // 
             // ReportSudentInCreditClass
             // 

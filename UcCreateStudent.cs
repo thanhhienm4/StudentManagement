@@ -26,6 +26,7 @@ namespace StudentManagement
         private SUndo undo;
         private LopDAL lopDAL;
         private bool stateUndo;
+        private int count = 0;
         public UcCreateStudent()
         {
             InitializeComponent();
@@ -148,6 +149,7 @@ namespace StudentManagement
 
             rilkLOP.DataSource = new LopDAL().GetListLop().Data;
             var res = sinhVienDAL.GetListSinhVien();
+            count = res.Data.Count();
             if (res.Response.State == ResponseState.Fail)
             {
                 // Notify error
@@ -165,6 +167,7 @@ namespace StudentManagement
             rilkLOP.DataSource = new LopDAL().GetListLop().Data;
             string idClass = bESchoolYear.EditValue.ToString();
             var res = sinhVienDAL.GetListSinhVienByLop(idClass);
+            count = res.Data.Count();
             if (res.Response.State == ResponseState.Fail)
             {
                 // Notify error
@@ -377,7 +380,14 @@ namespace StudentManagement
             else
             {
                 string masv = gridView.GetRowCellValue(e.RowHandle, colMASV).ToString();
-                if (sinhVienDAL.CheckSinhvienUpdate(masv).Data == false)
+                var binding = (BindingList<SINHVIEN>)gvCreditClass.DataSource;
+                var listUpdate = binding.Where(x => x.MASV.Trim() == masv).Count();
+                if (sinhVienDAL.CheckSinhvienExistsByServer(masv).Data==true&& sinhVienDAL.CheckSinhvienUpdate(masv).Data == false) // update
+                {
+                    gridView.SetColumnError(colMASV, "Mã sinh viên bị trùng");
+                    e.Valid = false;
+                    e.ErrorText = "The value is not correct! ";
+                }else if (listUpdate >= 2)
                 {
                     gridView.SetColumnError(colMASV, "Mã sinh viên bị trùng");
                     e.Valid = false;
