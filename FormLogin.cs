@@ -29,7 +29,7 @@ namespace StudentManagement
             SupportDAL connectionDAL = new SupportDAL();
             cbx.DataSource = connectionDAL.GetListPhanManh();
 
-            Program.servers = connectionDAL.GetListPhanManh().Where(x => x.TENCN.Trim() != "PHONG KT").ToList();
+            Program.servers = connectionDAL.GetListPhanManh().Where(x => x.TENCN.Trim() != "Phòng Kế Toán").ToList();
             cbx.DisplayMember = "TENCN";
             cbx.ValueMember = "TENSERVER";
 

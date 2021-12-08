@@ -107,6 +107,7 @@ namespace StudentManagement
             rgBSVDangKi.Visible = true;
             rbGPhieuDiem.Visible = true;
             rbGTongKet.Visible = true;
+            pnContent.Controls.Clear();
         }
 
         private void svPermission()

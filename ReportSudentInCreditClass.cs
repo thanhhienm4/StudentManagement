@@ -20,6 +20,7 @@ namespace StudentManagement
             this.hocKy.Value = hocKy;
             this.nhom.Value = nhom;
             this.tenKhoa.Value = tenKhoa;
+            this.tenMonHoc.Value = tenMonHoc;
             this.objectDataSource1.DataSource = data;
         }
     }
