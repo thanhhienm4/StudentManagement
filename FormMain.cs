@@ -16,6 +16,7 @@ namespace StudentManagement
     {
 
         FormLogin fromLogin;
+        UcCreateSubject ucCreateSubject;
         UcCreditClass ucCreditClass;
         UcCreateClass ucCreateClass;
         UcCreateStudent ucCreateStudent;
@@ -284,12 +285,12 @@ namespace StudentManagement
 
         private void barButtonItem23_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (ucCreateClass == null)
-                ucCreateClass = new UcCreateClass();
+            if (ucCreateSubject == null)
+                ucCreateSubject = new UcCreateSubject();
 
-            ucCreateClass.Dock = DockStyle.Fill;
+            ucCreateSubject.Dock = DockStyle.Fill;
             pnContent.Controls.Clear();
-            pnContent.Controls.Add(ucCreateClass);
+            pnContent.Controls.Add(ucCreateSubject);
 
         }
     }

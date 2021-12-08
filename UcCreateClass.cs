@@ -310,7 +310,15 @@ namespace StudentManagement
         {
             GridView gridView = sender as GridView;
             string malop = gridView.GetRowCellValue(e.RowHandle, idClass).ToString();
-            if (lopDAL.CheckMaLopLop(malop).Data == false)
+            var binding = (BindingList<LOP>)gvCreditClass.DataSource;
+            var listUpdate = binding.Where(x => x.MALOP.Trim() == malop).Count();
+            if (lopDAL.CheckMaLopLop(malop).Data == true && lopDAL.CheckMaLopLopExistsByServer(malop).Data == false) // update
+            {
+                gridView.SetColumnError(idClass, "Mã lớp bị trùng");
+                e.Valid = false;
+                e.ErrorText = "The value is not correct! ";
+            }
+            else if (listUpdate >= 2)
             {
                 gridView.SetColumnError(idClass, "Mã lớp bị trùng");
                 e.Valid = false;
