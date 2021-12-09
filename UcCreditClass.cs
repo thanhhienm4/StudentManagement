@@ -343,8 +343,8 @@ namespace StudentManagement
             {
                 var binding = (BindingList<LOPTINCHI>)gvCreditClass.DataSource;
                 var listUpdate = binding.ToList().Select(x => new UpdateLopTinChi(x)).ToList();
-                if(listUpdate.Exists(x => x.NHOM == (int)(gridView.GetRowCellValue(e.RowHandle, "NHOM") ) &&
-                 x.MAMH == gridView.GetRowCellValue(e.RowHandle, "MAMH").ToString()))
+                if(listUpdate.Where(x => x.NHOM == (int)(gridView.GetRowCellValue(e.RowHandle, "NHOM") ) &&
+                 x.MAMH == gridView.GetRowCellValue(e.RowHandle, "MAMH").ToString()).Count() >=2)
                     {
                     e.ErrorText = "Môn học và nhóm đã được đăng kí";
 

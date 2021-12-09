@@ -41,17 +41,19 @@ namespace StudentManagement
 
         private void Tạo_Click(object sender, EventArgs e)
         {
-            string login = teLogin.Text;
-            string password = tePW.Text;
+            string login = teLogin.Text.Trim();
+            string password = tePW.Text.Trim();
             string user = lkGiangVien.EditValue as string;
             string role = cbxRole.EditValue.ToString();
 
             var res = _userDAL.CreateLogin(login, password, user, role);
             if (res.Response.State == Model.ResponseState.Fail)
-                MessageBox.Show(res.Response.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                MessageBox.Show(res.Response.Message);
+            }
             else
             {
-                MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);              
+                MessageBox.Show("Tạo tài khoản thành công");
             }
         }
     }

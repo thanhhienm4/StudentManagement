@@ -209,31 +209,35 @@ namespace StudentManagement
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(932, 34);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.barDockControlTop.Size = new System.Drawing.Size(725, 50);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 549);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 459);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(932, 20);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.barDockControlBottom.Size = new System.Drawing.Size(725, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 34);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 50);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 515);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 409);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(932, 34);
+            this.barDockControlRight.Location = new System.Drawing.Point(725, 50);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 515);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
             // 
             // barButtonItem1
             // 
@@ -256,24 +260,27 @@ namespace StudentManagement
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 34);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 50);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gcCreditClass);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.gcUpdateGrade);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(932, 515);
-            this.splitContainerControl1.SplitterPosition = 197;
+            this.splitContainerControl1.Size = new System.Drawing.Size(725, 409);
+            this.splitContainerControl1.SplitterPosition = 166;
             this.splitContainerControl1.TabIndex = 4;
             // 
             // gcCreditClass
             // 
             this.gcCreditClass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcCreditClass.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcCreditClass.Location = new System.Drawing.Point(0, 0);
             this.gcCreditClass.MainView = this.gvCreditClass;
+            this.gcCreditClass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcCreditClass.MenuManager = this.barManager1;
             this.gcCreditClass.Name = "gcCreditClass";
-            this.gcCreditClass.Size = new System.Drawing.Size(932, 197);
+            this.gcCreditClass.Size = new System.Drawing.Size(725, 166);
             this.gcCreditClass.TabIndex = 1;
             this.gcCreditClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCreditClass});
@@ -287,6 +294,7 @@ namespace StudentManagement
             this.MAGV,
             this.NHOM,
             this.TENGV});
+            this.gvCreditClass.DetailHeight = 295;
             this.gvCreditClass.GridControl = this.gcCreditClass;
             this.gvCreditClass.Name = "gvCreditClass";
             this.gvCreditClass.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged_1);
@@ -295,70 +303,72 @@ namespace StudentManagement
             // 
             this.MALTC.Caption = "Mã lớp";
             this.MALTC.FieldName = "MALTC";
-            this.MALTC.MinWidth = 30;
+            this.MALTC.MinWidth = 23;
             this.MALTC.Name = "MALTC";
             this.MALTC.Visible = true;
             this.MALTC.VisibleIndex = 0;
-            this.MALTC.Width = 112;
+            this.MALTC.Width = 87;
             // 
             // MAMH
             // 
             this.MAMH.Caption = "Mã môn học";
             this.MAMH.FieldName = "MAMH";
-            this.MAMH.MinWidth = 30;
+            this.MAMH.MinWidth = 23;
             this.MAMH.Name = "MAMH";
             this.MAMH.Visible = true;
             this.MAMH.VisibleIndex = 1;
-            this.MAMH.Width = 112;
+            this.MAMH.Width = 87;
             // 
             // TENMH
             // 
             this.TENMH.Caption = "Tên môn học";
             this.TENMH.FieldName = "TENMH";
-            this.TENMH.MinWidth = 30;
+            this.TENMH.MinWidth = 23;
             this.TENMH.Name = "TENMH";
             this.TENMH.Visible = true;
             this.TENMH.VisibleIndex = 2;
-            this.TENMH.Width = 112;
+            this.TENMH.Width = 87;
             // 
             // MAGV
             // 
-            this.MAGV.Caption = "mã giảng viên";
+            this.MAGV.Caption = "Mã giảng viên";
             this.MAGV.FieldName = "MAGV";
-            this.MAGV.MinWidth = 30;
+            this.MAGV.MinWidth = 23;
             this.MAGV.Name = "MAGV";
             this.MAGV.Visible = true;
             this.MAGV.VisibleIndex = 3;
-            this.MAGV.Width = 112;
+            this.MAGV.Width = 87;
             // 
             // NHOM
             // 
-            this.NHOM.Caption = "gridColumn1";
+            this.NHOM.Caption = "Nhóm";
             this.NHOM.FieldName = "NHOM";
-            this.NHOM.MinWidth = 30;
+            this.NHOM.MinWidth = 23;
             this.NHOM.Name = "NHOM";
             this.NHOM.Visible = true;
             this.NHOM.VisibleIndex = 4;
-            this.NHOM.Width = 112;
+            this.NHOM.Width = 87;
             // 
             // TENGV
             // 
             this.TENGV.Caption = "Tên giảng viên";
             this.TENGV.FieldName = "TENGV";
-            this.TENGV.MinWidth = 30;
+            this.TENGV.MinWidth = 23;
             this.TENGV.Name = "TENGV";
             this.TENGV.Visible = true;
             this.TENGV.VisibleIndex = 5;
-            this.TENGV.Width = 112;
+            this.TENGV.Width = 87;
             // 
             // gcUpdateGrade
             // 
             this.gcUpdateGrade.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcUpdateGrade.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcUpdateGrade.Location = new System.Drawing.Point(0, 0);
             this.gcUpdateGrade.MainView = this.gvUpdateGrade;
+            this.gcUpdateGrade.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcUpdateGrade.MenuManager = this.barManager1;
             this.gcUpdateGrade.Name = "gcUpdateGrade";
-            this.gcUpdateGrade.Size = new System.Drawing.Size(932, 303);
+            this.gcUpdateGrade.Size = new System.Drawing.Size(725, 231);
             this.gcUpdateGrade.TabIndex = 0;
             this.gcUpdateGrade.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvUpdateGrade});
@@ -371,6 +381,7 @@ namespace StudentManagement
             this.DIEM_CC,
             this.DIEM_GK,
             this.DIEM_CK});
+            this.gvUpdateGrade.DetailHeight = 295;
             this.gvUpdateGrade.GridControl = this.gcUpdateGrade;
             this.gvUpdateGrade.Name = "gvUpdateGrade";
             this.gvUpdateGrade.OptionsView.ShowGroupPanel = false;
@@ -380,63 +391,64 @@ namespace StudentManagement
             // 
             this.MASV.Caption = "Mã sinh viên";
             this.MASV.FieldName = "MASV";
-            this.MASV.MinWidth = 30;
+            this.MASV.MinWidth = 23;
             this.MASV.Name = "MASV";
             this.MASV.Visible = true;
             this.MASV.VisibleIndex = 0;
-            this.MASV.Width = 112;
+            this.MASV.Width = 87;
             // 
             // TENSV
             // 
             this.TENSV.Caption = "Tên sinh viên";
             this.TENSV.FieldName = "TENSV";
-            this.TENSV.MinWidth = 30;
+            this.TENSV.MinWidth = 23;
             this.TENSV.Name = "TENSV";
             this.TENSV.Visible = true;
             this.TENSV.VisibleIndex = 1;
-            this.TENSV.Width = 112;
+            this.TENSV.Width = 87;
             // 
             // DIEM_CC
             // 
             this.DIEM_CC.Caption = "Điểm chuyên cần";
             this.DIEM_CC.FieldName = "DIEM_CC";
-            this.DIEM_CC.MinWidth = 30;
+            this.DIEM_CC.MinWidth = 23;
             this.DIEM_CC.Name = "DIEM_CC";
             this.DIEM_CC.Visible = true;
             this.DIEM_CC.VisibleIndex = 2;
-            this.DIEM_CC.Width = 112;
+            this.DIEM_CC.Width = 87;
             // 
             // DIEM_GK
             // 
             this.DIEM_GK.Caption = "Điểm giữa kì";
             this.DIEM_GK.FieldName = "DIEM_GK";
-            this.DIEM_GK.MinWidth = 30;
+            this.DIEM_GK.MinWidth = 23;
             this.DIEM_GK.Name = "DIEM_GK";
             this.DIEM_GK.Visible = true;
             this.DIEM_GK.VisibleIndex = 3;
-            this.DIEM_GK.Width = 112;
+            this.DIEM_GK.Width = 87;
             // 
             // DIEM_CK
             // 
             this.DIEM_CK.Caption = "Điểm cuối kì";
             this.DIEM_CK.FieldName = "DIEM_CK";
-            this.DIEM_CK.MinWidth = 30;
+            this.DIEM_CK.MinWidth = 23;
             this.DIEM_CK.Name = "DIEM_CK";
             this.DIEM_CK.Visible = true;
             this.DIEM_CK.VisibleIndex = 4;
-            this.DIEM_CK.Width = 112;
+            this.DIEM_CK.Width = 87;
             // 
             // ucUpdateGrade
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "ucUpdateGrade";
-            this.Size = new System.Drawing.Size(932, 569);
+            this.Size = new System.Drawing.Size(725, 479);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSchoolYear)).EndInit();
