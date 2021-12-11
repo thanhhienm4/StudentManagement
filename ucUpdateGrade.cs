@@ -146,6 +146,8 @@ namespace StudentManagement
 
         private void gvUpdateGrade_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+            if (gvUpdateGrade.GetRowCellValue(e.RowHandle, e.Column) == null)
+                return;
             if(isChange == true)
             {
                 isChange = false;
